@@ -41,7 +41,7 @@ class User(db.Model, UserMixin):
     bio = db.Column(db.Text(1000), nullable=False)
 
     user_answers = db.relationship('UserAnswer', back_populates='user')
-
+    user_images = db.relationship('UserImage', back_populates='user')
     dislikes = db.relationship(
         "User",
         secondary=dislikes,
@@ -50,7 +50,6 @@ class User(db.Model, UserMixin):
         backref=db.backref('disliked_user', lazy='dynamic'),
         lazy='dynamic'
     )
-
     likes = db.relationship(
         "User",
         secondary=likes,
@@ -87,7 +86,8 @@ class User(db.Model, UserMixin):
             'zipCode': self.zip_code,
             'radius': self.radius,
             'bio': self.bio,
-            'userAnswers': self.user_answers.to_dict()
+            'userAnswers': self.user_answers.to_dict(),
+            'userImages': self.user_images
         }
 
 class UserImage(db.Model):
@@ -99,6 +99,8 @@ class UserImage(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     image_url = db.Column(db.Text(1000), nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('users.id')), nullable=False)
+
+    user = db.relationship('User', back_populates='user_images')
 
     def to_dict(self):
         return {
