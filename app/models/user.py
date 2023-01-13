@@ -33,8 +33,8 @@ class User(db.Model, UserMixin):
     age = db.Column(db.Integer, nullable=False)
     first_name = db.Column(db.String(50), nullable=False)
     gender = db.Column(db.String(50), nullable=False)
-    preferred_genders = db.Column(db.String(50), nullable=False)
-    min_age = db.Column(db.Integer, nullable=False, default=18, min=18)
+    preferred_genders = db.Column(db.String(255), nullable=False)
+    min_age = db.Column(db.Integer, nullable=False, default=18)
     max_age = db.Column(db.Integer, nullable=False, default=99)
     zip_code = db.Column(db.Integer, nullable=False)
     radius = db.Column(db.Integer, nullable=False)
@@ -77,7 +77,7 @@ class User(db.Model, UserMixin):
             'id': self.id,
             'username': self.username,
             'email': self.email,
-            'birthday': self.birthday,
+            'age': self.age,
             'firstName': self.first_name,
             'gender': self.gender,
             'preferredGenders': self.preferred_genders,
@@ -86,8 +86,10 @@ class User(db.Model, UserMixin):
             'zipCode': self.zip_code,
             'radius': self.radius,
             'bio': self.bio,
-            'userAnswers': self.user_answers.to_dict(),
-            'userImages': self.user_images
+            'userAnswers': [user_answer.to_dict() for user_answer in self.user_answers],
+            'userImages': [user_image.to_dict() for user_image in self.user_images],
+            'dislikes': self.dislikes,
+            'likes': self.likes
         }
 
 class UserImage(db.Model):
@@ -126,7 +128,7 @@ class Mismatch(db.Model):
             'id': self.id,
             'user1Id': self.user1_id,
             'user2Id': self.user2_id,
-            'messages': self.messages.to_dict()
+            'messages': [message.to_dict() for message in self.messages]
         }
 
 class Message(db.Model):
@@ -140,7 +142,7 @@ class Message(db.Model):
     recipient = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('users.id')), nullable=False)
     mismatch_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('mismatches.id')), nullable=False)
     text = db.Column(db.Text(1000), nullable=False)
-    date_time = db.Column(db.TIMESTAMP) # TODO
+    date_time = db.Column(db.String(255))
 
     mismatch = db.relationship('Mismatch', back_populates="messages")
 
