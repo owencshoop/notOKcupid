@@ -1,4 +1,4 @@
-from flask import Blueprint
+from flask import Blueprint, request
 from app.models import db, Mismatch, User
 from sqlalchemy import or_
 
@@ -16,6 +16,9 @@ def get_mismatch(id):
 
 @mismatch_routes.route('/<int:id>', methods=['POST'])
 def create_mismatch(id):
+    data= request.get_json()
+    disliked_user_id = data.get('disliked_user_id')
+    disliked_user = User.query.get(disliked_user_id)
     disliked_user = User.query.get('')
     new_mismatch = Mismatch(
         user1_id=id,
