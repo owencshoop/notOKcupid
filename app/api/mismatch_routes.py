@@ -1,4 +1,4 @@
-from flask import Blueprint, jsonify
+from flask import Blueprint
 from app.models import db, Mismatch, User
 
 mismatch_routes = Blueprint('mismatches', __name__)
@@ -15,9 +15,10 @@ def get_mismatch(id):
 
 @mismatch_routes.route('/<int:id>', methods=['POST'])
 def create_mismatch(id):
+    disliked_user = User.query.get('')
     new_mismatch = Mismatch(
         user1_id=id,
-        user2_id='grab the other user id'
+        user2_id=disliked_user.id
     )
 
     db.session.add(new_mismatch)
