@@ -28,22 +28,22 @@ def seed_users():
         age=22, first_name="Camden", gender="male", preferred_genders="female",
         min_age=18, max_age=30, zip_code=94014, radius=20, bio="Like to look toward the future and travels lots."
     )
-    camden2 = User(
+    tam = User(
         username="tamtam", email="tamtam@gmail.com", password="tamtam",
         age=25, first_name="Tam", gender="female", preferred_genders="female, male",
         min_age=20, max_age=35, zip_code=94014, radius=30, bio="All I do all day is sit on my butt and watch my cats."
     )
-    camden3 = User(
+    jack = User(
         username="jack_bauer", email="jack_bauer@gmail.com", password="jack_bauer",
         age=22, first_name="Jack", gender="male", preferred_genders="female",
         min_age=18, max_age=30, zip_code=94014, radius=20, bio="I am running out of time! tick tock tick tock"
     )
-    camden4 = User(
+    micheal = User(
         username="littlekidlover", email="bestboss@gmail.com", password="1234",
         age=40, first_name="Micheal", gender="male", preferred_genders="female",
         min_age=30, max_age=50, zip_code=94014, radius=30, bio="I want kids, lots of them if you cannot tell by my user name. I am a manager, comedian, and a friend."
     )
-    camden5 = User(
+    cupid = User(
         username="thecupid", email="okstupid@gmail.com", password="okstupid",
         age=25, first_name="Cupid", gender="nonbinary", preferred_genders="nonbinary",
         min_age=18, max_age=100, zip_code=94014, radius=100, bio="This cupid is loved by all and loves all"
@@ -60,22 +60,23 @@ def seed_users():
     inigo = User(
         username="inigo_montoya", email="inigo_montoya@aa.io", password="password", age=35, first_name="Inigo", gender="male", preferred_genders="female, male, nonbinary", min_age=25, max_age=55, zip_code=94014, radius=7, bio="My name is Inigo Montoya. You killed my father. Prepare to die.")
     brett = User(
-        username='brett', email='brett@aa.io', password='password', age=51, first_name='Brett', gender='male', preferred_genders='female', min_age=30, max_age=80, zip_code=90210, radius=100, bio='I like pickleball and long walks on the beach. #retiredlyf', dislikes=[buttercup, camden2], likes=[inigo, optimusa, abcde]
+        username='brett', email='brett@aa.io', password='password', age=51, first_name='Brett', gender='male', preferred_genders='female', min_age=30, max_age=80, zip_code=90210, radius=100, bio='I like pickleball and long walks on the beach. #retiredlyf', dislikes=[buttercup, tam], likes=[inigo, optimusa, abcde]
     )
     lyn = User(
-        username='lyn', email='lyn@aa.io', password='password', age=53, first_name='Lyn', gender='female', preferred_genders='male', min_age='30', max_age=85, zip_code=90210, radius=100, bio='Cats are my thing. I foster all types of animals. Ex-field hockey pro', dislikes=[brett, riktor, alpal], likes=[edktor, camden5]
+        username='lyn', email='lyn@aa.io', password='password', age=53, first_name='Lyn', gender='female', preferred_genders='male', min_age='30', max_age=85, zip_code=90210, radius=100, bio='Cats are my thing. I foster all types of animals. Ex-field hockey pro', dislikes=[brett, riktor, alpal], likes=[edktor, cupid]
     )
     conner = User(
-        username='conner', email='conner@aa.io', password='password', age=28, first_name='Conner', gender='male', preferred_genders='male, female, nonbinary', min_age=18, max_age=99, zip_code=90210, radius=100, bio='Call me dungeon master. Started with world of warcraft and now I run my own games. You can find me in that fresh powpow', dislikes=[viktor, demo5, buttercup], likes=[camden3, camden]
+        username='conner', email='conner@aa.io', password='password', age=28, first_name='Conner', gender='male', preferred_genders='male, female, nonbinary', min_age=18, max_age=99, zip_code=90210, radius=100, bio='Call me dungeon master. Started with world of warcraft and now I run my own games. You can find me in that fresh powpow', dislikes=[viktor, demo5, buttercup], likes=[jack, camden]
     )
     eddy = User(
-        username='eddy', email='eddy@aa.io', password='password', age=22, first_name='Eddy', gender='female', preferred_genders='male, female', min_age=18, max_age=50, zip_code=90210, radius=100, bio='I am studying to be a nurse practitioner. I used to play lacrosse but now I hate it with a passion. #cape', dislikes=[camden2, alpal, wesley], likes=[edktor, demo5, camden5]
+        username='eddy', email='eddy@aa.io', password='password', age=22, first_name='Eddy', gender='female', preferred_genders='male, female', min_age=18, max_age=50, zip_code=90210, radius=100, bio='I am studying to be a nurse practitioner. I used to play lacrosse but now I hate it with a passion. #cape', dislikes=[tam, alpal, wesley], likes=[edktor, demo5, cupid]
     )
     demo = User(
-        username='demo', email='demo@aa.io', password='password', age=35, first_name='Demo', gender='male', preferred_genders='male', min_age=18, max_age=99, zip_code='90210', radius=100, bio='I will demolish you.', dislikes=[camden5, brett, conner, eddy, riktor, optimusa, camden4, demo5, buttercup, alpal], likes=[camden, wesley, edktor]
+        username='demo', email='demo@aa.io', password='password', age=35, first_name='Demo', gender='male', preferred_genders='male', min_age=18, max_age=99, zip_code='90210', radius=100, bio='I will demolish you.', dislikes=[cupid, brett, conner, eddy, riktor, optimusa, micheal, demo5, buttercup, alpal], likes=[camden, wesley, edktor]
     )
 
-    users = [demo, brett, lyn, conner, eddy, riktor, viktor, edktor, abcde, optimusa, camden, camden2, camden3, camden4, camden5, demo5, alpal, wesley, buttercup, inigo]
+    users = [demo, brett, lyn, conner, eddy, riktor, viktor, edktor, abcde, optimusa,
+             camden, tam, jack, micheal, cupid, demo5, alpal, wesley, buttercup, inigo]
 
     [db.session.add(user) for user in users]
 
@@ -90,7 +91,8 @@ def seed_users():
 # it will reset the primary keys for you as well.
 def undo_users():
     if environment == "production":
-        db.session.execute(f"TRUNCATE table {SCHEMA}.users RESTART IDENTITY CASCADE;")
+        db.session.execute(
+            f"TRUNCATE table {SCHEMA}.users RESTART IDENTITY CASCADE;")
     else:
         db.session.execute("DELETE FROM users")
 
