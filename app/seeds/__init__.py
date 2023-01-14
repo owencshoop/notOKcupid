@@ -24,13 +24,14 @@ def seed():
     seed_users()
     seed_questions()
     seed_user_images()
+
     # Add other seed functions here
 
 
 # Creates the `flask seed undo` command
 @seed_commands.command('undo')
 def undo():
-    undo_users()
     undo_questions()
     undo_user_images()
+    undo_users()
     # Add other undo functions here

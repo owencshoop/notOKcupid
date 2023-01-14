@@ -1,5 +1,5 @@
 from flask import Blueprint, jsonify, session, request
-from app.models import User, db
+from app.models import User, db, UserAnswer, Question
 from app.forms import LoginForm
 from app.forms import SignUpForm
 from flask_login import current_user, login_user, logout_user, login_required
@@ -77,6 +77,8 @@ def sign_up():
             bio=form.data['bio']
         )
         db.session.add(user)
+        questions = Question.query.all()
+        [UserAnswer(user=user, question=question, answer=None) for question in questions]
         db.session.commit()
         login_user(user)
         return user.to_dict()
