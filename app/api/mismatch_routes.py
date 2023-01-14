@@ -16,13 +16,9 @@ def get_mismatch(id):
 
 @mismatch_routes.route('/<int:id>', methods=['POST'])
 def create_mismatch(id):
-    data= request.get_json()
-    disliked_user_id = data.get('disliked_user_id')
-    disliked_user = User.query.get(disliked_user_id)
-    disliked_user = User.query.get('')
     new_mismatch = Mismatch(
         user1_id=id,
-        user2_id=disliked_user.id
+        user2_id=request.json.id
     )
 
     db.session.add(new_mismatch)
