@@ -91,7 +91,8 @@ class User(db.Model, UserMixin):
             'userImages': [user_image.to_dict() for user_image in self.user_images],
             'dislikes': [dislike.to_like_dict() for dislike in self.dislikes],
             'likes': [like.to_like_dict() for like in self.likes],
-            # 'dislikedUser':[dislike.to_like_dict() for dislike in user.disliked_user]
+            'dislikedUser':[dislike.to_like_dict() for dislike in list(self.disliked_user) if dislike],
+            'likedUser': [like.to_like_dict() for like in list(self.liked_user) if like]
         }
 
     def to_like_dict(self):
