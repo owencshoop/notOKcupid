@@ -1,5 +1,5 @@
 from flask import Blueprint, request
-from app.models import db, Mismatch, User
+from app.models import db, Mismatch
 from sqlalchemy import or_
 
 mismatch_routes = Blueprint('mismatches', __name__)
@@ -12,19 +12,6 @@ def get_mismatch(id):
     if not mismatches:
         return {"errors": ["no matches found"]}, 404
     return [mismatch.to_dict() for mismatch in mismatches], 200
-
-
-@mismatch_routes.route('/<int:id>', methods=['POST'])
-def create_mismatch(id):
-    new_mismatch = Mismatch(
-        user1_id=id,
-        user2_id=request.json.id
-    )
-
-    db.session.add(new_mismatch)
-    db.session.commit()
-
-    return new_mismatch.to_dict(), 201
 
 
 @mismatch_routes.route('/<int:id>', methods=['DELETE'])
