@@ -20,6 +20,11 @@ likes = db.Table(
     db.Column('liked_id', db.Integer, db.ForeignKey(add_prefix_for_prod('users.id')))
 )
 
+# class Like(db.Model):
+#     __tablename__ = 'likes'
+#     liker_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('users.id'))),
+#     liked_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('users.id')))
+
 class User(db.Model, UserMixin):
     __tablename__ = 'users'
 
@@ -40,8 +45,8 @@ class User(db.Model, UserMixin):
     radius = db.Column(db.Integer, nullable=False)
     bio = db.Column(db.Text(1000), nullable=False)
 
-    user_answers = db.relationship('UserAnswer', back_populates='user')
-    user_images = db.relationship('UserImage', back_populates='user')
+    user_answers = db.relationship('UserAnswer', back_populates='user', cascade="all, delete-orphan")
+    user_images = db.relationship('UserImage', back_populates='user', cascade="all, delete-orphan")
     dislikes = db.relationship(
         "User",
         secondary=dislikes,
