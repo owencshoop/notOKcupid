@@ -1,4 +1,4 @@
-from flask import Blueprint, jsonify
+from flask import Blueprint, jsonify, request
 from flask_login import login_required, current_user
 from app.models import UserAnswer, db
 from app.forms import QuestionForm
@@ -8,10 +8,10 @@ question_routes = Blueprint('questions', __name__)
 
 @question_routes.route('/<int:id>', methods=['PUT'])
 @login_required
-def question_answered():
+def question_answered(id):
 
   form = QuestionForm()
-
+  form['csrf_token'].data = request.cookies['csrf_token']
   if form.validate_on_submit():
     answer = UserAnswer.query.get(form.data['userAnswerId'])
     answer.answer = form.data["answer"]

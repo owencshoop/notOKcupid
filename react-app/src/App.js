@@ -50,9 +50,7 @@ function App() {
           <User />
         </ProtectedRoute>
         <ProtectedRoute path='/users/:userId/questions'>
-            {content.map(userAnswer => (
-              <QuestionAnswerForm userAnswer={userAnswer}/>
-            ))}
+              <QuestionAnswerForm />
         </ProtectedRoute>
         <Route path='/' exact={true} >
           <h1>My Home Page</h1>

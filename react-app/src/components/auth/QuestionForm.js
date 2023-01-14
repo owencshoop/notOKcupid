@@ -2,16 +2,19 @@ import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { updateAnswer, authenticate } from '../../store/session';
 
-const QuestionAnswerForm = (userAnswer) => {
+const QuestionAnswerForm = () => {
     const [loaded, setLoaded] = useState(false);
-    const [answer, setAnswer] = useState(userAnswer.answer);
+    const [answer, setAnswer] = useState('');
     const [errors, setErrors] = useState([]);
+    const [answerId, setAnswerId] = useState('')
     const dispatch = useDispatch();
     const user = useSelector(state => state.session.user);
 
-    const question = userAnswer.userAnswer.question
-    console.log(userAnswer)
-    console.log(question)
+    const userAnswerArray = user?.userAnswers
+    let content = null
+    if (userAnswerArray){
+        content = Object.values(userAnswerArray)
+    }
 
     const updateNewAnswer = (e) => {
         setAnswer(e.target.value)
@@ -19,7 +22,8 @@ const QuestionAnswerForm = (userAnswer) => {
 
     const onAnswer = async (e) => {
         e.preventDefault();
-        const data = await dispatch(updateAnswer(userAnswer.id, answer, user.id))
+        console.log(answerId)
+        const data = await dispatch(updateAnswer(answerId, answer, user.id))
         if (data) {
             setErrors(data)
         }
@@ -37,19 +41,23 @@ const QuestionAnswerForm = (userAnswer) => {
       }
 
     return (
-        <form onSubmit={onAnswer}>
-            <div>
-                {errors.map((error, ind) => (
-                <div key={ind}>{error}</div>
-                ))}
-            </div>
-            <div>{question?.question}</div>
-            <input type='radio' id='answer1' name='answer' value={question?.answer1} onChange={updateNewAnswer}></input>
-            <label for='answer1'>{question?.answer1}</label>
-            <input type='radio' id='answer2' name='answer' value={question?.answer2} onChange={updateNewAnswer}></input>
-            <label for='answer1'>{question?.answer2}</label>
-            <button type='submit'>Save</button>
-        </form>
+        <div>
+            {content.map(question => (
+                <form onSubmit={onAnswer} value={question.id}>
+                    <div>
+                        {errors.map((error, ind) => (
+                            <div key={ind}>{error}</div>
+                        ))}
+                    </div>
+                    <div>{question?.question.question}</div>
+                    <input type='radio' id='answer1' name='answer' value={question?.question.answer1} onChange={updateNewAnswer}></input>
+                    <label for='answer1'>{question?.question.answer1}</label>
+                    <input type='radio' id='answer2' name='answer' value={question?.question.answer2} onChange={updateNewAnswer}></input>
+                    <label for='answer1'>{question?.question.answer2}</label>
+                    <button type='submit' onClick={() => setAnswerId(question.id)}>Save</button>
+                </form>
+            ))}
+        </div>
     )
 }
 

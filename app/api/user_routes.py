@@ -1,7 +1,7 @@
 from flask import Blueprint, jsonify, request
 from flask_login import login_required, logout_user, current_user
-from app.models import User, db
-from app.forms import SignUpForm, db, Mismatch
+from app.models import User, db, Mismatch
+from app.forms import SignUpForm
 
 user_routes = Blueprint('users', __name__)
 
@@ -40,7 +40,7 @@ def user(id):
 @user_routes.route('/<int:id>/dislikes', methods=['POST'])
 @login_required
 def create_dislike(id):
-    
+
     disliked_user_id = request.json["disliked_id"]
 
 # turn disliked_user_id into integer from incase is not from json
@@ -71,7 +71,7 @@ def create_dislike(id):
 
 
 # {'errors': ['error']}
-    
+
 # DELETE dislike
 # will send 'disliked_id' from the frontend
 @user_routes.route('/<int:id>/dislikes', methods=['DELETE'])
