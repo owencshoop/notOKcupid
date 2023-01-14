@@ -1,4 +1,4 @@
-from app.models import db, User, environment, SCHEMA
+from app.models import db, User, environment, SCHEMA, Question, UserAnswer
 
 
 # Adds a demo user, you can add other users here if you want
@@ -78,7 +78,8 @@ def seed_users():
     users = [demo, brett, lyn, conner, eddy, riktor, viktor, edktor, abcde, optimusa, camden, camden2, camden3, camden4, camden5, demo5, alpal, wesley, buttercup, inigo]
 
     [db.session.add(user) for user in users]
-
+    questions = Question.query.all()
+    [[UserAnswer(user=user, question=question) for question in questions] for user in users]
     db.session.commit()
 
 

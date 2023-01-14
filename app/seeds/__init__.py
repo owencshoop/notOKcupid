@@ -19,14 +19,14 @@ def seed():
         # Make sure to add all your other model's undo functions below
         undo_users()
         undo_questions()
-    seed_users()
     seed_questions()
+    seed_users()
     # Add other seed functions here
 
 
 # Creates the `flask seed undo` command
 @seed_commands.command('undo')
 def undo():
-    undo_users()
     undo_questions()
+    undo_users()
     # Add other undo functions here
