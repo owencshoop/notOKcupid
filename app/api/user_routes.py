@@ -12,6 +12,12 @@ def users():
     Query for all users and returns them in a list of user dictionaries
     """
     users = User.query.all()
+    dislikedUsers = [user.disliked_user for user in users]
+    print('dislikedUsers --------------------', dislikedUsers)
+    dislikedUsersList = [list(disliked_user) for disliked_user in dislikedUsers]
+    print('dislikedUsersList -------------------', dislikedUsersList)
+    dislikedUsersToDict = [[user.to_like_dict() for user in list if user] for list in dislikedUsersList if user]
+    print('dislikedUsersList ----------------------', dislikedUsersToDict)
     return {'users': [user.to_dict() for user in users]}
 
 

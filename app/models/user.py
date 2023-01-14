@@ -20,11 +20,6 @@ likes = db.Table(
     db.Column('liked_id', db.Integer, db.ForeignKey(add_prefix_for_prod('users.id')))
 )
 
-# class Like(db.Model):
-#     __tablename__ = 'likes'
-#     liker_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('users.id'))),
-#     liked_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('users.id')))
-
 class User(db.Model, UserMixin):
     __tablename__ = 'users'
 
@@ -47,13 +42,14 @@ class User(db.Model, UserMixin):
 
     user_answers = db.relationship('UserAnswer', back_populates='user', cascade="all, delete-orphan")
     user_images = db.relationship('UserImage', back_populates='user', cascade="all, delete-orphan")
+
     dislikes = db.relationship(
         "User",
         secondary=dislikes,
         primaryjoin=(dislikes.c.disliker_id == id),
         secondaryjoin=(dislikes.c.disliked_id == id),
         backref=db.backref('disliked_user', lazy='dynamic'),
-        lazy='dynamic'
+        lazy='dynamic',
     )
     likes = db.relationship(
         "User",
@@ -93,8 +89,27 @@ class User(db.Model, UserMixin):
             'bio': self.bio,
             'userAnswers': [user_answer.to_dict() for user_answer in self.user_answers],
             'userImages': [user_image.to_dict() for user_image in self.user_images],
-            'dislikes': self.dislikes,
-            'likes': self.likes
+            'dislikes': [dislike.to_like_dict() for dislike in self.dislikes],
+            'likes': [like.to_like_dict() for like in self.likes],
+            # 'dislikedUser':[dislike.to_like_dict() for dislike in user.disliked_user]
+        }
+
+    def to_like_dict(self):
+        return {
+            'id': self.id,
+            'username': self.username,
+            'email': self.email,
+            'age': self.age,
+            'firstName': self.first_name,
+            'gender': self.gender,
+            'preferredGenders': self.preferred_genders,
+            'minAge': self.min_age,
+            'maxAge': self.max_age,
+            'zipCode': self.zip_code,
+            'radius': self.radius,
+            'bio': self.bio,
+            'userAnswers': [user_answer.to_dict() for user_answer in self.user_answers],
+            'userImages': [user_image.to_dict() for user_image in self.user_images],
         }
 
 class UserImage(db.Model):
