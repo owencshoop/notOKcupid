@@ -10,12 +10,13 @@ const SignUpForm = () => {
   const [password, setPassword] = useState('');
   const [repeatPassword, setRepeatPassword] = useState('');
   const [firstName, setFirstName] = useState('')
-  const [gender, setGender] = useState('')
-  const [preferredGenders, setPreferredGenders] = useState('')
-  const [minAge, setMinAge] = useState('')
-  const [maxAge, setMaxAge] = useState('')
+  const [age, setAge] = useState(18)
+  const [gender, setGender] = useState('male')
+  const [preferredGenders, setPreferredGenders] = useState('male')
+  const [minAge, setMinAge] = useState(18)
+  const [maxAge, setMaxAge] = useState(100)
   const [zipCode, setZipCode] = useState('')
-  const [radius, setRadius] = useState('')
+  const [radius, setRadius] = useState(5)
   const [bio, setBio] = useState('')
   const user = useSelector(state => state.session.user);
   const dispatch = useDispatch();
@@ -23,7 +24,7 @@ const SignUpForm = () => {
   const onSignUp = async (e) => {
     e.preventDefault();
     if (password === repeatPassword) {
-      const data = await dispatch(signUp(username, email, password));
+      const data = await dispatch(signUp(username, email, password, firstName, age, gender, preferredGenders, minAge, maxAge, zipCode, radius, bio));
       if (data) {
         setErrors(data)
       }
@@ -48,6 +49,10 @@ const SignUpForm = () => {
 
   const updateFirstName = (e) => {
     setFirstName(e.target.value)
+  }
+
+  const updateAge = (e) => {
+    setAge(e.target.value)
   }
 
   const updateGender = (e) => {
@@ -123,7 +128,7 @@ const SignUpForm = () => {
           name='repeat_password'
           onChange={updateRepeatPassword}
           value={repeatPassword}
-          required={true}
+          require='true'
         ></input>
       </div>
       <div>
@@ -133,15 +138,26 @@ const SignUpForm = () => {
           name='firstName'
           onChange={updateFirstName}
           value={firstName}
-          required={true}
+          require='true'
         ></input>
+      </div>
+      <div>
+        <label>Age</label>
+        <input
+          type='range'
+          name='age'
+          min='18'
+          max='100'
+          onChange={updateAge}
+          value={age}
+        ></input> {age} years
       </div>
       <div>
         <label>Gender</label>
         <select
           name='gender'
           onChange={updateGender}
-          required={true}
+          require='true'
         >
           <option value='male'>Male</option>
           <option value='female'>Female</option>
@@ -153,7 +169,7 @@ const SignUpForm = () => {
         <select
           name='preferredGender'
           onChange={updatePreferredGenders}
-          require={true}
+          require='true'
         >
           <option value='male'>Male</option>
           <option value='female'>Female</option>
@@ -173,7 +189,7 @@ const SignUpForm = () => {
           max='100'
           onChange={updateMinAge}
           value={minAge}
-        ></input>
+        ></input> {minAge} years
       </div>
       <div>
         <label>Maximum Age</label>
@@ -184,7 +200,7 @@ const SignUpForm = () => {
           max='100'
           onChange={updateMaxAge}
           value={maxAge}
-        ></input>
+        ></input> {maxAge} years
       </div>
       <div>
         <label>Zip Code</label>
@@ -204,7 +220,7 @@ const SignUpForm = () => {
           max='250'
           onChange={updateRadius}
           value={radius}
-        ></input>
+        ></input>{radius} miles
       </div>
       <div>
         <label>Bio</label>
