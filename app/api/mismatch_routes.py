@@ -1,11 +1,13 @@
 from flask import Blueprint, request
 from app.models import db, Mismatch
 from sqlalchemy import or_
+from flask_login import current_user, login_required
 
 mismatch_routes = Blueprint('mismatches', __name__)
 
 
 @mismatch_routes.route('/<int:id>')
+@login_required
 def get_mismatch(id):
     mismatches = Mismatch.query.filter(or_(
         Mismatch.user1_id == id, Mismatch.user2_id == id)).all()
@@ -15,6 +17,7 @@ def get_mismatch(id):
 
 
 @mismatch_routes.route('/<int:id>', methods=['DELETE'])
+@login_required
 def delete_mismatch(id):
     mismatch = Mismatch.query.get(id)
     if not mismatch:
@@ -22,4 +25,4 @@ def delete_mismatch(id):
 
     db.session.delete(mismatch)
     db.session.commit()
-    return {"messsage": "successfully unmatched"}, 200
+    return current_user.to_dict(), 200
