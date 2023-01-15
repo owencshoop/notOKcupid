@@ -13,6 +13,7 @@ import QuestionAnswerForm from './components/auth/QuestionForm'
 import ProfilePage from './components/ProfilePage/ProfileComponent';
 
 import { authenticate } from './store/session';
+import Mismatches from './components/Mismatches';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -57,11 +58,14 @@ function App() {
         <ProtectedRoute path='/profile'>
           <ProfilePage />
         </ProtectedRoute>
+        <ProtectedRoute path='/mismatches/user/:userId'>
+              <Mismatches />
+        </ProtectedRoute>
         <Route path='/' exact={true} >
           <h1>My Home Page</h1>
         </Route>
       </Switch>
-    </BrowserRouter>
+    </BrowserRouter> 
   );
 }
 

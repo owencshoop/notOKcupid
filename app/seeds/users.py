@@ -49,7 +49,7 @@ def seed_users():
         min_age=18, max_age=100, zip_code=94014, radius=100, bio="This cupid is loved by all and loves all"
     )
     demo5 = User(
-        username="Demo5", email="demo5@aa.io", password="password", age=35, first_name="Demaux", gender="nonbinary", preferred_genders="nonbinary", min_age=24, max_age=36, zip_code=94014, radius=5, bio="I love being a demo user!"
+        username="Demo5", email="demo5@aa.io", password="password", age=35, first_name="Demaux", gender="nonbinary", preferred_genders="nonbinary", min_age=26, max_age=36, zip_code=94014, radius=5, bio="I love being a demo user!", dislikes=[cupid, abcde, viktor, micheal]
     )
     alpal = User(
         username="alpal", email="alpal@aa.io", password="password", age=26, first_name="Alex", gender="female", preferred_genders="male, female, nonbinary", min_age=26, max_age=38, zip_code=94014, radius=2, bio="brb learning to code")
@@ -66,7 +66,7 @@ def seed_users():
         username='lyn', email='lyn@aa.io', password='password', age=53, first_name='Lyn', gender='female', preferred_genders='male', min_age='30', max_age=85, zip_code=90210, radius=100, bio='Cats are my thing. I foster all types of animals. Ex-field hockey pro', dislikes=[brett, riktor, alpal], likes=[edktor, cupid]
     )
     conner = User(
-        username='conner', email='conner@aa.io', password='password', age=28, first_name='Conner', gender='male', preferred_genders='male, female, nonbinary', min_age=18, max_age=99, zip_code=90210, radius=100, bio='Call me dungeon master. Started with world of warcraft and now I run my own games. You can find me in that fresh powpow', dislikes=[viktor, demo5, buttercup], likes=[jack, camden]
+        username='conner', email='conner@aa.io', password='password', age=28, first_name='Conner', gender='male', preferred_genders='male, female, nonbinary', min_age=18, max_age=99, zip_code=90210, radius=100, bio='Call me dungeon master. Started with world of warcraft and now I run my own games. You can find me in that fresh powpow', dislikes=[viktor, buttercup], likes=[jack, camden]
     )
     eddy = User(
         username='eddy', email='eddy@aa.io', password='password', age=22, first_name='Eddy', gender='female', preferred_genders='male, female', min_age=18, max_age=50, zip_code=90210, radius=100, bio='I am studying to be a nurse practitioner. I used to play lacrosse but now I hate it with a passion. #cape', dislikes=[tam, alpal, wesley], likes=[edktor, demo5, cupid]
@@ -80,7 +80,8 @@ def seed_users():
 
     [db.session.add(user) for user in users]
     questions = Question.query.all()
-    [[UserAnswer(user=user, question=question) for question in questions] for user in users]
+    [[UserAnswer(user=user, question=question)
+      for question in questions] for user in users]
     db.session.commit()
 
 
