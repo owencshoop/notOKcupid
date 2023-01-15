@@ -49,7 +49,7 @@ def seed_users():
         min_age=18, max_age=100, zip_code=94014, radius=100, bio="This cupid is loved by all and loves all"
     )
     demo5 = User(
-        username="Demo5", email="demo5@aa.io", password="password", age=35, first_name="Demaux", gender="nonbinary", preferred_genders="nonbinary", min_age=26, max_age=36, zip_code=94014, radius=5, bio="I love being a demo user!"
+        username="Demo5", email="demo5@aa.io", password="password", age=35, first_name="Demaux", gender="nonbinary", preferred_genders="nonbinary", min_age=24, max_age=36, zip_code=94014, radius=5, bio="I love being a demo user!"
     )
     alpal = User(
         username="alpal", email="alpal@aa.io", password="password", age=26, first_name="Alex", gender="female", preferred_genders="male, female, nonbinary", min_age=26, max_age=38, zip_code=94014, radius=2, bio="brb learning to code")
