@@ -10,6 +10,7 @@ import User from './components/User';
 import DislikesLikesComponents from './components/DislikesLikesComponents';
 import Discover from './components/DiscoverPage';
 import QuestionAnswerForm from './components/auth/QuestionForm'
+import ProfilePage from './components/ProfilePage/ProfileComponent';
 
 import { authenticate } from './store/session';
 
@@ -52,6 +53,9 @@ function App() {
         </ProtectedRoute>
         <ProtectedRoute path='/discover'>
           <Discover />
+        </ProtectedRoute>
+        <ProtectedRoute path='/profile'>
+          <ProfilePage />
         </ProtectedRoute>
         <Route path='/' exact={true} >
           <h1>My Home Page</h1>
