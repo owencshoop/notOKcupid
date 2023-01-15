@@ -24,6 +24,16 @@ def users():
     users = User.query.all()
     return {'users': [user.to_dict() for user in users]}
 
+@user_routes.route('/discover')
+@login_required
+def discover_users():
+    discover = User.query.filter(
+            ~db.or_(User.id.in_([user.id for user in current_user.likes]), User.id.in_([user.id for user in current_user.dislikes])),
+            User.age.between(current_user.min_age, current_user.max_age), User.id != current_user.id
+            ).all()
+
+    return {'discoverUsers': [user.to_like_dict() for user in discover]}
+
 
 @user_routes.route('/<int:id>')
 @login_required

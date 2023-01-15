@@ -1,6 +1,7 @@
 // constants
 const SET_USER = 'session/SET_USER';
 const REMOVE_USER = 'session/REMOVE_USER';
+const DISCOVER_USERS = 'session/DISCOVER_USERS'
 
 const setUser = (user) => ({
   type: SET_USER,
@@ -11,7 +12,25 @@ const removeUser = () => ({
   type: REMOVE_USER,
 })
 
-const initialState = { user: null };
+const loadDiscoverUsers = (discoverUser) => ({
+  type: DISCOVER_USERS,
+  payload: discoverUser
+})
+
+const initialState = { user: null, discoverUsers: null };
+
+export const discoverUserLoad = () => async(dispatch) => {
+  const response = await fetch('/api/users/discover')
+
+  if (response.ok) {
+    const data = await response.json()
+    console.log(data)
+    if (data.errors) {
+      return;
+    }
+    dispatch(loadDiscoverUsers(data))
+  }
+}
 
 export const authenticate = () => async (dispatch) => {
   const response = await fetch('/api/auth/', {
@@ -134,9 +153,11 @@ export const updateAnswer = (userAnswerId, answer, userId) => async (dispatch) =
 export default function reducer(state = initialState, action) {
   switch (action.type) {
     case SET_USER:
-      return { user: action.payload }
+      return { ...state, user: action.payload }
     case REMOVE_USER:
-      return { user: null }
+      return initialState
+    case DISCOVER_USERS:
+      return { ...state, discoverUsers: {...action.payload.discoverUsers} }
     default:
       return state;
   }
