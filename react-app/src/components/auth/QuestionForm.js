@@ -5,7 +5,7 @@ import { updateAnswer, authenticate } from "../../store/session";
 const QuestionAnswerForm = () => {
     const [loaded, setLoaded] = useState(false);
     // const [answer, setAnswer] = useState("");
-    const [errors, setErrors] = useState([]);
+    const [errors] = useState([]);
     // const [answerId, setAnswerId] = useState("");
     const user = useSelector((state) => state.session.user);
     const dispatch = useDispatch();
@@ -44,7 +44,7 @@ const QuestionAnswerForm = () => {
     return (
         <div>
             {content.map((question) => (
-                <form onSubmit={(e) => e.preventDefault()} value={question.id}>
+                <form onSubmit={(e) => e.preventDefault()} key={question.id}>
                     <div>
                         {errors.map((error, ind) => (
                             <div key={ind}>{error}</div>
@@ -60,9 +60,9 @@ const QuestionAnswerForm = () => {
                         onClick={(e) => {
                             dispatch(updateAnswer(question.id, e.target.value, user.id))
                         }}
-                        checked={question.answer == question.question.answer1}
+                        checked={question.answer === question.question.answer1}
                     ></input>
-                    <label for="answer1">{question.question.answer1}</label>
+                    <label htmlFor="answer1">{question.question.answer1}</label>
                     <input
                         type="radio"
                         id="answer2"
@@ -72,9 +72,9 @@ const QuestionAnswerForm = () => {
                         onClick={(e) => {
                             dispatch(updateAnswer(question.id, e.target.value, user.id))
                         }}
-                        checked={question.answer == question.question.answer2}
+                        checked={question.answer === question.question.answer2}
                     ></input>
-                    <label for="answer1">{question.question.answer2}</label>
+                    <label htmlFor="answer1">{question.question.answer2}</label>
                     <button
                         type="submit"
                         onClick={(e) => {

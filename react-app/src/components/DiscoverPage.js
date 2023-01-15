@@ -8,10 +8,10 @@ export default function Discover() {
     const dispatch = useDispatch()
 
 
-    useEffect(async () => {
-        await dispatch(discoverUserLoad())
-        setLoaded(true)
-    }, [])
+    useEffect(() => {
+        dispatch(discoverUserLoad())
+        .then(() => setLoaded(true))
+    }, [dispatch])
 
     if (!loaded) {
         return null;
