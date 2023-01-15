@@ -74,8 +74,8 @@ const LoginForm = () => {
         <button type='submit'>Login</button>
       </div>
       <div id='issaDemo'>
-        <button id='demoLogin' type="submit" onClick={demoLogin}>Log in as Demo User1</button>
-        <button id='demoLogin' type="submit" onClick={demoLogin2}>Log in as Demo User2</button>
+        <button id='demoLogin1' type="submit" onClick={demoLogin}>Log in as Demo User1</button>
+        <button id='demoLogin2' type="submit" onClick={demoLogin2}>Log in as Demo User2</button>
       </div>
     </form>
   );

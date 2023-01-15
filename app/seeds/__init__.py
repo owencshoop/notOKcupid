@@ -21,8 +21,8 @@ def seed():
         undo_users()
         undo_questions()
         undo_user_images()
-    seed_users()
     seed_questions()
+    seed_users()
     seed_user_images()
 
     # Add other seed functions here
