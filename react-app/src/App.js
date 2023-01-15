@@ -7,6 +7,7 @@ import NavBar from './components/NavBar';
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import UsersList from './components/UsersList';
 import User from './components/User';
+import Discover from './components/DiscoverPage';
 import QuestionAnswerForm from './components/auth/QuestionForm'
 import { authenticate } from './store/session';
 
@@ -20,7 +21,6 @@ function App() {
   if (userAnswerArray){
     content = Object.values(userAnswerArray)
   }
-  console.log(content)
 
   useEffect(() => {
     (async() => {
@@ -46,11 +46,14 @@ function App() {
         <ProtectedRoute path='/users' exact={true} >
           <UsersList/>
         </ProtectedRoute>
+        <ProtectedRoute path='/questions'>
+              <QuestionAnswerForm />
+        </ProtectedRoute>
         <ProtectedRoute path='/users/:userId' exact={true} >
           <User />
         </ProtectedRoute>
-        <ProtectedRoute path='/users/:userId/questions'>
-              <QuestionAnswerForm />
+        <ProtectedRoute path='/discover'>
+          <Discover />
         </ProtectedRoute>
         <Route path='/' exact={true} >
           <h1>My Home Page</h1>
