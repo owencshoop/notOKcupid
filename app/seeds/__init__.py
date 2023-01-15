@@ -23,8 +23,8 @@ def seed():
         undo_questions()
         undo_user_images()
         undo_mismatches()
-    seed_users()
     seed_questions()
+    seed_users()
     seed_user_images()
     seed_mismatches()
 
