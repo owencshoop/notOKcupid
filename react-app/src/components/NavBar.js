@@ -28,6 +28,11 @@ const NavBar = () => {
           </NavLink>
         </li>
         <li>
+          <NavLink to='/users/:userId/questions' activeClassName='active'>
+            Questions
+          </NavLink>
+        </li>
+        <li>
           <LogoutButton />
         </li>
       </ul>
