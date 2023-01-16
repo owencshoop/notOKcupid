@@ -70,6 +70,11 @@ const NavBar = () => {
                             </NavLink>
                         </li>
                         <li>
+                            <NavLink to='/mismatches' activeClassName="active">
+                                Mismatches
+                            </NavLink>
+                        </li>
+                        <li>
                             <NavLink to="/profile" activeClassName="active">
                                 Profile
                             </NavLink>

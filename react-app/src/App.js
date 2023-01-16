@@ -58,14 +58,14 @@ function App() {
         <ProtectedRoute path='/profile'>
           <ProfilePage />
         </ProtectedRoute>
-        <ProtectedRoute path='/mismatches/user/:userId'>
+        <ProtectedRoute path='/mismatches'>
               <Mismatches />
         </ProtectedRoute>
         <Route path='/' exact={true} >
           <h1>My Home Page</h1>
         </Route>
       </Switch>
-    </BrowserRouter> 
+    </BrowserRouter>
   );
 }
 
