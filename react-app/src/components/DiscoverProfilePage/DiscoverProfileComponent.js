@@ -16,7 +16,6 @@ export default function DiscoverProfilePage() {
         .then(() => setLoaded(true));
     }, [dispatch]);
 
-    console.log(discoverUser[0])
     if (!loaded) {
         return null;
     }
@@ -25,7 +24,7 @@ export default function DiscoverProfilePage() {
         <div>
 
             <h1>{discoverUser.username}'s Profile</h1>
-            <img
+            <img alt='discover-profile-pic'
                 src={
                     discoverUser.userImages[0]
                         ? discoverUser.userImages[0].imageUrl

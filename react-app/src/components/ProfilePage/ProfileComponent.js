@@ -21,7 +21,7 @@ export default function ProfilePage() {
         <div>
 
             <h1>{user.username}'s Profile</h1>
-            <img
+            <img alt='profile-pic'
                 src={
                     user.userImages[0]
                         ? user.userImages[0].imageUrl
