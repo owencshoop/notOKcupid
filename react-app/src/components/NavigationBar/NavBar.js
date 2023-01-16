@@ -2,15 +2,16 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import LogoutButton from "../auth/LogoutButton";
+import './NavBar.css';
 
 const NavBar = () => {
     const user = useSelector((state) => state.session.user);
     return (
-        <nav>
-            <ul id="nav-bar">
-                <li>
-                    <NavLink to="/" exact={true} activeClassName="active">
-                        Home
+        <nav className="nav-container">
+            <ul className="nav-links">
+                <li id='home-link'>
+                    <NavLink to="/" exact={true} activeClassName="active" className='nav-link'>
+                        notOKcupid
                     </NavLink>
                 </li>
                 {!user && (
@@ -20,6 +21,7 @@ const NavBar = () => {
                                 to="/login"
                                 exact={true}
                                 activeClassName="active"
+                                className='nav-link'
                             >
                                 Login
                             </NavLink>
@@ -29,6 +31,7 @@ const NavBar = () => {
                                 to="/sign-up"
                                 exact={true}
                                 activeClassName="active"
+                                className='nav-link'
                             >
                                 Sign Up
                             </NavLink>
@@ -42,6 +45,7 @@ const NavBar = () => {
                                 to="/users"
                                 exact={true}
                                 activeClassName="active"
+                                className='nav-link'
                             >
                                 Users
                             </NavLink>
@@ -51,6 +55,7 @@ const NavBar = () => {
                                 to="/dislikes"
                                 exact={true}
                                 activeClassName="active"
+                                className='nav-link'
                             >
                                 Dislikes
                             </NavLink>
@@ -60,22 +65,23 @@ const NavBar = () => {
                                 to="/discover"
                                 exact={true}
                                 activeClassName="active"
+                                className='nav-link'
                             >
                                 Discover
                             </NavLink>
                         </li>
                         <li>
-                            <NavLink to="/questions" activeClassName="active">
+                            <NavLink to="/questions" activeClassName="active" className='nav-link'>
                                 Questions
                             </NavLink>
                         </li>
                         <li>
-                            <NavLink to="/mismatches" activeClassName="active">
+                            <NavLink to="/mismatches" activeClassName="active" className='nav-link'>
                                 Mismatches
                             </NavLink>
                         </li>
-                        <li>
-                            <NavLink to="/profile" activeClassName="active">
+                        <li id='profile-link'>
+                            <NavLink to="/profile" activeClassName="active" className='nav-link'>
                                 Profile
                             </NavLink>
                         </li>
