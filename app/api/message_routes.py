@@ -30,6 +30,6 @@ def send_message(id):
 
     db.session.add(new_message)
     db.session.commit()
-    return current_user.to_dict(), 201
+    return mismatch.to_dict(), 201
 
   return {'errors': validation_errors_to_error_messages(form.errors)}, 401

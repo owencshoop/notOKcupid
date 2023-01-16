@@ -142,6 +142,9 @@ class Mismatch(db.Model):
     user1_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('users.id')), nullable=False)
     user2_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('users.id')), nullable=False)
 
+    user1 = db.relationship("User", foreign_keys=[user1_id])
+    user2 = db.relationship("User", foreign_keys=[user2_id])
+
     messages = db.relationship('Message', back_populates='mismatch')
 
     def to_dict(self):
@@ -149,6 +152,8 @@ class Mismatch(db.Model):
             'id': self.id,
             'user1Id': self.user1_id,
             'user2Id': self.user2_id,
+            'user1': self.user1.to_like_dict(),
+            'user2': self.user2.to_like_dict(),
             'messages': [message.to_dict() for message in self.messages]
         }
 

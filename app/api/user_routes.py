@@ -48,9 +48,9 @@ def user(id):
 
 # POST dislike
 # will send 'disliked_id' from the frontend
-@user_routes.route('/<int:id>/dislikes', methods=['POST'])
+@user_routes.route('/dislikes', methods=['POST'])
 @login_required
-def create_dislike(id):
+def create_dislike():
 
     disliked_user_id = request.json["disliked_id"]
 
@@ -85,9 +85,9 @@ def create_dislike(id):
 
 # DELETE dislike
 # will send 'disliked_id' from the frontend
-@user_routes.route('/<int:id>/dislikes', methods=['DELETE'])
+@user_routes.route('/dislikes', methods=['DELETE'])
 @login_required
-def delete_dislike(id):
+def delete_dislike():
     disliked_user_id = request.json["disliked_id"]
 
     disliked_user = User.query.get(disliked_user_id)
@@ -109,9 +109,9 @@ def delete_dislike(id):
 
 # POST like
 # will send 'liked_id' from the frontend
-@user_routes.route('/<int:id>/likes', methods=['POST'])
+@user_routes.route('/likes', methods=['POST'])
 @login_required
-def create_like(id):
+def create_like():
     liked_user_id = request.json["liked_id"]
 
     liked_user = User.query.get(int(liked_user_id))
@@ -129,9 +129,9 @@ def create_like(id):
         return {'errors': ['User not Found']}, 404
 
 
-@user_routes.route('/<int:id>/likes', methods=['DELETE'])
+@user_routes.route('/likes', methods=['DELETE'])
 @login_required
-def delete_like(id):
+def delete_like():
     liked_user_id = request.json["liked_id"]
 
     liked_user = User.query.get(int(liked_user_id))

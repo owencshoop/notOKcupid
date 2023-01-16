@@ -150,6 +150,102 @@ export const updateAnswer = (userAnswerId, answer, userId) => async (dispatch) =
   }
 }
 
+export const addDislike = (disliked_id) => async (dispatch) => {
+  const response = await fetch(`/api/users/dislikes`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      disliked_id
+    })
+  })
+  if (response.ok){
+    const data = await response.json()
+    dispatch(setUser(data))
+    return data
+  } else if (response.status < 500) {
+    const data = await response.json();
+    if (data.errors) {
+      return data.errors;
+    }
+  } else {
+    return ['An error occurred. Please try again.']
+  }
+}
+
+export const deleteDislike = (disliked_id) => async (dispatch) => {
+  const response = await fetch(`/api/users/dislikes`, {
+    method: 'DELETE',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      disliked_id
+    })
+  })
+  if (response.ok){
+    const data = await response.json()
+    dispatch(setUser(data))
+    return data
+  } else if (response.status < 500) {
+    const data = await response.json();
+    if (data.errors) {
+      return data.errors;
+    }
+  } else {
+    return ['An error occurred. Please try again.']
+  }
+}
+
+export const addLike = (liked_id) => async (dispatch) => {
+  const response = await fetch(`/api/users/likes`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      liked_id
+    })
+  })
+  if (response.ok){
+    const data = await response.json()
+    dispatch(setUser(data))
+    return data
+  } else if (response.status < 500) {
+    const data = await response.json();
+    if (data.errors) {
+      return data.errors;
+    }
+  } else {
+    return ['An error occurred. Please try again.']
+  }
+}
+
+export const deleteLike = (liked_id) => async (dispatch) => {
+  const response = await fetch(`/api/users/likes`, {
+    method: 'DELETE',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      liked_id
+    })
+  })
+  if (response.ok){
+    const data = await response.json()
+    dispatch(setUser(data))
+    return data
+  } else if (response.status < 500) {
+    const data = await response.json();
+    if (data.errors) {
+      return data.errors;
+    }
+  } else {
+    return ['An error occurred. Please try again.']
+  }
+}
+
 export default function reducer(state = initialState, action) {
   switch (action.type) {
     case SET_USER:
