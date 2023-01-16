@@ -1,4 +1,5 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useState } from 'react';
+import { NavLink } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { discoverUserLoad } from '../store/session';
 
@@ -20,7 +21,7 @@ export default function Discover() {
     const userComponents = Object.values(users)?.map((user) => {
         return (
           <li key={user.id}>
-            <p>{user.username}: {user.firstName}</p>
+            <NavLink to={`/discover/${user.id}`}>{user.username}: {user.firstName}</NavLink>
           </li>
         );
       });

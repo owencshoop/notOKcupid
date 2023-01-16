@@ -11,6 +11,7 @@ import DislikesLikesComponents from './components/DislikesLikesComponents';
 import Discover from './components/DiscoverPage';
 import QuestionAnswerForm from './components/auth/QuestionForm'
 import ProfilePage from './components/ProfilePage/ProfileComponent';
+import DiscoverProfilePage from './components/DiscoverProfilePage/DiscoverProfileComponent';
 
 import { authenticate } from './store/session';
 import Mismatches from './components/Mismatches';
@@ -47,10 +48,13 @@ function App() {
           <UsersList/>
         </ProtectedRoute>
         <ProtectedRoute path='/questions'>
-              <QuestionAnswerForm />
+          <QuestionAnswerForm />
         </ProtectedRoute>
         <ProtectedRoute path='/users/:userId' exact={true} >
           <User />
+        </ProtectedRoute>
+        <ProtectedRoute path='/discover/:discoverId'>
+          <DiscoverProfilePage />
         </ProtectedRoute>
         <ProtectedRoute path='/discover'>
           <Discover />
@@ -59,13 +63,13 @@ function App() {
           <ProfilePage />
         </ProtectedRoute>
         <ProtectedRoute path='/mismatches/user/:userId'>
-              <Mismatches />
+          <Mismatches />
         </ProtectedRoute>
         <Route path='/' exact={true} >
           <h1>My Home Page</h1>
         </Route>
       </Switch>
-    </BrowserRouter> 
+    </BrowserRouter>
   );
 }
 
