@@ -53,7 +53,7 @@ export default function Discover() {
         <button onClick={updateUserNumber}>Skip</button>
         </div>
           <NavLink to={`/discover/${user.id}`}>
-            <img src={user.userImages[0] ? user.userImages[0].imageUrl : "https://picsum.photos/256/256"} />
+            <img alt='discover-pic' src={user.userImages[0] ? user.userImages[0].imageUrl : "https://picsum.photos/256/256"} />
             <p>{user.firstName[0].toUpperCase() + user.firstName.slice(1)} • {user.age}</p>
             <p>Bio: {user.bio}</p>
           </NavLink>
