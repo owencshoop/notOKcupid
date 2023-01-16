@@ -1,6 +1,6 @@
-const LOAD_MISMATCHES = "reviews/loadMismatches";
-const LOAD_SINGLE_MISMATCH = "reviews/loadSingleMismatch";
-const DELETE_MISMATCH = "reviews/deleteMismatch";
+const LOAD_MISMATCHES = "mismatches/loadMismatches";
+const LOAD_SINGLE_MISMATCH = "mismatches/loadSingleMismatch";
+const DELETE_MISMATCH = "mismatches/deleteMismatch";
 
 const load = (mismatches) => ({
     type: LOAD_MISMATCHES,
