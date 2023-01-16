@@ -54,7 +54,7 @@ export default function Discover() {
         </div>
           <NavLink to={`/discover/${user.id}`}>
             <img src={user.userImages[0] ? user.userImages[0].imageUrl : "https://picsum.photos/256/256"} />
-            <p>Name: {user.firstName[0].toUpperCase() + user.firstName.slice(1)}</p>
+            <p>{user.firstName[0].toUpperCase() + user.firstName.slice(1)} • {user.age}</p>
             <p>Bio: {user.bio}</p>
           </NavLink>
       </>
