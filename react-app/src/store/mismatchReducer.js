@@ -47,7 +47,7 @@ export const sendMessage = (mismatchId, text) => async (dispatch) => {
         body: JSON.stringify({ text }),
     });
     if (response.ok) {
-        data = response.json();
+        const data = await response.json();
         dispatch(loadSingleMistmatch(data));
         return data;
     } else if (response.status < 500) {
