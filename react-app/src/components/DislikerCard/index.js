@@ -13,10 +13,10 @@ const DislikerCard = ({ disliker }) => {
 
         const errors = {}
 
-        const unDislike = await dispatch(addDislike(disliker.id))
+        const newDislike = await dispatch(addDislike(disliker.id))
 
-        if (unDislike.errors) {
-            unDislike.errors.forEach(error => errors.push(error))
+        if (newDislike.errors) {
+            newDislike.errors.forEach(error => errors.push(error))
             setErrors(errors)
         }
     }
