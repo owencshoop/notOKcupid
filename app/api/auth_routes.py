@@ -72,8 +72,8 @@ def sign_up():
             preferred_genders=form.data['preferredGenders'],
             min_age=form.data['minAge'],
             max_age=form.data['maxAge'],
-            zip_code=form.data['zipCode'],
-            radius=form.data['radius'],
+            city=form.data['city'],
+            state=form.data['state'],
             bio=form.data['bio']
         )
         db.session.add(user)

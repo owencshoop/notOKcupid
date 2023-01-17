@@ -15,8 +15,8 @@ const SignUpForm = () => {
   const [preferredGenders, setPreferredGenders] = useState('male')
   const [minAge, setMinAge] = useState(18)
   const [maxAge, setMaxAge] = useState(100)
-  const [zipCode, setZipCode] = useState('')
-  const [radius, setRadius] = useState(5)
+  const [city, setCity] = useState('')
+  const [state, setState] = useState('')
   const [bio, setBio] = useState('')
   const user = useSelector(state => state.session.user);
   const dispatch = useDispatch();
@@ -24,7 +24,7 @@ const SignUpForm = () => {
   const onSignUp = async (e) => {
     e.preventDefault();
     if (password === repeatPassword) {
-      const data = await dispatch(signUp(username, email, password, firstName, age, gender, preferredGenders, minAge, maxAge, zipCode, radius, bio));
+      const data = await dispatch(signUp(username, email, password, firstName, age, gender, preferredGenders, minAge, maxAge, city, state, bio));
       if (data) {
         setErrors(data)
       }
@@ -71,12 +71,12 @@ const SignUpForm = () => {
     setMaxAge(e.target.value)
   }
 
-  const updateZipCode = (e) => {
-    setZipCode(e.target.value)
+  const updatecity = (e) => {
+    setCity(e.target.value)
   }
 
-  const updateRadius = (e) => {
-    setRadius(e.target.value)
+  const updateState = (e) => {
+    setState(e.target.value)
   }
 
   const updateBio = (e) => {
@@ -203,24 +203,22 @@ const SignUpForm = () => {
         ></input> {maxAge} years
       </div>
       <div>
-        <label>Zip Code</label>
+        <label>City</label>
         <input
-          type='number'
-          name='zipCode'
-          onChange={updateZipCode}
-          value={zipCode}
+          type='text'
+          name='city'
+          onChange={updatecity}
+          value={city}
         ></input>
       </div>
       <div>
-        <label>Distance</label>
+        <label>State</label>
         <input
-          type='range'
-          name='radius'
-          min='1'
-          max='250'
-          onChange={updateRadius}
-          value={radius}
-        ></input>{radius} miles
+          type='text'
+          name='state'
+          onChange={updateState}
+          value={state}
+        ></input>
       </div>
       <div>
         <label>Bio</label>

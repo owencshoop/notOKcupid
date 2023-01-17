@@ -36,8 +36,8 @@ class User(db.Model, UserMixin):
     preferred_genders = db.Column(db.String(255), nullable=False)
     min_age = db.Column(db.Integer, nullable=False, default=18)
     max_age = db.Column(db.Integer, nullable=False, default=99)
-    zip_code = db.Column(db.Integer, nullable=False)
-    radius = db.Column(db.Integer, nullable=False)
+    city = db.Column(db.String(50), nullable=False)
+    state = db.Column(db.String(50), nullable=False)
     bio = db.Column(db.Text(1000), nullable=False)
 
     user_answers = db.relationship('UserAnswer', back_populates='user', cascade="all, delete-orphan")
@@ -84,8 +84,8 @@ class User(db.Model, UserMixin):
             'preferredGenders': self.preferred_genders,
             'minAge': self.min_age,
             'maxAge': self.max_age,
-            'zipCode': self.zip_code,
-            'radius': self.radius,
+            'city': self.city,
+            'state': self.state,
             'bio': self.bio,
             'userAnswers': [user_answer.to_dict() for user_answer in self.user_answers],
             'userImages': [user_image.to_dict() for user_image in self.user_images],
@@ -106,8 +106,7 @@ class User(db.Model, UserMixin):
             'preferredGenders': self.preferred_genders,
             'minAge': self.min_age,
             'maxAge': self.max_age,
-            'zipCode': self.zip_code,
-            'radius': self.radius,
+            'location': f'{self.city}, {self.state}',
             'bio': self.bio,
             'userAnswers': [user_answer.to_dict() for user_answer in self.user_answers],
             'userImages': [user_image.to_dict() for user_image in self.user_images],
