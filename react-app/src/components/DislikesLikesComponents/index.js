@@ -11,7 +11,7 @@ const DislikesLikesComponents = () => {
 
 
     return (
-       <div>
+       <div className="dislikes-likes">
         <DislikesTab currentUser={currentUser}/>
        </div>
     )
