@@ -74,7 +74,7 @@ def upgrade():
     )
     op.create_table('user_images',
     sa.Column('id', sa.Integer(), nullable=False),
-    sa.Column('image_url', sa.Text(length=1000), nullable=False),
+    sa.Column('image_url', sa.Text(), nullable=False),
     sa.Column('user_id', sa.Integer(), nullable=False),
     sa.ForeignKeyConstraint(['user_id'], ['users.id'], ),
     sa.PrimaryKeyConstraint('id')
@@ -84,7 +84,7 @@ def upgrade():
     sa.Column('sender', sa.Integer(), nullable=False),
     sa.Column('recipient', sa.Integer(), nullable=False),
     sa.Column('mismatch_id', sa.Integer(), nullable=False),
-    sa.Column('text', sa.Text(length=1000), nullable=False),
+    sa.Column('text', sa.Text(), nullable=False),
     sa.Column('date_time', sa.String(length=255), nullable=True),
     sa.ForeignKeyConstraint(['mismatch_id'], ['mismatches.id'], ),
     sa.ForeignKeyConstraint(['recipient'], ['users.id'], ),
