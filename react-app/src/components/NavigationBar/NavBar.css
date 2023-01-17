@@ -13,7 +13,9 @@
 }
 
 .nav-link {
+    display: flex;
     color: white;
+    gap: 10px;
 }
 
 .nav-link:link {
@@ -54,11 +56,27 @@
     display: flex;
     width: 100%;
     justify-content: flex-end;
+    align-items: center;
     padding-right: 15px;
     gap: 25px;
 
 }
 
 .active:not(#home-link){
+    padding-bottom: 10px;
     border-bottom: solid 3px rgb(242, 41, 141);
+}
+
+#nav-icon{
+    width: 20px;
+}
+
+#profile-pic{
+    width: 50px;
+    border-radius: 24px;
+}
+
+#username{
+    display: flex;
+    align-items: center;
 }
