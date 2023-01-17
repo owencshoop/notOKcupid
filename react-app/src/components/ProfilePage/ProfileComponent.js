@@ -20,6 +20,7 @@ export default function ProfilePage() {
 
     return (
         <div>
+
             <h1>{user.username}'s Profile</h1>
             <img
                 src={
