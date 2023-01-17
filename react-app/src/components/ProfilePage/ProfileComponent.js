@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { authenticate } from "../../store/session";
 import SingleQuestionForm from "../auth/SingleQuestionForm";
+import { discoverUserLoad } from "../../store/session";
 
 export default function ProfilePage() {
     const user = useSelector((state) => state.session.user);
@@ -9,8 +9,9 @@ export default function ProfilePage() {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        dispatch(authenticate()).then(() => setLoaded(true));
-    }, [dispatch]);
+        dispatch(discoverUserLoad())
+        .then(() => setLoaded(true))
+    }, [dispatch])
 
     if (!loaded) {
         return null;
@@ -25,6 +26,7 @@ export default function ProfilePage() {
                         ? user.userImages[0].imageUrl
                         : "https://picsum.photos/256/256"
                 }
+                alt='profile-pic'
             />
             <h3>Name: {user.firstName}</h3>
             <p>Gender: {user.gender}</p>
@@ -32,6 +34,7 @@ export default function ProfilePage() {
             <p>
                 Age range: {user.minAge} - {user.maxAge}
             </p>
+            <p>Bio: {user.bio}</p>
 
             <div>
                 <h4>Answer more questions</h4>
