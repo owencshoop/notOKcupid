@@ -8,8 +8,8 @@
     font-family: "GT America","Helvetica Neue","Helvetica","Arial",sans-serif;
     width: 100vw;
     height: 70px;
-    margin-top: -10px;
-    padding: 5px 0 0 5px;
+    padding: 5px;
+    margin-bottom: 10px;
 }
 
 .nav-link {
@@ -35,8 +35,8 @@
 .login-signup {
     display: flex;
     align-items: center;
-    gap: 10px;
-    padding-right: 15px;
+    gap: 30px;
+    padding-right: 25px;
 
 }
 
@@ -62,7 +62,7 @@
 
 }
 
-.active:not(#home-link){
+.active-nav:not(#home-link){
     padding-bottom: 10px;
     border-bottom: solid 3px rgb(242, 41, 141);
 }

@@ -108,7 +108,17 @@ def undo_users():
     if environment == "production":
         db.session.execute(
             f"TRUNCATE table {SCHEMA}.users RESTART IDENTITY CASCADE;")
+        db.session.execute(
+            f"TRUNCATE table {SCHEMA}.dislikes RESTART IDENTITY CASCADE;")
+        db.session.execute(
+            f"TRUNCATE table {SCHEMA}.likes RESTART IDENTITY CASCADE;")
+        db.session.execute(
+            f"TRUNCATE table {SCHEMA}.user_answers RESTART IDENTITY CASCADE;")
+
     else:
         db.session.execute("DELETE FROM users")
+        db.session.execute("DELETE FROM dislikes")
+        db.session.execute("DELETE FROM likes")
+        db.session.execute("DELETE FROM user_answers")
 
     db.session.commit()
