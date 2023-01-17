@@ -72,6 +72,9 @@ export default function Discover() {
 
     return (
         <>
+            <ul>
+                {errors.map((error, idx) => <li key={idx}>{error}</li>)}
+            </ul>
             <div>
                 <button className="dislike-button" onClick={handleDislike}>Dislike</button>
                 <button className="like-button" onClick={handleLike}>Like</button>
