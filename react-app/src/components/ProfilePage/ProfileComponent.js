@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import SingleQuestionForm from "../auth/SingleQuestionForm";
 import { discoverUserLoad } from "../../store/session";
+import { NavLink } from "react-router-dom";
 
 export default function ProfilePage() {
     const user = useSelector((state) => state.session.user);
@@ -40,6 +41,8 @@ export default function ProfilePage() {
                 <h4>Answer more questions</h4>
                 <SingleQuestionForm />
             </div>
+
+            <NavLink to='/profile/update'>Update Profile</NavLink>
         </div>
     );
 }

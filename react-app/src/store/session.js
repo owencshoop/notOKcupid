@@ -125,6 +125,42 @@ export const signUp = (username, email, password, firstName, age, gender, prefer
   }
 }
 
+export const updateUser = (username, email, firstName, age, gender, preferredGenders, minAge, maxAge, city, state, bio, imageUrl) => async (dispatch) => {
+  const response = await fetch('/api/users/update', {
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      username,
+      email,
+      firstName,
+      age,
+      gender,
+      preferredGenders,
+      minAge,
+      maxAge,
+      city,
+      state,
+      bio,
+      imageUrl
+    }),
+  });
+
+  if (response.ok) {
+    const data = await response.json();
+    dispatch(setUser(data))
+    return null;
+  } else if (response.status < 500) {
+    const data = await response.json();
+    if (data.errors) {
+      return data.errors;
+    }
+  } else {
+    return ['An error occurred. Please try again.']
+  }
+}
+
 export const updateAnswer = (userAnswerId, answer, userId) => async (dispatch) => {
   const response = await fetch(`/api/questions/${userId}`, {
     method: 'PUT',
