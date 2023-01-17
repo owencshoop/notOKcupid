@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import SingleQuestionForm from "../auth/SingleQuestionForm";
+import SingleQuestionForm from "../Questions/SingleQuestionForm";
 import { discoverUserLoad } from "../../store/session";
 import { NavLink } from "react-router-dom";
 
