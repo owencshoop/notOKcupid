@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { NavLink } from "react-router-dom";
-import { discoverUserLoad } from "../../store/session";
+import { discoverUserLoad, addDislike, addLike } from "../../store/session";
 
 export default function Discover() {
     const users = useSelector((state) => state.session.discoverUsers);
     const [loaded, setLoaded] = useState(false);
     const [userNumber, setUserNumber] = useState(0);
+    const [errors, setErrors] = useState([])
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -29,6 +30,30 @@ export default function Discover() {
         }
     };
 
+    const handleDislike = async (e) => {
+        e.preventDefault()
+        const errors = []
+        const newDislike = await dispatch(addDislike(user.id))
+
+        if (newDislike.errors){
+            newDislike.errors.forEach(error => errors.push(error))
+            setErrors(errors)
+        }
+        updateUserNumber()
+    }
+
+    const handleLike = async (e) => {
+        e.preventDefault()
+        const errors = []
+        const newLike = await dispatch(addLike(user.id))
+
+        if (newLike.errors){
+            newLike.errors.forEach(error => errors.push(error))
+            setErrors(errors)
+        }
+        updateUserNumber()
+    }
+
     if (usersList.length === 0) {
         return (
             <h3>
@@ -48,8 +73,8 @@ export default function Discover() {
     return (
         <>
             <div>
-                <button onClick={updateUserNumber}>Dislike</button>
-                <button onClick={updateUserNumber}>Like</button>
+                <button className="dislike-button" onClick={handleDislike}>Dislike</button>
+                <button className="like-button" onClick={handleLike}>Like</button>
                 <button onClick={updateUserNumber}>Skip</button>
             </div>
             <NavLink to={`/discover/${user.id}`}>
