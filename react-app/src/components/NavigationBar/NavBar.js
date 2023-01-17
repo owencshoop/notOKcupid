@@ -8,15 +8,14 @@ const NavBar = () => {
     const user = useSelector((state) => state.session.user);
     return (
         <nav className="nav-container">
-            <ul className="nav-links">
-                <li id='home-link'>
+                <div id='home-link'>
                     <NavLink to="/" exact={true} activeClassName="active" className='nav-link'>
                         notOKcupid
                     </NavLink>
-                </li>
+                </div>
                 {!user && (
-                    <>
-                        <li>
+                    <div className='login-signup'>
+                        <div>
                             <NavLink
                                 to="/login"
                                 exact={true}
@@ -25,22 +24,22 @@ const NavBar = () => {
                             >
                                 Login
                             </NavLink>
-                        </li>
-                        <li>
+                        </div>
+                        <div>
                             <NavLink
                                 to="/sign-up"
                                 exact={true}
                                 activeClassName="active"
                                 className='nav-link'
                             >
-                                Sign Up
+                                SignUp
                             </NavLink>
-                        </li>
-                    </>
+                        </div>
+                    </div>
                 )}
                 {user && (
-                    <>
-                        <li>
+                    <div className='user-content'>
+                        <div>
                             <NavLink
                                 to="/users"
                                 exact={true}
@@ -49,8 +48,8 @@ const NavBar = () => {
                             >
                                 Users
                             </NavLink>
-                        </li>
-                        <li>
+                        </div>
+                        <div>
                             <NavLink
                                 to="/dislikes"
                                 exact={true}
@@ -59,8 +58,8 @@ const NavBar = () => {
                             >
                                 Dislikes
                             </NavLink>
-                        </li>
-                        <li>
+                        </div>
+                        <div>
                             <NavLink
                                 to="/discover"
                                 exact={true}
@@ -69,28 +68,27 @@ const NavBar = () => {
                             >
                                 Discover
                             </NavLink>
-                        </li>
-                        <li>
+                        </div>
+                        <div>
                             <NavLink to="/questions" activeClassName="active" className='nav-link'>
                                 Questions
                             </NavLink>
-                        </li>
-                        <li>
+                        </div>
+                        <div>
                             <NavLink to="/mismatches" activeClassName="active" className='nav-link'>
                                 Mismatches
                             </NavLink>
-                        </li>
-                        <li id='profile-link'>
+                        </div>
+                        <div id='profile-link'>
                             <NavLink to="/profile" activeClassName="active" className='nav-link'>
                                 Profile
                             </NavLink>
-                        </li>
-                        <li>
+                        </div>
+                        <div id='logout'>
                             <LogoutButton />
-                        </li>
-                    </>
+                        </div>
+                    </div>
                 )}
-            </ul>
         </nav>
     );
 };
