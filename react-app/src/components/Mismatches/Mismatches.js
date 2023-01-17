@@ -23,8 +23,8 @@ export default function Mismatches() {
                     <div>{mismatch.user2.firstName}</div>
                     <div>{mismatch.user2.age}</div>
                     <div>
-                        {mismatch.messages[mismatch.messages.length - 1]
-                            ? mismatch.messages[mismatch.messages.length - 1]
+                        {mismatch.messages.length > 0
+                            ? mismatch.messages[mismatch.messages.length - 1].text
                             : `You've mismatched! Send ${mismatch.user2.firstName} a message!`}
                     </div>
                 </NavLink>
@@ -42,8 +42,8 @@ export default function Mismatches() {
                     <div>{mismatch.user1.firstName}</div>
                     <div>{mismatch.user1.age}</div>
                     <div>
-                        {mismatch.messages[mismatch.messages.length - 1]
-                            ? mismatch.messages[mismatch.messages.length - 1]
+                        {mismatch.messages.length > 0
+                            ? mismatch.messages[mismatch.messages.length - 1].text
                             : `You've mismatched! Send ${mismatch.user1.firstName} a message!`}
                     </div>
                 </NavLink>

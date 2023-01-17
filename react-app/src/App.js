@@ -12,6 +12,7 @@ import Discover from "./components/DiscoverPage/DiscoverPage";
 import QuestionAnswerForm from "./components/auth/QuestionForm";
 import ProfilePage from "./components/ProfilePage/ProfileComponent";
 import DiscoverProfilePage from './components/DiscoverProfilePage/DiscoverProfileComponent';
+import MismatchMessages from "./components/MismatchMessage";
 
 import { authenticate } from "./store/session";
 import Mismatches from "./components/Mismatches/Mismatches";
@@ -65,6 +66,9 @@ function App() {
                 </ProtectedRoute>
                 <ProtectedRoute path="/profile">
                     <ProfilePage />
+                </ProtectedRoute>
+                <ProtectedRoute path='/mismatches/:mismatchId'>
+                    <MismatchMessages />
                 </ProtectedRoute>
                 <ProtectedRoute path="/mismatches">
                     <Mismatches />
