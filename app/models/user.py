@@ -20,6 +20,10 @@ likes = db.Table(
     db.Column('liked_id', db.Integer, db.ForeignKey(add_prefix_for_prod('users.id')))
 )
 
+if environment == 'production':
+    likes.schema = SCHEMA
+    dislikes.schema = SCHEMA
+
 class User(db.Model, UserMixin):
     __tablename__ = 'users'
 
