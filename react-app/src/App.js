@@ -15,6 +15,7 @@ import DiscoverProfilePage from './components/DiscoverProfilePage/DiscoverProfil
 
 import { authenticate } from "./store/session";
 import Mismatches from "./components/Mismatches/Mismatches";
+import UpdateUserForm from "./components/auth/UpdateUserForm";
 
 function App() {
     const [loaded, setLoaded] = useState(false);
@@ -58,6 +59,9 @@ function App() {
                 </ProtectedRoute>
                 <ProtectedRoute path="/discover">
                     <Discover />
+                </ProtectedRoute>
+                <ProtectedRoute path='/profile/update'>
+                    <UpdateUserForm />
                 </ProtectedRoute>
                 <ProtectedRoute path="/profile">
                     <ProfilePage />
