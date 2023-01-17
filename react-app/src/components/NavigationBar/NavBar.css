@@ -21,12 +21,13 @@
 }
 
 
-#home-link {
+.home-link {
     display: flex;
     font-weight: bold;
     align-items: center;
     padding-left: 15px;
     font-size: 20px;
+    font-style: italic;
 }
 
 .login-signup {
@@ -45,6 +46,10 @@
     padding-left: 25px;
 }
 
+/* .user-content:hover{
+
+} */
+
 .profile-logout{
     display: flex;
     width: 100%;
@@ -54,6 +59,6 @@
 
 }
 
-.active{
+.active:not(#home-link){
     border-bottom: solid 3px rgb(242, 41, 141);
 }

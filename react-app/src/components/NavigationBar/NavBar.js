@@ -8,8 +8,8 @@ const NavBar = () => {
     const user = useSelector((state) => state.session.user);
     return (
         <nav className="nav-container">
-                <div id='home-link'>
-                    <NavLink to="/" exact={true} activeClassName="active" className='nav-link'>
+                <div className='home-link'>
+                    <NavLink to="/discover" exact={true} id='home-link' activeClassName="active" className='nav-link'>
                         notOKcupid
                     </NavLink>
                 </div>
@@ -41,12 +41,12 @@ const NavBar = () => {
                     <div className='user-content'>
                         <div>
                             <NavLink
-                                to="/users"
+                                to="/discover"
                                 exact={true}
                                 activeClassName="active"
                                 className='nav-link'
                             >
-                                Users
+                                Discover
                             </NavLink>
                         </div>
                         <div>
@@ -57,16 +57,6 @@ const NavBar = () => {
                                 className='nav-link'
                             >
                                 Dislikes
-                            </NavLink>
-                        </div>
-                        <div>
-                            <NavLink
-                                to="/discover"
-                                exact={true}
-                                activeClassName="active"
-                                className='nav-link'
-                            >
-                                Discover
                             </NavLink>
                         </div>
                         <div>
