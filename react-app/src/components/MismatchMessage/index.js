@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
 import { getMismatches, sendMessage } from "../../store/mismatchReducer";
+import './MismatchMessage.css'
 
 export default function MismatchMessages() {
     const { mismatchId } = useParams()
@@ -35,12 +36,14 @@ export default function MismatchMessages() {
     }
 
     return (
-       <div>
-        {mismatch.messages.length > 0 ? mismatch.messages.map(message => (
-          <p>{message.text}</p>
-        )) : (
-          <p>No messages yet, start the conversation.</p>
-        )}
+       <div id='chat-container'>
+        <div id='chat-box'>
+          {mismatch.messages.length > 0 ? mismatch.messages.map(message => (
+            <p className={message.sender === user.id ? 'sent' : 'received'}>{message.text}</p>
+            )) : (
+              <p>No messages yet, start the conversation.</p>
+              )}
+        </div>
         <form onSubmit={onMessageSubmit}>
         <label>Message</label>
         <input
