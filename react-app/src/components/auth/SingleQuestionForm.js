@@ -20,7 +20,6 @@ const SingleQuestionForm = () => {
 
     let unansweredQuestions = content.filter((question) => question.answer === null)
 
-    console.log(unansweredQuestions, questionNumber)
 
     let question = unansweredQuestions[
         questionNumber
