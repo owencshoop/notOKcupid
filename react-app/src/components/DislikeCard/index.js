@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { deleteDislike } from "../../store/session";
+import './DislikeCard.css'
 
 const DislikeCard = ({ dislike }) => {
     const dispatch = useDispatch();

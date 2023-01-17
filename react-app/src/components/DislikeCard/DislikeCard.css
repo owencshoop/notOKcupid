@@ -1,0 +1,11 @@
+.dislike-card {
+    width: 30%; 
+}
+
+.dislike-img {
+    width: 100%;
+}
+
+.dislike-img > img {
+    width: 100%;
+}
