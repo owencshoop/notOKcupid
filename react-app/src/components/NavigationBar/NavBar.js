@@ -79,13 +79,15 @@ const NavBar = () => {
                                 Mismatches
                             </NavLink>
                         </div>
-                        <div id='profile-link'>
+                        <div className='profile-logout'>
+                        <div>
                             <NavLink to="/profile" activeClassName="active" className='nav-link'>
                                 Profile
                             </NavLink>
                         </div>
-                        <div id='logout'>
+                        <div>
                             <LogoutButton />
+                        </div>
                         </div>
                     </div>
                 )}
