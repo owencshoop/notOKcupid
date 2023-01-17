@@ -20,6 +20,7 @@ function User() {
     return null;
   }
 
+
   return (
     <ul>
       <li>
@@ -31,6 +32,7 @@ function User() {
       <li>
         <strong>Email</strong> {user.email}
       </li>
+      
     </ul>
   );
 }

@@ -1,5 +1,5 @@
 from flask import Blueprint, jsonify, session, request
-from app.models import User, db
+from app.models import User, db, UserAnswer, Question, UserImage
 from app.forms import LoginForm
 from app.forms import SignUpForm
 from flask_login import current_user, login_user, logout_user, login_required
@@ -65,9 +65,21 @@ def sign_up():
         user = User(
             username=form.data['username'],
             email=form.data['email'],
-            password=form.data['password']
+            password=form.data['password'],
+            first_name=form.data['firstName'],
+            age=form.data['age'],
+            gender=form.data['gender'],
+            preferred_genders=form.data['preferredGenders'],
+            min_age=form.data['minAge'],
+            max_age=form.data['maxAge'],
+            city=form.data['city'],
+            state=form.data['state'],
+            bio=form.data['bio']
         )
         db.session.add(user)
+        UserImage(image_url=form.data['imageUrl'], user=user)
+        questions = Question.query.all()
+        [db.session.add(UserAnswer(user=user, question=question, answer=None)) for question in questions]
         db.session.commit()
         login_user(user)
         return user.to_dict()
