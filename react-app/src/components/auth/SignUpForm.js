@@ -18,13 +18,14 @@ const SignUpForm = () => {
   const [city, setCity] = useState('')
   const [state, setState] = useState('')
   const [bio, setBio] = useState('')
+  const [imageURL, setImageURL] = useState('')
   const user = useSelector(state => state.session.user);
   const dispatch = useDispatch();
 
   const onSignUp = async (e) => {
     e.preventDefault();
     if (password === repeatPassword) {
-      const data = await dispatch(signUp(username, email, password, firstName, age, gender, preferredGenders, minAge, maxAge, city, state, bio));
+      const data = await dispatch(signUp(username, email, password, firstName, age, gender, preferredGenders, minAge, maxAge, city, state, bio, imageURL));
       if (data) {
         setErrors(data)
       }
@@ -81,6 +82,10 @@ const SignUpForm = () => {
 
   const updateBio = (e) => {
     setBio(e.target.value)
+  }
+
+  const updateImageURL = (e) => {
+    setImageURL(e.target.value)
   }
 
   if (user) {
@@ -227,6 +232,15 @@ const SignUpForm = () => {
           name='bio'
           onChange={updateBio}
           value={bio}
+        ></input>
+      </div>
+      <div>
+        <label>Profile Image URL</label>
+        <input
+          type='text'
+          name='imageUrl'
+          onChange={updateImageURL}
+          value={imageURL}
         ></input>
       </div>
       <button type='submit'>Sign Up</button>
