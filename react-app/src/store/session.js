@@ -166,11 +166,12 @@ export const addDislike = (disliked_id) => async (dispatch) => {
     return data
   } else if (response.status < 500) {
     const data = await response.json();
-    if (data.errors) {
-      return data.errors;
-    }
-  } else {
-    return ['An error occurred. Please try again.']
+  //   if (data.errors) {
+  //     return data.errors;
+  //   }
+  // } else {
+  //   return ['An error occurred. Please try again.']
+    return data
   }
 }
 
@@ -190,11 +191,12 @@ export const deleteDislike = (disliked_id) => async (dispatch) => {
     return data
   } else if (response.status < 500) {
     const data = await response.json();
-    if (data.errors) {
-      return data.errors;
-    }
-  } else {
-    return ['An error occurred. Please try again.']
+  //   if (data.errors) {
+  //     return data.errors;
+  //   }
+  // } else {
+    // return ['An error occurred. Please try again.']
+    return data
   }
 }
 
@@ -214,11 +216,12 @@ export const addLike = (liked_id) => async (dispatch) => {
     return data
   } else if (response.status < 500) {
     const data = await response.json();
-    if (data.errors) {
-      return data.errors;
-    }
-  } else {
-    return ['An error occurred. Please try again.']
+  //   if (data.errors) {
+  //     return data.errors;
+  //   }
+  // } else {
+  //   return ['An error occurred. Please try again.']
+  return data
   }
 }
 
@@ -238,11 +241,12 @@ export const deleteLike = (liked_id) => async (dispatch) => {
     return data
   } else if (response.status < 500) {
     const data = await response.json();
-    if (data.errors) {
-      return data.errors;
-    }
-  } else {
-    return ['An error occurred. Please try again.']
+  //   if (data.errors) {
+  //     return data.errors;
+  //   }
+  // } else {
+  //   return ['An error occurred. Please try again.']
+  return data
   }
 }
 
