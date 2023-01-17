@@ -119,7 +119,7 @@ class UserImage(db.Model):
         __table_args__ = {'schema': SCHEMA}
 
     id = db.Column(db.Integer, primary_key=True)
-    image_url = db.Column(db.Text(1000), nullable=False)
+    image_url = db.Column(db.Text, nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('users.id')), nullable=False)
 
     user = db.relationship('User', back_populates='user_images')
@@ -166,7 +166,7 @@ class Message(db.Model):
     sender = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('users.id')), nullable=False)
     recipient = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('users.id')), nullable=False)
     mismatch_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('mismatches.id')), nullable=False)
-    text = db.Column(db.Text(1000), nullable=False)
+    text = db.Column(db.Text, nullable=False)
     date_time = db.Column(db.String(255))
 
     mismatch = db.relationship('Mismatch', back_populates="messages")
