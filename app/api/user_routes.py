@@ -171,8 +171,8 @@ def update_user(id):
         user.preferred_genders= form.data['preferredGenders']
         user.min_age= form.data['minAge']
         user.max_age= form.data['maxAge']
-        user.zip_code= form.data['zipCode']
-        user.radius= form.data['radius']
+        user.city= form.data['city']
+        user.state= form.data['state']
         user.bio= form.data['bio']
         db.session.add(user)
         db.session.commit()
