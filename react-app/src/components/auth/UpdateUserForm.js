@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Redirect } from "react-router-dom";
-import { signUp, updateUser } from "../../store/session";
+import { updateUser } from "../../store/session";
 
 const UpdateUserForm = () => {
     const user = useSelector((state) => state.session.user);
@@ -18,6 +18,7 @@ const UpdateUserForm = () => {
     const [state, setState] = useState(user.state);
     const [bio, setBio] = useState(user.bio);
     const [imageURL, setImageURL] = useState(user.userImages[0].imageUrl);
+    const [saved, setSaved] = useState(false)
     const dispatch = useDispatch();
 
     const onSignUp = async (e) => {
@@ -41,6 +42,7 @@ const UpdateUserForm = () => {
             if (data) {
                 setErrors(data);
             }
+        setSaved(true)
     };
 
     const updateUsername = (e) => {
@@ -90,6 +92,10 @@ const UpdateUserForm = () => {
     const updateImageURL = (e) => {
         setImageURL(e.target.value);
     };
+
+    if (saved) {
+        return <Redirect to="/profile" />;
+    }
 
     return (
         <form onSubmit={onSignUp}>
