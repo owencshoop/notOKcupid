@@ -38,7 +38,7 @@ class User(db.Model, UserMixin):
     max_age = db.Column(db.Integer, nullable=False, default=99)
     city = db.Column(db.String(50), nullable=False)
     state = db.Column(db.String(50), nullable=False)
-    bio = db.Column(db.Text(1000), nullable=False)
+    bio = db.Column(db.Text, nullable=False)
 
     user_answers = db.relationship('UserAnswer', back_populates='user', cascade="all, delete-orphan")
     user_images = db.relationship('UserImage', back_populates='user', cascade="all, delete-orphan")
