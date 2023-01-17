@@ -1,7 +1,7 @@
 """empty message
 
 Revision ID: 863ae13ebd4a
-Revises: 
+Revises:
 Create Date: 2023-01-17 09:46:21.141738
 
 """
@@ -38,7 +38,7 @@ def upgrade():
     sa.Column('max_age', sa.Integer(), nullable=False),
     sa.Column('city', sa.String(length=50), nullable=False),
     sa.Column('state', sa.String(length=50), nullable=False),
-    sa.Column('bio', sa.Text(length=1000), nullable=False),
+    sa.Column('bio', sa.Text(), nullable=False),
     sa.PrimaryKeyConstraint('id'),
     sa.UniqueConstraint('email'),
     sa.UniqueConstraint('username')
