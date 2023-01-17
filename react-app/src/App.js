@@ -12,9 +12,11 @@ import Discover from "./components/DiscoverPage/DiscoverPage";
 import QuestionAnswerForm from "./components/auth/QuestionForm";
 import ProfilePage from "./components/ProfilePage/ProfileComponent";
 import DiscoverProfilePage from './components/DiscoverProfilePage/DiscoverProfileComponent';
+import MismatchMessages from "./components/MismatchMessage";
 
 import { authenticate } from "./store/session";
 import Mismatches from "./components/Mismatches/Mismatches";
+import UpdateUserForm from "./components/auth/UpdateUserForm";
 
 function App() {
     const [loaded, setLoaded] = useState(false);
@@ -59,8 +61,14 @@ function App() {
                 <ProtectedRoute path="/discover">
                     <Discover />
                 </ProtectedRoute>
+                <ProtectedRoute path='/profile/update'>
+                    <UpdateUserForm />
+                </ProtectedRoute>
                 <ProtectedRoute path="/profile">
                     <ProfilePage />
+                </ProtectedRoute>
+                <ProtectedRoute path='/mismatches/:mismatchId'>
+                    <MismatchMessages />
                 </ProtectedRoute>
                 <ProtectedRoute path="/mismatches">
                     <Mismatches />

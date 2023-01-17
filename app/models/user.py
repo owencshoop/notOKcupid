@@ -36,9 +36,9 @@ class User(db.Model, UserMixin):
     preferred_genders = db.Column(db.String(255), nullable=False)
     min_age = db.Column(db.Integer, nullable=False, default=18)
     max_age = db.Column(db.Integer, nullable=False, default=99)
-    zip_code = db.Column(db.Integer, nullable=False)
-    radius = db.Column(db.Integer, nullable=False)
-    bio = db.Column(db.Text(1000), nullable=False)
+    city = db.Column(db.String(50), nullable=False)
+    state = db.Column(db.String(50), nullable=False)
+    bio = db.Column(db.Text, nullable=False)
 
     user_answers = db.relationship('UserAnswer', back_populates='user', cascade="all, delete-orphan")
     user_images = db.relationship('UserImage', back_populates='user', cascade="all, delete-orphan")
@@ -84,8 +84,8 @@ class User(db.Model, UserMixin):
             'preferredGenders': self.preferred_genders,
             'minAge': self.min_age,
             'maxAge': self.max_age,
-            'zipCode': self.zip_code,
-            'radius': self.radius,
+            'city': self.city,
+            'state': self.state,
             'bio': self.bio,
             'userAnswers': [user_answer.to_dict() for user_answer in self.user_answers],
             'userImages': [user_image.to_dict() for user_image in self.user_images],
@@ -104,10 +104,9 @@ class User(db.Model, UserMixin):
             'firstName': self.first_name,
             'gender': self.gender,
             'preferredGenders': self.preferred_genders,
-            'minAge': self.min_age,
-            'maxAge': self.max_age,
-            'zipCode': self.zip_code,
-            'radius': self.radius,
+            'city': self.city,
+            'state': self.state,
+            'location': f'{self.city}, {self.state}',
             'bio': self.bio,
             'userAnswers': [user_answer.to_dict() for user_answer in self.user_answers],
             'userImages': [user_image.to_dict() for user_image in self.user_images],
@@ -120,7 +119,7 @@ class UserImage(db.Model):
         __table_args__ = {'schema': SCHEMA}
 
     id = db.Column(db.Integer, primary_key=True)
-    image_url = db.Column(db.Text(1000), nullable=False)
+    image_url = db.Column(db.Text, nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('users.id')), nullable=False)
 
     user = db.relationship('User', back_populates='user_images')
@@ -167,7 +166,7 @@ class Message(db.Model):
     sender = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('users.id')), nullable=False)
     recipient = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('users.id')), nullable=False)
     mismatch_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('mismatches.id')), nullable=False)
-    text = db.Column(db.Text(1000), nullable=False)
+    text = db.Column(db.Text, nullable=False)
     date_time = db.Column(db.String(255))
 
     mismatch = db.relationship('Mismatch', back_populates="messages")
