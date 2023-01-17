@@ -149,13 +149,13 @@ def delete_like():
     else:
         return {'errors': ['Cannot find User']}, 404
 
-@user_routes.route('/<int:id>', methods=['PUT'])
+@user_routes.route('/update', methods=['PUT'])
 @login_required
-def update_user(id):
+def update_user():
     """
     Update user info
     """
-    user = User.query.get(id)
+    user = User.query.get(current_user.id)
 
     if not user:
         return {'errors': ['User does not exist']}
@@ -164,7 +164,6 @@ def update_user(id):
     if form.validate_on_submit():
         user.username= form.data['username']
         user.email = form.data['email']
-        user.password = form.data['password']
         user.first_name = form.data['firstName']
         user.age= form.data['age']
         user.gender= form.data['gender']
