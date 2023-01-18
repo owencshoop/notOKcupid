@@ -83,6 +83,11 @@ div.chat-input-field {
   width: auto;
 }
 
+#chat-intro-bit {
+  font-family: "GT America","Helvetica Neue","Helvetica","Arial",sans-serif;
+  display: flex;
+  justify-content: center;
+}
 
 #reload-message-icon {
   background-color: #2a2f35;

@@ -28,6 +28,8 @@ export default function MismatchMessages() {
         return null;
     }
 
+    console.log(mismatch)
+
     const onMessageSubmit = async (e) => {
       e.preventDefault()
       const data = await dispatch(sendMessage(mismatchId, message))
@@ -44,10 +46,12 @@ export default function MismatchMessages() {
 
 
     return (
+      <>
+      <h1 id='chat-intro-bit'>Chat with {mismatch.user1Id !== user.id ? mismatch.user1.firstName : mismatch.user2.firstName}</h1>
        <div id='chat-container'>
         <div id='chat-box'>
           {mismatch.messages.length > 0 ? mismatch.messages.map(message => (
-              <div className="date-and-text">
+            <div className="date-and-text">
                 <div className={message.sender === user.id ? 'sent' : 'received'}>{message.text}</div>
                 <div className={message.sender === user.id ? 'time-sent' : 'time-received'}>{message.dateTime}</div>
               </div>
@@ -72,5 +76,6 @@ export default function MismatchMessages() {
             </div>
           </form>
        </div>
+      </>
     );
 }
