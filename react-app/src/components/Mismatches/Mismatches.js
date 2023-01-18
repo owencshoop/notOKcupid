@@ -13,7 +13,11 @@ export default function Mismatches() {
         dispatch(getMismatches(user.id));
     }, [dispatch]);
 
-    if (!mismatches.length) return <h1>Get good or get out!</h1>;
+    if (!mismatches.length) return (
+        <div className="header-container">Mismatches
+            <h1 className="all-mismatch-container">Get good or get out!</h1>
+        </div>
+    );
 
     const mismatch_info = mismatches.map((mismatch) => {
         if (mismatch.user1Id === user.id) {
@@ -76,5 +80,14 @@ export default function Mismatches() {
         }
     });
 
-    return <div className="all-mismatch-container">{mismatch_info}</div>;
+    return (
+        <>
+        <div className="mismatch-header-container">
+            <h1>
+            Mismatches
+            </h1>
+            </div>
+        <div className="all-mismatch-container">{mismatch_info}</div>;
+        </>
+        )
 }

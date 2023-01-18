@@ -70,3 +70,15 @@
     overflow: hidden;
     text-overflow: ellipsis;
 }
+
+.mismatch-header-container {
+    height: 105px;
+    width: 100%;
+    color: white;
+    background-color: #2a2f35;
+    font-family: "GT America","Helvetica Neue","Helvetica","Arial",sans-serif;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
