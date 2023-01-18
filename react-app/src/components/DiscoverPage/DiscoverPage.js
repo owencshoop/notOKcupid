@@ -10,17 +10,19 @@ export default function Discover() {
     const [errors, setErrors] = useState([])
     const dispatch = useDispatch();
 
+    const usersList = Object.values(users);
+    let user = usersList[userNumber];
+
     useEffect(() => {
-        dispatch(discoverUserLoad()).then(() => setLoaded(true));
-    }, [dispatch]);
+        dispatch(discoverUserLoad())
+        .then(() => setLoaded(true));
+    }, [dispatch, usersList.length]);
 
     if (!users) {
         return null;
     }
 
-    const usersList = Object.values(users);
 
-    let user = usersList[userNumber];
 
     const updateUserNumber = () => {
         if (userNumber === usersList.length - 1) {
@@ -32,6 +34,8 @@ export default function Discover() {
 
     const handleDislike = async (e) => {
         e.preventDefault()
+        await dispatch(discoverUserLoad())
+        await setLoaded(true)
         const errors = []
         const newDislike = await dispatch(addDislike(user.id))
 
@@ -39,11 +43,15 @@ export default function Discover() {
             newDislike.errors.forEach(error => errors.push(error))
             setErrors(errors)
         }
+
         updateUserNumber()
+
     }
 
     const handleLike = async (e) => {
         e.preventDefault()
+        await dispatch(discoverUserLoad())
+        await setLoaded(true)
         const errors = []
         const newLike = await dispatch(addLike(user.id))
 
@@ -51,10 +59,11 @@ export default function Discover() {
             newLike.errors.forEach(error => errors.push(error))
             setErrors(errors)
         }
+
         updateUserNumber()
     }
 
-    if (usersList.length === 0) {
+    if (!usersList.length) {
         return (
             <h3>
                 No more users match your preferences, adjust preferences to see

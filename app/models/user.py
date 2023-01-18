@@ -108,6 +108,8 @@ class User(db.Model, UserMixin):
             'firstName': self.first_name,
             'gender': self.gender,
             'preferredGenders': self.preferred_genders,
+            'minAge': self.min_age,
+            'maxAge': self.max_age,
             'city': self.city,
             'state': self.state,
             'location': f'{self.city}, {self.state}',
