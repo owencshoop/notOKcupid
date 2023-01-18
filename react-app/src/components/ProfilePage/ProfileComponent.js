@@ -53,12 +53,12 @@ export default function ProfilePage() {
             <div className='profile-info'>
                 <h3 className='prof-card-header'>About you</h3>
                 <div className='the-info'>
-                    <p>{user.bio}</p>
+                    <span>{user.bio}</span>
                 </div>
             </div>
             <div className='profile-info'>
                 <div>
-                    <h3 className='prof-card-header'>Answer more questions</h3>
+                    <h3 className='prof-card-header3'>Answer more questions</h3>
                     <SingleQuestionForm />
                 </div>
             </div>
