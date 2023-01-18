@@ -63,10 +63,32 @@ body{
     width: fit-content;
     border: none;
     background-color: white;
+    cursor: pointer;
 }
 
 .question-button-container{
     display:flex;
     justify-content: center;
     align-items: center;
+}
+
+button.button-option {
+    border: none;
+    font-family: "GT America","Helvetica Neue","Helvetica","Arial",sans-serif;
+    background-color: rgba(188, 185, 185, 0);
+    color: #2a2f35;
+    border-radius: .2rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button.current-answer {
+    border: none;
+    font-family: "GT America","Helvetica Neue","Helvetica","Arial",sans-serif;
+    background-color: rgba(188, 185, 185, 0);
+    color: rgb(242, 41, 141);
+    border-radius: .2rem;
+    font-weight: bold;
+    font-size: large;
+    cursor: pointer;
 }
