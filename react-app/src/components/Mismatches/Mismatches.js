@@ -11,7 +11,7 @@ export default function Mismatches() {
 
     useEffect(() => {
         dispatch(getMismatches(user.id));
-    }, [dispatch]);
+    }, [dispatch, user.id]);
 
     if (!mismatches.length) return <h1>Get good or get out!</h1>;
 
@@ -26,7 +26,8 @@ export default function Mismatches() {
                                     mismatch.user2.userImages[0]
                                         ? mismatch.user2.userImages[0].imageUrl
                                         : "https://picsum.photos/256/256"
-                                }
+                                    }
+                                alt='profile'
                                 className='mismatch-image'
                             ></img>
                         </div>
@@ -56,6 +57,7 @@ export default function Mismatches() {
                                         ? mismatch.user1.userImages[0].imageUrl
                                         : "https://picsum.photos/256/256"
                                 }
+                                alt='profile'
                             ></img>
                         </div>
                         <div className="mismatch-info-container">

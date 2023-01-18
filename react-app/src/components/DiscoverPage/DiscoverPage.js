@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { NavLink } from "react-router-dom";
 import { discoverUserLoad, addDislike, addLike } from "../../store/session";
 import './DiscoverPage.css';
 

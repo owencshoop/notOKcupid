@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
-import { discoverUserLoad, addDislike, addLike } from "../../store/session";
+import { discoverUserLoad} from "../../store/session";
 import '../ProfilePage/ProfileComponent.css';
 
 export default function DiscoverProfilePage() {
