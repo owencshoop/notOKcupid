@@ -50,7 +50,7 @@ const NavBar = () => {
                             activeClassName="active-nav"
                             className='nav-link'
                         >
-                        <img src={user_disc} id='nav-icon'/>
+                        <img src={user_disc} id='nav-icon' alt='discover'/>
                             Discover
                         </NavLink>
                     </div>
@@ -61,26 +61,26 @@ const NavBar = () => {
                             activeClassName="active-nav"
                             className='nav-link'
                         >
-                        <img src={heart} id='nav-icon' />
+                        <img src={heart} id='nav-icon' alt='heart'/>
                             Dislikes
                         </NavLink>
                     </div>
                     <div className='nav-link-box'>
                         <NavLink to="/questions" activeClassName="active-nav" className='nav-link'>
-                        <img src={magnify} id='nav-icon' />
+                        <img src={magnify} id='nav-icon' alt='questions'/>
                             Questions
                         </NavLink>
                     </div>
                     <div className='nav-link-box'>
                         <NavLink to="/mismatches" activeClassName="active-nav" className='nav-link'>
-                        <img src={message} id='nav-icon' />
+                        <img src={message} id='nav-icon' alt='mismatch'/>
                             Mismatches
                         </NavLink>
                     </div>
                     <div className='profile-logout'>
                         <div className='nav-link-box'>
                             <NavLink to="/profile" activeClassName="active-nav" className='nav-link'>
-                                <img src={user.userImages[0].imageUrl} id='profile-pic' />
+                                <img src={user.userImages[0].imageUrl} id='profile-pic' alt='profile'/>
                                 <span id='username-nav'>{user.username}</span>
                             </NavLink>
                         </div>
