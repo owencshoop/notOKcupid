@@ -1,0 +1,80 @@
+.splash-page {
+    margin-top: 0;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    padding-left: 100px;
+    padding-top: 50px;
+    /* border: 2px solid red; */
+}
+
+.splash-page, nav.splash-container {
+    animation: bgcolor 20s infinite;
+    animation-direction: alternate;
+    
+}
+
+@keyframes bgcolor {
+    0% {
+        background-color: #45a3e5
+    }
+
+    30% {
+        background-color: #66bf39
+    }
+
+    60% {
+        background-color: #eb670f
+    }
+
+    90% {
+        background-color: #f35
+    }
+
+    100% {
+        background-color: #864cbf
+    }
+}
+
+.splash-banner {
+    box-sizing: border-box;
+    /* padding-left: 100px;
+    padding-top: 50px; */
+}
+
+.splash-banner > h1 {
+    margin-top: 0px;
+    box-sizing: border-box;
+    color: white;
+    text-shadow: -4px 4px 2px #000,
+            1px 1px 2px #000,
+            1px -1px 0 #000,
+            -1px -1px 0 #000;
+}
+
+.splash-text {
+    box-sizing: border-box;
+    width: 35vw;
+}
+
+.splash-text > h2 {
+    font-weight: 300;
+    line-height: 40px;
+}
+
+.signup-link {
+    text-decoration: none;
+    background-color: #000;
+    color: white;
+    box-sizing: border-box;
+    width: 284px;
+    height: 62px;
+    padding:  20px 50px;
+    border-radius: 3px;
+    font-weight: bold;
+    letter-spacing: 1.1px;
+    text-align: center;
+    font-size: 1rem;
+}
+

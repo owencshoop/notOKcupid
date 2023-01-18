@@ -22,13 +22,13 @@ const NavBar = () => {
             </div>
             {!user && (
                 <div className='login-signup'>
-                    <div>
+                    
                         <OpenModalButton
-                            buttonText="Log In"
+                            buttonText="Sign In"
                             modalComponent={<LoginFormModal />}
                             className="login-button"
                         />
-                    </div>
+                    
                     {/* <div>
                         <NavLink
                             to="/sign-up"
