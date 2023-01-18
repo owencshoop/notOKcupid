@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { NavLink } from "react-router-dom";
 import { discoverUserLoad, addDislike, addLike } from "../../store/session";
+import './DiscoverPage.css';
 
 export default function Discover() {
     const users = useSelector((state) => state.session.discoverUsers);
@@ -35,7 +36,7 @@ export default function Discover() {
         const errors = []
         const newDislike = await dispatch(addDislike(user.id))
 
-        if (newDislike.errors){
+        if (newDislike.errors) {
             newDislike.errors.forEach(error => errors.push(error))
             setErrors(errors)
         }
@@ -47,7 +48,7 @@ export default function Discover() {
         const errors = []
         const newLike = await dispatch(addLike(user.id))
 
-        if (newLike.errors){
+        if (newLike.errors) {
             newLike.errors.forEach(error => errors.push(error))
             setErrors(errors)
         }
@@ -71,30 +72,32 @@ export default function Discover() {
     }
 
     return (
-        <>
+        <div className='discover-page-containter'>
             <ul>
                 {errors.map((error, idx) => <li key={idx}>{error}</li>)}
             </ul>
-            <div>
-                <button className="dislike-button" onClick={handleDislike}>Dislike</button>
-                <button className="like-button" onClick={handleLike}>Like</button>
-                <button onClick={updateUserNumber}>Skip</button>
-            </div>
-            <NavLink to={`/discover/${user.id}`}>
-                <img
-                    alt="discover-pic"
-                    src={
-                        user.userImages[0]
-                            ? user.userImages[0].imageUrl
-                            : "https://picsum.photos/256/256"
-                    }
-                />
-                <p>
+            <div className='discover-page-cards'>
+                <span>
                     {user.firstName[0].toUpperCase() + user.firstName.slice(1)}{" "}
                     • {user.age}
-                </p>
-                <p>Bio: {user.bio}</p>
-            </NavLink>
-        </>
+                </span>
+                <div>
+                    <button className="dislike-button" onClick={handleDislike}>Dislike</button>
+                    <button className="like-button" onClick={handleLike}>Like</button>
+                    <button onClick={updateUserNumber}>Skip</button>
+                </div>
+                <NavLink to={`/discover/${user.id}`}>
+                    <img
+                        alt="discover-pic"
+                        src={
+                            user.userImages[0]
+                                ? user.userImages[0].imageUrl
+                                : "https://picsum.photos/256/256"
+                        }
+                    />
+                    <p>Bio: {user.bio}</p>
+                </NavLink>
+            </div>
+        </div>
     );
 }

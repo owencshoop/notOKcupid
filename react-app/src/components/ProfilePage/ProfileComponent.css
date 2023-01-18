@@ -27,7 +27,7 @@
     border-radius: 100px;
 }
 
-.header-container {
+.profile-header-container {
     display: flex;
     flex-direction: column;
     padding-left: 20px;
@@ -61,6 +61,20 @@
     flex-direction: column;
     max-width: 528px;
     max-height: 137px;
+    width: 100%;
+    height: 100%;
+    border: solid 1px rgb(188, 185, 185, 0.2);
+    box-shadow: 0 0 10px 1px rgba(188, 185, 185, 0.2);
+    border-radius: 8px;
+    margin: 10px 0;
+    padding: 0 20px 20px 20px;
+}
+
+.profile-info-questions {
+    display: flex;
+    flex-direction: column;
+    max-width: 528px;
+    max-height: 157px;
     width: 100%;
     height: 100%;
     border: solid 1px rgb(188, 185, 185, 0.2);
