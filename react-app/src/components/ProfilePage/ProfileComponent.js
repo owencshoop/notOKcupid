@@ -4,7 +4,7 @@ import SingleQuestionForm from "../Questions/SingleQuestionForm";
 import { discoverUserLoad } from "../../store/session";
 import { NavLink } from "react-router-dom";
 import './ProfileComponent.css';
-import pencil from '../../assets/pencil.png'
+import pencil from '../../assets/pencil.png';
 
 export default function ProfilePage() {
     const user = useSelector((state) => state.session.user);
@@ -19,6 +19,12 @@ export default function ProfilePage() {
     if (!loaded) {
         return null;
     }
+
+    let userQuestionCount = 0
+    user.userAnswers.forEach(answer => {
+        if (answer.answer != null) userQuestionCount += 1;
+    });
+
 
     return (
         <div className='profile-container'>
@@ -54,6 +60,19 @@ export default function ProfilePage() {
                 <h3 className='prof-card-header'>About you</h3>
                 <div className='the-info'>
                     <span>{user.bio}</span>
+                </div>
+            </div>
+            <div className='profile-info'>
+                <h3 className='prof-card-header'>Questions answered</h3>
+                <div className='count-box'>
+                <div id='question-count'>{userQuestionCount}</div>
+                <span>Tip: Answer more questions to improve your Mismatch % with people on notOKcupid.</span>
+                </div>
+            </div>
+            <div className='profile-info'>
+                <h3 className='prof-card-header'>Highest possible mismatch</h3>
+                <div>
+                <span>Your highest possible match based on the questions you have answered.</span>
                 </div>
             </div>
             <div className='profile-info'>

@@ -100,5 +100,24 @@
     font-weight: bold;
     font-family: "GT America", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
     display: flex;
-    flex-direction: row; 
+    flex-direction: row;
+}
+
+.count-box{
+    display: flex;
+    flex-direction: column;
+    padding-top: 10px;
+    gap: 10px;
+}
+
+#question-count{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid white;
+    border-radius: 22px;
+    width: 40px;
+    height: 40px;
+    color: white;
+    background-color:rgb(242, 41, 141);
 }
