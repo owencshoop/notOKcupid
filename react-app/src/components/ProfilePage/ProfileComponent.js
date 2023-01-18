@@ -38,7 +38,7 @@ export default function ProfilePage() {
                         }
                         alt='profile-pic'
                     />
-                    <div className='header-container'>
+                    <div className='profile-header-container'>
                         <div className='name-update'>
                             <span id='username'>{user.username}</span>
                             <img id='pencil' src={pencil} />
@@ -75,7 +75,7 @@ export default function ProfilePage() {
                 <span>Your highest possible match based on the questions you have answered.</span>
                 </div>
             </div>
-            <div className='profile-info'>
+            <div className='profile-info-questions'>
                 <div>
                     <h3 className='prof-card-header3'>Answer more questions</h3>
                     <SingleQuestionForm />

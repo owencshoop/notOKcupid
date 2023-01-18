@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
 import { discoverUserLoad } from "../../store/session";
+import '../ProfilePage/ProfileComponent.css';
 
 export default function DiscoverProfilePage() {
     const { discoverId } = useParams()
@@ -25,8 +26,7 @@ export default function DiscoverProfilePage() {
     }
 
     return (
-        <div>
-
+        <div clasName='profile-container'>
             <h1>{discoverUser.username}'s Profile</h1>
             <img alt='discover-profile-pic'
                 src={
