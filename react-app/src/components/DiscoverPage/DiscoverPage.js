@@ -11,6 +11,12 @@ export default function Discover() {
     const [errors, setErrors] = useState([])
     const dispatch = useDispatch();
 
+    let usersList = null;
+
+    if (users) {
+        usersList = Object.values(users)
+    }
+
     useEffect(() => {
         dispatch(discoverUserLoad()).then(() => setLoaded(true));
     }, [dispatch]);
@@ -19,16 +25,25 @@ export default function Discover() {
         return null;
     }
 
-    const usersList = Object.values(users);
+    if (usersList.length === 0) {
+        return (
+            <h3 className="discover-page-containter">
+                No more users match your preferences, adjust preferences to see
+                more.
+            </h3>
+        );
+    }
+
 
     let user = usersList[userNumber];
 
-    const updateUserNumber = () => {
+    const updateUserNumber = async () => {
         if (userNumber === usersList.length - 1) {
             setUserNumber(0);
         } else {
             setUserNumber(userNumber + 1);
         }
+        await dispatch(discoverUserLoad())
     };
 
     const handleDislike = async (e) => {
@@ -40,7 +55,7 @@ export default function Discover() {
             newDislike.errors.forEach(error => errors.push(error))
             setErrors(errors)
         }
-        updateUserNumber()
+        await updateUserNumber()
     }
 
     const handleLike = async (e) => {
@@ -52,17 +67,9 @@ export default function Discover() {
             newLike.errors.forEach(error => errors.push(error))
             setErrors(errors)
         }
-        updateUserNumber()
+        await updateUserNumber()
     }
 
-    if (usersList.length === 0) {
-        return (
-            <h3>
-                No more users match your preferences, adjust preferences to see
-                more.
-            </h3>
-        );
-    }
 
     if (!loaded) {
         return null;
@@ -82,9 +89,9 @@ export default function Discover() {
                     • {user.age}
                 </span>
                 <div>
-                    <button className="dislike-button" onClick={handleDislike}>Dislike</button>
-                    <button className="like-button" onClick={handleLike}>Like</button>
-                    <button onClick={updateUserNumber}>Skip</button>
+                    <button className="dislike-button" onMouseUp={handleDislike}>Dislike</button>
+                    <button className="like-button" onMouseUp={handleLike}>Like</button>
+                    <button onMouseUp={updateUserNumber}>Skip</button>
                 </div>
                 <NavLink to={`/discover/${user.id}`}>
                     <img
