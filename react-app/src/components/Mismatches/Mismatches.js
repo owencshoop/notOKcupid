@@ -20,7 +20,7 @@ export default function Mismatches() {
             Mismatches
             </h1>
         </div>
-            <h1 className="mismatch-catch-message">Get good or get out!</h1>
+            <h2 className="mismatch-catch-message">You're too likeable.</h2>
         </>
     );
 

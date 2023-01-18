@@ -28,10 +28,17 @@ export default function Discover() {
 
     if (usersList.length === 0) {
         return (
-            <h3 className="discover-page-containter">
+            <>
+            <div className="discover-header-container">
+            <h1>
+            Discover
+            </h1>
+        </div>
+            <h2 className="discover-page-containter">
                 No more users match your preferences, adjust preferences to see
                 more.
-            </h3>
+            </h2>
+            </>
         );
     }
 
@@ -80,6 +87,12 @@ export default function Discover() {
     }
 
     return (
+        <>
+        <div className="discover-header-container">
+            <h1>
+            Discover
+            </h1>
+        </div>
         <div className='discover-page-containter'>
             <ul>
                 {errors.map((error, idx) => <li key={idx}>{error}</li>)}
@@ -102,8 +115,8 @@ export default function Discover() {
                         user.userImages[0]
                             ? user.userImages[0].imageUrl
                             : "https://picsum.photos/256/256"
-                    }
-                />
+                        }
+                        />
             </div>
             <div className='discover-info'>
             <h3 className='info-header'>About {user.firstName}</h3>
@@ -114,5 +127,6 @@ export default function Discover() {
             </div>
         </div>
         </div>
+                        </>
     );
 }
