@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { loadUsers } from '../../store/allUsers';
+import '../ProfilePage/ProfileComponent.css';
 
 function User() {
   const { userId } = useParams()
@@ -21,24 +22,31 @@ function User() {
     }
 
     return (
-        <div>
-
-            // <h1>{user.username}'s Profile</h1>
-            // <img alt='discover-profile-pic'
-                src={
-                    user.userImages[0]
-                        ? user.userImages[0].imageUrl
-                        : "https://picsum.photos/256/256"
-                }
-            />
-            <h3>Name: {user.firstName}</h3>
-            <p>Gender: {user.gender}</p>
-            <p>Preferred Genders: {user.preferredGenders}</p>
-            <p>
-                Age range: {user.minAge} - {user.maxAge}
-            </p>
-            <p>Bio: {user.bio}</p>
+        <div className='profile-container'>
+        <div className='top-profile-background'>
+            <div className='prof-header'>
+                <img alt='discover-profile-pic' id='profile-img'
+                    src={
+                        user.userImages[0]
+                            ? user.userImages[0].imageUrl
+                            : "https://picsum.photos/256/256"
+                    }
+                />
+                <div className='profile-header-container'>
+                    <span id='username'>{user.username}'s Profile</span>
+                    <span id='user-location'>{user.age} &middot; {user.city}, {user.state}</span>
+                </div>
+            </div>
         </div>
+        <div className='profile-info'>
+            <h3 className='prof-card-header'>About {user.firstName}</h3>
+            <div className='the-info'>
+                <span>Gender: {user.gender}</span>
+                <span>Preferred Genders: {user.preferredGenders}</span>
+                <span>Bio: {user.bio}</span>
+            </div>
+        </div>
+    </div >
     );
 }
 export default User
