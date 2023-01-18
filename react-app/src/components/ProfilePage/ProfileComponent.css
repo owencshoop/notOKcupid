@@ -1,0 +1,57 @@
+.profile-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    margin: auto;
+}
+
+.top-profile-background{
+    display: flex;
+    justify-content: center;
+    background-color: #1a1a1a;
+    width: 100vw;
+    height: 300px;
+    text-decoration: none;
+}
+
+.prof-header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#profile-img{
+    width: 150px;
+    border-radius: 100px;
+}
+
+.header-container{
+    display: flex;
+    flex-direction: column;
+    padding-left: 20px;
+    gap: 20px;
+}
+
+.name-update{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+#username{
+    font-size: 40px;
+    color: white;
+    font-family: “GT America”,“Helvetica Neue”,“Helvetica”,“Arial”,sans-serif;
+}
+
+#user-location{
+    font-size: 20px;
+    color: white;
+    font-family: “GT America”,“Helvetica Neue”,“Helvetica”,“Arial”,sans-serif;
+}
+
+#pencil{
+    height: 40px;
+}

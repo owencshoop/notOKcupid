@@ -23,7 +23,7 @@ const NavBar = () => {
                         <NavLink
                             to="/login"
                             exact={true}
-                            activeClassName="active"
+                            activeClassName="active-nav"
                             className='nav-link'
                         >
                             Login
@@ -33,7 +33,7 @@ const NavBar = () => {
                         <NavLink
                             to="/sign-up"
                             exact={true}
-                            activeClassName="active"
+                            activeClassName="active-nav"
                             className='nav-link'
                         >
                             SignUp
@@ -47,7 +47,7 @@ const NavBar = () => {
                         <NavLink
                             to="/discover"
                             exact={true}
-                            activeClassName="active"
+                            activeClassName="active-nav"
                             className='nav-link'
                         >
                         <img src={user_disc} id='nav-icon'/>
@@ -58,7 +58,7 @@ const NavBar = () => {
                         <NavLink
                             to="/dislikes"
                             exact={true}
-                            activeClassName="active"
+                            activeClassName="active-nav"
                             className='nav-link'
                         >
                         <img src={heart} id='nav-icon' />
@@ -66,22 +66,22 @@ const NavBar = () => {
                         </NavLink>
                     </div>
                     <div>
-                        <NavLink to="/questions" activeClassName="active" className='nav-link'>
+                        <NavLink to="/questions" activeClassName="active-nav" className='nav-link'>
                         <img src={magnify} id='nav-icon' />
                             Questions
                         </NavLink>
                     </div>
                     <div>
-                        <NavLink to="/mismatches" activeClassName="active" className='nav-link'>
+                        <NavLink to="/mismatches" activeClassName="active-nav" className='nav-link'>
                         <img src={message} id='nav-icon' />
                             Mismatches
                         </NavLink>
                     </div>
                     <div className='profile-logout'>
                         <div>
-                            <NavLink to="/profile" activeClassName="active" className='nav-link'>
+                            <NavLink to="/profile" activeClassName="active-nav" className='nav-link'>
                                 <img src={user.userImages[0].imageUrl} id='profile-pic' />
-                                <span id='username'>{user.username}</span>
+                                <span id='username-nav'>{user.username}</span>
                             </NavLink>
                         </div>
                         <div>

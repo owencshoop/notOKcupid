@@ -2,21 +2,21 @@ import React, { useState, useEffect } from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import LoginForm from "./components/auth/LoginForm";
-import SignUpForm from "./components/auth/SignUpForm";
+import SignUpForm from "./components/SignUpUpdateForm/SignUpForm";
 import NavBar from "./components/NavigationBar/NavBar";
 import ProtectedRoute from "./components/auth/ProtectedRoute";
 import UsersList from "./components/Users/UsersList";
 import User from "./components/Users/User";
 import DislikesLikesComponents from "./components/DislikesLikesComponents";
 import Discover from "./components/DiscoverPage/DiscoverPage";
-import QuestionAnswerForm from "./components/auth/QuestionForm";
+import QuestionAnswerForm from "./components/Questions/QuestionForm";
 import ProfilePage from "./components/ProfilePage/ProfileComponent";
 import DiscoverProfilePage from './components/DiscoverProfilePage/DiscoverProfileComponent';
 import MismatchMessages from "./components/MismatchMessage";
 
 import { authenticate } from "./store/session";
 import Mismatches from "./components/Mismatches/Mismatches";
-import UpdateUserForm from "./components/auth/UpdateUserForm";
+import UpdateUserForm from "./components/SignUpUpdateForm/UpdateUserForm";
 
 function App() {
     const [loaded, setLoaded] = useState(false);
