@@ -25,7 +25,7 @@ def send_message(id):
       recipient=mismatch.user1_id if current_user.id != mismatch.user1_id else mismatch.user2_id,
       mismatch_id=mismatch.id,
       text=form.data['text'],
-      date_time=datetime.now().strftime("%d/%m/%Y %H:%M:%S")
+      date_time=datetime.now().strftime("%m/%d/%Y %H:%M")
     )
 
     db.session.add(new_message)

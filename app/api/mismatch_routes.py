@@ -11,8 +11,8 @@ mismatch_routes = Blueprint('mismatches', __name__)
 def get_mismatch(id):
     mismatches = Mismatch.query.filter(or_(
         Mismatch.user1_id == id, Mismatch.user2_id == id)).all()
-    if not mismatches:
-        return {"errors": ["no matches found"]}, 404
+    # if not mismatches:
+    #     return {"errors": ["no matches found"]}, 404
     return {'mismatches': [mismatch.to_dict() for mismatch in mismatches]}, 200
     # return current_user.to_dict(), 200
 
