@@ -1,4 +1,4 @@
-.profile-container{
+.profile-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -7,7 +7,7 @@
     margin: auto;
 }
 
-.top-profile-background{
+.top-profile-background {
     display: flex;
     justify-content: center;
     background-color: #1a1a1a;
@@ -16,43 +16,43 @@
     text-decoration: none;
 }
 
-.prof-header{
+.prof-header {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-#profile-img{
+#profile-img {
     width: 150px;
     border-radius: 100px;
 }
 
-.header-container{
+.header-container {
     display: flex;
     flex-direction: column;
     padding-left: 20px;
     gap: 20px;
 }
 
-.name-update{
+.name-update {
     display: flex;
     flex-direction: row;
     gap: 10px;
 }
 
-#username{
+#username {
     font-size: 40px;
     color: white;
-    font-family: “GT America”,“Helvetica Neue”,“Helvetica”,“Arial”,sans-serif;
+    font-family: “GT America”, “Helvetica Neue”, “Helvetica”, “Arial”, sans-serif;
 }
 
-#user-location{
+#user-location {
     font-size: 20px;
     color: white;
-    font-family: “GT America”,“Helvetica Neue”,“Helvetica”,“Arial”,sans-serif;
+    font-family: “GT America”, “Helvetica Neue”, “Helvetica”, “Arial”, sans-serif;
 }
 
-#pencil{
+#pencil {
     height: 40px;
 }
 
@@ -70,7 +70,7 @@
     padding: 0 20px 20px 20px;
 }
 
-.prof-card-header{
+.prof-card-header {
     background-color: #1a1a1a;
     color: white;
     width: calc(100% + 20px);
@@ -79,8 +79,45 @@
     padding: 5px 0 5px 20px;
 }
 
-.the-info{
+.the-info {
     display: flex;
     flex-direction: column;
     padding-top: 10px;
+}
+
+.prof-card-header3 {
+    background-color: #1a1a1a;
+    color: white;
+    width: calc(100% + 20px);
+    margin: 0 -20px;
+    margin-bottom: 10px;
+    border-radius: 8px 8px 0 0;
+    padding: 5px 0 5px 20px;
+}
+
+.the-info>span {
+    color: rgb(242, 41, 141);
+    font-weight: bold;
+    font-family: "GT America", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+    display: flex;
+    flex-direction: row;
+}
+
+.count-box{
+    display: flex;
+    flex-direction: column;
+    padding-top: 10px;
+    gap: 10px;
+}
+
+#question-count{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid white;
+    border-radius: 22px;
+    width: 40px;
+    height: 40px;
+    color: white;
+    background-color:rgb(242, 41, 141);
 }
