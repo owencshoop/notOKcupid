@@ -3,11 +3,20 @@ import { useSelector, useDispatch } from "react-redux";
 import { NavLink } from "react-router-dom";
 import { getMismatches } from "../../store/mismatchReducer";
 
+
 export default function Mismatches() {
     const dispatch = useDispatch();
-    const mismatches = Object.values(useSelector((state) => state.mistmatches));
+    const mismatches = Object.values(useSelector((state) => state.mismatches));
     const user = useSelector((state) => state.session.user);
     console.log("comp mismatch", mismatches);
+
+    useEffect(() => {
+        dispatch(getMismatches(user.id));
+    }, [dispatch]);
+
+    if (!mismatches.length) return (
+        <h1>Get good or get out!</h1>
+    );
 
     const mismatch_info = mismatches.map((mismatch) => {
         if (mismatch.user1Id === user.id) {
@@ -50,11 +59,7 @@ export default function Mismatches() {
             );
         }
     });
-    useEffect(() => {
-        dispatch(getMismatches(user.id));
-    }, []);
 
-    if (!mismatches) return null;
 
     return <div>{mismatch_info}</div>;
 }
