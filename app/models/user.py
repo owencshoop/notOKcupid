@@ -195,7 +195,7 @@ class UserAnswer(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('users.id')), nullable=False)
     question_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('questions.id')), nullable=False)
-    answer = db.Column(db.Integer)
+    answer = db.Column(db.String)
 
     user = db.relationship('User', back_populates='user_answers')
     question = db.relationship('Question', back_populates='user_answers')
