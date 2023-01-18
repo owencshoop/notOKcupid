@@ -64,7 +64,7 @@ const SingleQuestionForm = () => {
                 <div id='question'>{question?.question.question}</div>
                 <div className='input-containter'>
                     <div id='answers'>
-                        <input
+                        {/* <input
                             type="radio"
                             id="answer1"
                             name="answer"
@@ -77,10 +77,19 @@ const SingleQuestionForm = () => {
                             }}
                             checked={question.answer === question.question.answer1}
                         ></input>
-                        <label htmlFor="answer1">{question?.question.answer1}</label>
+                        <label htmlFor="answer1">{question?.question.answer1}</label> */}
+                        <button
+                            id="answer1"
+                            name="answer"
+                            value={question.question.answer1}
+                            onClick={(e) => {
+                                dispatch(updateAnswer(question.id, e.target.value, user.id))
+                            }}
+                            className='button-option'
+                        >{question.question.answer1}</button>
                     </div>
                     <div id='answers'>
-                        <input
+                        {/* <input
                             type="radio"
                             id="answer2"
                             name="answer"
@@ -93,7 +102,17 @@ const SingleQuestionForm = () => {
                             }}
                             checked={question.answer === question.question.answer2}
                         ></input>
-                        <label htmlFor="answer1">{question.question.answer2}</label>
+                        <label htmlFor="answer1">{question.question.answer2}</label> */}
+                        <button
+                            id="answer2"
+                            name="answer"
+
+                            value={question.question.answer2}
+                            onClick={(e) => {
+                                dispatch(updateAnswer(question.id, e.target.value, user.id))
+                            }}
+                            className='button-option'
+                        >{question.question.answer2}</button>
                     </div>
                 </div>
                 <li className="question-divider"></li>
