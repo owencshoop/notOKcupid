@@ -42,21 +42,26 @@ export default function ProfilePage() {
                 </div>
             </NavLink>
             <div className='profile-info'>
-                <h3>Name: {user.firstName}</h3>
-                <span>Gender: {user.gender}</span>
-                <p>Preferred Genders: {user.preferredGenders}</p>
-                <p>
-                    Age range: {user.minAge} - {user.maxAge}
-                </p>
+                <h3 className='prof-card-header'>Your Preferences</h3>
+                <div className='the-info'>
+                    <span>Name: {user.firstName}</span>
+                    <span>Gender: {user.gender}</span>
+                    <span>Preferred Genders: {user.preferredGenders}</span>
+                    <span>Age range: {user.minAge} - {user.maxAge}</span>
+                </div>
             </div>
             <div className='profile-info'>
-                <p>Bio: {user.bio}</p>
+                <h3 className='prof-card-header'>About you</h3>
+                <div className='the-info'>
+                    <p>{user.bio}</p>
+                </div>
             </div>
-            <div>
-                <h4>Answer more questions</h4>
-                <SingleQuestionForm />
+            <div className='profile-info'>
+                <div>
+                    <h3 className='prof-card-header'>Answer more questions</h3>
+                    <SingleQuestionForm />
+                </div>
             </div>
-
-        </div>
+        </div >
     );
 }
