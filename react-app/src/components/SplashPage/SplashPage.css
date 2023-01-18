@@ -55,7 +55,8 @@
 
 .splash-text {
     box-sizing: border-box;
-    width: 35vw;
+    width: 35vw; 
+    margin-bottom: 50px;
 }
 
 .splash-text > h2 {

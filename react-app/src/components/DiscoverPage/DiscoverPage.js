@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { NavLink } from "react-router-dom";
 import { discoverUserLoad, addDislike, addLike } from "../../store/session";
 import './DiscoverPage.css';
+import heart from '../../assets/heart.png';
+import thumb from '../../assets/thumb.jpeg';
 
 export default function Discover() {
     const users = useSelector((state) => state.session.discoverUsers);
@@ -89,9 +90,9 @@ export default function Discover() {
                     <span>{user.firstName[0].toUpperCase() + user.firstName.slice(1)}{" "}</span>
                     <span>{user.age} • {user.city}, {user.state}</span>
                     </div>
-                    <div className='buttons-containers'>
-                        <button className="dislike-button" onMouseUp={handleDislike}>Dislike</button>
-                        <button className="like-button" onMouseUp={handleLike}>Like</button>
+                    <div className='buttons-container'>
+                        <button className="dislike-button" onMouseUp={handleDislike}><img id='discover-button-icons' src={heart} />Dislike</button>
+                        <button className="like-button" onMouseUp={handleLike}><img id='thumb' src={thumb} />Like</button>
                         <button onMouseUp={updateUserNumber} className='skip-button'>Skip</button>
                     </div>
                 </div>
