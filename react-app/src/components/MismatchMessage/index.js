@@ -3,6 +3,8 @@ import { useSelector, useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
 import { getMismatches, sendMessage } from "../../store/mismatchReducer";
 import './MismatchMessage.css'
+import reload from '../../assets/reload-image.png'
+import send from '../../assets/send-arrow.png'
 
 export default function MismatchMessages() {
     const { mismatchId } = useParams()
@@ -35,6 +37,12 @@ export default function MismatchMessages() {
       setMessage('')
     }
 
+    const onReloadClick = async (e) => {
+      dispatch(getMismatches(user.id))
+      .then(() => setLoaded(true));
+    }
+
+
     return (
        <div id='chat-container'>
         <div id='chat-box'>
@@ -47,17 +55,22 @@ export default function MismatchMessages() {
               <p>No messages yet, start the conversation.</p>
               )}
         </div>
-        <form onSubmit={onMessageSubmit}>
-        <label>Message</label>
-        <input
-          required={true}
-          type='text'
-          name='message'
-          onChange={(e) => setMessage(e.target.value)}
-          value={message}
-        ></input>
-        <button type='submit'>Send</button>
-        </form>
+          <form onSubmit={onMessageSubmit}>
+            <div className="chat-input-field">
+          <input
+            id="text-input-for-messages"
+            required={true}
+            type='text'
+            name='message'
+            onChange={(e) => setMessage(e.target.value)}
+            value={message}
+            ></input>
+          <img onClick={onReloadClick} src={reload} alt='Reload messages' id='reload-message-icon'/>
+          <button type='submit' id='send-arrow-icon'>
+            <img src={send} alt='Send button' id='send-arrow-icon' />
+          </button>
+            </div>
+          </form>
        </div>
     );
 }
