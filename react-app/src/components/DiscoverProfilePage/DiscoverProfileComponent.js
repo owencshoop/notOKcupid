@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
-import { discoverUserLoad } from "../../store/session";
+import { discoverUserLoad, addDislike, addLike } from "../../store/session";
 import '../ProfilePage/ProfileComponent.css';
 
 export default function DiscoverProfilePage() {
@@ -10,15 +10,16 @@ export default function DiscoverProfilePage() {
     const [loaded, setLoaded] = useState(false);
     const dispatch = useDispatch();
 
+
     let discoverUser = null
-    if (discoverUsers){
+    if (discoverUsers) {
         discoverUser = Object.values(discoverUsers).filter((user) => user.id === +discoverId)[0]
     }
 
 
     useEffect(() => {
         dispatch(discoverUserLoad())
-        .then(() => setLoaded(true));
+            .then(() => setLoaded(true));
     }, [dispatch]);
 
     if (!loaded) {
@@ -26,22 +27,33 @@ export default function DiscoverProfilePage() {
     }
 
     return (
-        <div clasName='profile-container'>
-            <h1>{discoverUser.username}'s Profile</h1>
-            <img alt='discover-profile-pic'
-                src={
-                    discoverUser.userImages[0]
-                        ? discoverUser.userImages[0].imageUrl
-                        : "https://picsum.photos/256/256"
-                }
-            />
-            <h3>Name: {discoverUser.firstName}</h3>
-            <p>Gender: {discoverUser.gender}</p>
-            <p>Preferred Genders: {discoverUser.preferredGenders}</p>
-            <p>
-                Age range: {discoverUser.minAge} - {discoverUser.maxAge}
-            </p>
-            <p>Bio: {discoverUser.bio}</p>
-        </div>
+        <div className='profile-container'>
+            <div className='top-profile-background'>
+                <div className='prof-header'>
+                    <img alt='discover-profile-pic' id='profile-img'
+                        src={
+                            discoverUser.userImages[0]
+                                ? discoverUser.userImages[0].imageUrl
+                                : "https://picsum.photos/256/256"
+                        }
+                    />
+                    <div className='profile-header-container'>
+                        <span id='username'>{discoverUser.username}'s Profile</span>
+                        <span id='user-location'>{discoverUser.age} &middot; {discoverUser.city}, {discoverUser.state}</span>
+                    </div>
+                </div>
+            </div>
+            <div className='profile-info'>
+                <button>Delete mismatch</button>
+            </div>
+            <div className='profile-info'>
+                <h3 className='prof-card-header'>About {discoverUser.firstName}</h3>
+                <div className='the-info'>
+                    <span>Gender: {discoverUser.gender}</span>
+                    <span>Preferred Genders: {discoverUser.preferredGenders}</span>
+                    <span>Bio: {discoverUser.bio}</span>
+                </div>
+            </div>
+        </div >
     );
 }
