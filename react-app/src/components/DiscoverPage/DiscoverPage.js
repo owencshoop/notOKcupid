@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { NavLink } from "react-router-dom";
 import { discoverUserLoad, addDislike, addLike } from "../../store/session";
+import './DiscoverPage.css';
 
 export default function Discover() {
     const users = useSelector((state) => state.session.discoverUsers);
@@ -10,19 +11,34 @@ export default function Discover() {
     const [errors, setErrors] = useState([])
     const dispatch = useDispatch();
 
+    let usersList = null;
+
+    if (users) {
+        usersList = Object.values(users)
+    }
+
     useEffect(() => {
         dispatch(discoverUserLoad()).then(() => setLoaded(true));
-    }, [dispatch]);
+    }, [dispatch, loaded]);
 
     if (!users) {
         return null;
     }
 
-    const usersList = Object.values(users);
+    if (usersList.length === 0) {
+        return (
+            <h3 className="discover-page-containter">
+                No more users match your preferences, adjust preferences to see
+                more.
+            </h3>
+        );
+    }
+
 
     let user = usersList[userNumber];
 
-    const updateUserNumber = () => {
+    const updateUserNumber = async () => {
+        setLoaded(false)
         if (userNumber === usersList.length - 1) {
             setUserNumber(0);
         } else {
@@ -34,34 +50,26 @@ export default function Discover() {
         e.preventDefault()
         const errors = []
         const newDislike = await dispatch(addDislike(user.id))
+        setLoaded(false)
 
-        if (newDislike.errors){
+        if (newDislike.errors) {
             newDislike.errors.forEach(error => errors.push(error))
             setErrors(errors)
         }
-        updateUserNumber()
     }
 
     const handleLike = async (e) => {
         e.preventDefault()
         const errors = []
         const newLike = await dispatch(addLike(user.id))
+        setLoaded(false)
 
-        if (newLike.errors){
+        if (newLike.errors) {
             newLike.errors.forEach(error => errors.push(error))
             setErrors(errors)
         }
-        updateUserNumber()
     }
 
-    if (usersList.length === 0) {
-        return (
-            <h3>
-                No more users match your preferences, adjust preferences to see
-                more.
-            </h3>
-        );
-    }
 
     if (!loaded) {
         return null;
@@ -71,30 +79,32 @@ export default function Discover() {
     }
 
     return (
-        <>
+        <div className='discover-page-containter'>
             <ul>
                 {errors.map((error, idx) => <li key={idx}>{error}</li>)}
             </ul>
-            <div>
-                <button className="dislike-button" onClick={handleDislike}>Dislike</button>
-                <button className="like-button" onClick={handleLike}>Like</button>
-                <button onClick={updateUserNumber}>Skip</button>
-            </div>
-            <NavLink to={`/discover/${user.id}`}>
-                <img
-                    alt="discover-pic"
-                    src={
-                        user.userImages[0]
-                            ? user.userImages[0].imageUrl
-                            : "https://picsum.photos/256/256"
-                    }
-                />
-                <p>
+            <div className='discover-page-cards'>
+                <span>
                     {user.firstName[0].toUpperCase() + user.firstName.slice(1)}{" "}
                     • {user.age}
-                </p>
-                <p>Bio: {user.bio}</p>
-            </NavLink>
-        </>
+                </span>
+                <div>
+                    <button className="dislike-button" onMouseUp={handleDislike}>Dislike</button>
+                    <button className="like-button" onMouseUp={handleLike}>Like</button>
+                    <button onMouseUp={updateUserNumber}>Skip</button>
+                </div>
+                <NavLink to={`/discover/${user.id}`}>
+                    <img
+                        alt="discover-pic"
+                        src={
+                            user.userImages[0]
+                                ? user.userImages[0].imageUrl
+                                : "https://picsum.photos/256/256"
+                        }
+                    />
+                    <p>Bio: {user.bio}</p>
+                </NavLink>
+            </div>
+        </div>
     );
 }

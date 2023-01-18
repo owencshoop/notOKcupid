@@ -19,7 +19,7 @@ const loadDiscoverUsers = (discoverUser) => ({
 
 const initialState = { user: null, discoverUsers: null };
 
-export const discoverUserLoad = () => async(dispatch) => {
+export const discoverUserLoad = () => async (dispatch) => {
   const response = await fetch('/api/users/discover')
 
   if (response.ok) {

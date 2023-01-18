@@ -4,7 +4,7 @@ import SingleQuestionForm from "../Questions/SingleQuestionForm";
 import { discoverUserLoad } from "../../store/session";
 import { NavLink } from "react-router-dom";
 import './ProfileComponent.css';
-import pencil from '../../assets/pencil.png'
+import pencil from '../../assets/pencil.png';
 
 export default function ProfilePage() {
     const user = useSelector((state) => state.session.user);
@@ -20,6 +20,12 @@ export default function ProfilePage() {
         return null;
     }
 
+    let userQuestionCount = 0
+    user.userAnswers.forEach(answer => {
+        if (answer.answer != null) userQuestionCount += 1;
+    });
+
+
     return (
         <div className='profile-container'>
             <NavLink to='/profile/update' className='top-profile-background'>
@@ -32,7 +38,7 @@ export default function ProfilePage() {
                         }
                         alt='profile-pic'
                     />
-                    <div className='header-container'>
+                    <div className='profile-header-container'>
                         <div className='name-update'>
                             <span id='username'>{user.username}</span>
                             <img id='pencil' src={pencil} />
@@ -53,12 +59,25 @@ export default function ProfilePage() {
             <div className='profile-info'>
                 <h3 className='prof-card-header'>About you</h3>
                 <div className='the-info'>
-                    <p>{user.bio}</p>
+                    <span>{user.bio}</span>
                 </div>
             </div>
             <div className='profile-info'>
+                <h3 className='prof-card-header'>Questions answered</h3>
+                <div className='count-box'>
+                <div id='question-count'>{userQuestionCount}</div>
+                <span>Tip: Answer more questions to improve your Mismatch % with people on notOKcupid.</span>
+                </div>
+            </div>
+            <div className='profile-info'>
+                <h3 className='prof-card-header'>Highest possible mismatch</h3>
                 <div>
-                    <h3 className='prof-card-header'>Answer more questions</h3>
+                <span>Your highest possible match based on the questions you have answered.</span>
+                </div>
+            </div>
+            <div className='profile-info-questions'>
+                <div>
+                    <h3 className='prof-card-header3'>Answer more questions</h3>
                     <SingleQuestionForm />
                 </div>
             </div>
