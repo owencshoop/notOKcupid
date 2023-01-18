@@ -19,7 +19,7 @@ export default function Discover() {
 
     useEffect(() => {
         dispatch(discoverUserLoad()).then(() => setLoaded(true));
-    }, [dispatch]);
+    }, [dispatch, loaded]);
 
     if (!users) {
         return null;
@@ -38,36 +38,36 @@ export default function Discover() {
     let user = usersList[userNumber];
 
     const updateUserNumber = async () => {
+        setLoaded(false)
         if (userNumber === usersList.length - 1) {
             setUserNumber(0);
         } else {
             setUserNumber(userNumber + 1);
         }
-        await dispatch(discoverUserLoad())
     };
 
     const handleDislike = async (e) => {
         e.preventDefault()
         const errors = []
         const newDislike = await dispatch(addDislike(user.id))
+        setLoaded(false)
 
         if (newDislike.errors) {
             newDislike.errors.forEach(error => errors.push(error))
             setErrors(errors)
         }
-        await updateUserNumber()
     }
 
     const handleLike = async (e) => {
         e.preventDefault()
         const errors = []
         const newLike = await dispatch(addLike(user.id))
+        setLoaded(false)
 
         if (newLike.errors) {
             newLike.errors.forEach(error => errors.push(error))
             setErrors(errors)
         }
-        await updateUserNumber()
     }
 
 
