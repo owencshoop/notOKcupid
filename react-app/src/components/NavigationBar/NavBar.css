@@ -124,6 +124,10 @@
     margin-right: 65px;
 }
 
+.login-open-button:hover{
+    cursor: pointer;
+}
+
 .login-signup {
     font-size: 12px;
 }
