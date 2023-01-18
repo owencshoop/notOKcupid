@@ -2,35 +2,43 @@ import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { login } from '../../store/session';
+import { useModal } from '../../context/Modal';
 
-const LoginForm = () => {
+const LoginFormModal = () => {
   const [errors, setErrors] = useState([]);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const user = useSelector(state => state.session.user);
   const dispatch = useDispatch();
 
+  const { closeModal } = useModal();
+
+
   const onLogin = async (e) => {
     e.preventDefault();
-    const data = await dispatch(login(email, password));
+    const data = await dispatch(login(email, password))
     if (data) {
       setErrors(data);
     }
+    await closeModal()
   };
 
   const demoLogin = async (e) => {
     e.preventDefault();
-    const data = await dispatch(login('demo@aa.io', 'password'));
+    const data = await dispatch(login('demo@aa.io', 'password'))
     if (data) {
       setErrors(data);
     }
+    await closeModal()
+      
   };
   const demoLogin2 = async (e) => {
     e.preventDefault();
-    const data = await dispatch(login('demo@user.io', 'password'));
+    const data = await dispatch(login('demo@user.io', 'password'))
     if (data) {
       setErrors(data);
     }
+    await closeModal()
   };
 
   const updateEmail = (e) => {
@@ -41,8 +49,9 @@ const LoginForm = () => {
     setPassword(e.target.value);
   };
 
+
   if (user) {
-    return <Redirect to='/' />;
+    return <Redirect to='/discover' />
   }
 
   return (
@@ -81,4 +90,4 @@ const LoginForm = () => {
   );
 };
 
-export default LoginForm;
+export default LoginFormModal;
