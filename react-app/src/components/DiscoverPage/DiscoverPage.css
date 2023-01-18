@@ -22,7 +22,7 @@
     margin: 10px 0;
 }
 
-.discover-page-top{
+.discover-page-top {
     display: flex;
     justify-content: space-between;
     padding-bottom: 20px;
@@ -59,4 +59,53 @@
 
 button:hover {
     cursor: pointer;
+}
+
+.buttons-container {
+    display: flex;
+    gap: 35px;
+}
+
+.dislike-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    width: 100px;
+    border-radius: 24px;
+    font-size: 18px;
+    border: none;
+    color: white;
+    background-color: rgb(242, 41, 141);
+}
+
+.like-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    width: 100px;
+    border-radius: 24px;
+    font-size: 18px;
+    color: white;
+    background-color: #2a2f35;
+    border: none;
+}
+
+.skip-button {
+    width: 100px;
+    border-radius: 24px;
+    font-size: 18px;
+    border: 1px solid black;
+    background-color: white;
+}
+
+#discover-button-icons {
+    width: 20px;
+}
+
+#thumb {
+    width: 20px;
+    background-color: #2a2f35;
+    color: white;
 }
