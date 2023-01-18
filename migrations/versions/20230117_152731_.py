@@ -1,8 +1,8 @@
 """empty message
 
-Revision ID: 863ae13ebd4a
-Revises:
-Create Date: 2023-01-17 09:46:21.141738
+Revision ID: ac3c15dac497
+Revises: 
+Create Date: 2023-01-17 15:27:31.799089
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '863ae13ebd4a'
+revision = 'ac3c15dac497'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -74,7 +74,7 @@ def upgrade():
     )
     op.create_table('user_images',
     sa.Column('id', sa.Integer(), nullable=False),
-    sa.Column('image_url', sa.Text(length=1000), nullable=False),
+    sa.Column('image_url', sa.Text(), nullable=False),
     sa.Column('user_id', sa.Integer(), nullable=False),
     sa.ForeignKeyConstraint(['user_id'], ['users.id'], ),
     sa.PrimaryKeyConstraint('id')
@@ -84,7 +84,7 @@ def upgrade():
     sa.Column('sender', sa.Integer(), nullable=False),
     sa.Column('recipient', sa.Integer(), nullable=False),
     sa.Column('mismatch_id', sa.Integer(), nullable=False),
-    sa.Column('text', sa.Text(length=1000), nullable=False),
+    sa.Column('text', sa.Text(), nullable=False),
     sa.Column('date_time', sa.String(length=255), nullable=True),
     sa.ForeignKeyConstraint(['mismatch_id'], ['mismatches.id'], ),
     sa.ForeignKeyConstraint(['recipient'], ['users.id'], ),
