@@ -9,7 +9,11 @@ export default function DiscoverProfilePage() {
     const [loaded, setLoaded] = useState(false);
     const dispatch = useDispatch();
 
-    const discoverUser = Object.values(discoverUsers).filter((user) => user.id === +discoverId)[0]
+    let discoverUser = null
+    if (discoverUsers){
+        discoverUser = Object.values(discoverUsers).filter((user) => user.id === +discoverId)[0]
+    }
+
 
     useEffect(() => {
         dispatch(discoverUserLoad())
