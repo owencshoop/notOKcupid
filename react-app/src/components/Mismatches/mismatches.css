@@ -82,3 +82,9 @@
     align-items: center;
     justify-content: center;
 }
+
+.mismatch-catch-message {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

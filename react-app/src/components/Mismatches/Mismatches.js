@@ -14,9 +14,14 @@ export default function Mismatches() {
     }, [dispatch]);
 
     if (!mismatches.length) return (
-        <div className="header-container">Mismatches
-            <h1 className="all-mismatch-container">Get good or get out!</h1>
+        <>
+        <div className="mismatch-header-container">
+            <h1>
+            Mismatches
+            </h1>
         </div>
+            <h1 className="mismatch-catch-message">Get good or get out!</h1>
+        </>
     );
 
     const mismatch_info = mismatches.map((mismatch) => {
