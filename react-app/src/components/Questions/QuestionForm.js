@@ -44,7 +44,7 @@ const QuestionAnswerForm = () => {
 
     return (
         <div className='questions-container'>
-            {content.map((question) => (
+            {/* {content.map((question) => (
                 <form className='questions-form' onSubmit={(e) => e.preventDefault()} key={question.id}>
                     <div>
                         {errors.map((error, ind) => (
@@ -82,7 +82,44 @@ const QuestionAnswerForm = () => {
                                 ></input>
                                 <label htmlFor="answer1">{question.question.answer2}</label>
                             </div>
+                        </div> */}
+
+                        {content.map((question) => (
+                <form className='questions-form' onSubmit={(e) => e.preventDefault()} key={question.id}>
+                    <div>
+                        {errors.map((error, ind) => (
+                            <div key={ind}>{error}</div>
+                        ))}
+                    </div>
+                    <div className='question-cards'>
+                        <div id='question'>{question.question.question}</div>
+                        <div className='input-containter'>
+                            <div id='answers'>
+                                <button
+                                    id="answer1"
+                                    name="answer"
+                                    value={question.question.answer1}
+                                    onClick={(e) => {
+                                        dispatch(updateAnswer(question.id, e.target.value, user.id))
+                                    }}
+                                    className={question.answer === question.question.answer1 ? 'current-answer' : 'button-option'}
+                                >{question.question.answer1}</button>
+                            </div>
+                            <div id='answers'>
+                                <button
+                                    id="answer2"
+                                    name="answer"
+
+                                    value={question.question.answer2}
+                                    onClick={(e) => {
+                                        dispatch(updateAnswer(question.id, e.target.value, user.id))
+                                    }}
+                                    className={question.answer === question.question.answer2 ? 'current-answer' : 'button-option'}
+                                >{question.question.answer2}</button>
+                            </div>
                         </div>
+                        {question.answer ?
+                        <>
                         <li className="question-divider"></li>
                         <div className='question-button-container'>
                             <button className='question-button'
@@ -90,10 +127,12 @@ const QuestionAnswerForm = () => {
                                 onClick={(e) => {
                                     dispatch(updateAnswer(question.id, null, user.id))
                                 }}
-                            >
-                                {question.answer ? "Delete Answer" : "Skip"}
+                                >
+                                Delete Answer
                             </button>
                         </div>
+                                    </>
+                            : null }
                     </div>
                 </form>
             ))}

@@ -8,7 +8,6 @@ export default function Mismatches() {
     const dispatch = useDispatch();
     const mismatches = Object.values(useSelector((state) => state.mismatches));
     const user = useSelector((state) => state.session.user);
-    console.log("comp mismatch", mismatches);
 
     useEffect(() => {
         dispatch(getMismatches(user.id));

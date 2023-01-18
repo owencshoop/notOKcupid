@@ -12,11 +12,10 @@
 #chat-box {
   display: flex;
   flex-direction: column;
-  width: 100%;
+  width: 99.06%;
   height: 100%;
   overflow-y: auto;
   overflow-x: hidden;
-  overflow-anchor: none;
   margin: 5px;
 }
 
@@ -25,14 +24,14 @@ div.sent {
   font-family: "GT America","Helvetica Neue","Helvetica","Arial",sans-serif;
   color: #2a2f35;
   font-weight: bold;
-  margin: 2px 5px;
+  margin: 2px 5px 2px 5px;
   padding: 5px;
   border-radius: .5rem;
   display: flex;
   width: fit-content;
   float: right;
   max-width: 50%;
-  overflow-anchor: none;
+
 }
 
 div.time-sent {
@@ -43,7 +42,6 @@ div.time-sent {
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  overflow-anchor: none;
 }
 
 div.received {
@@ -57,7 +55,6 @@ div.received {
   width: fit-content;
   float: left;
   max-width: 50%;
-  overflow-anchor: none;
 }
 
 div.time-received {
@@ -67,12 +64,8 @@ div.time-received {
   border-radius: .5rem;
   display: flex;
   align-items: center;
-  overflow-anchor: none;
 }
 
-div.date-and-text {
-  overflow-anchor: auto;
-}
 
 div.chat-input-field {
   display: flex;
@@ -81,6 +74,7 @@ div.chat-input-field {
   align-items: center;
   justify-content: center;
   width: auto;
+
 }
 
 #chat-intro-bit {
@@ -95,6 +89,7 @@ div.chat-input-field {
   width: 20px;
   border-radius: .3rem;
   margin-right: 5px;
+  cursor: pointer;
 }
 
 
@@ -105,6 +100,7 @@ button#send-arrow-icon, #send-arrow-icon {
   border-radius: .3rem;
   height: 20px;
   width: 20px;
+  cursor: pointer;
 }
 
 
