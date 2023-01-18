@@ -53,7 +53,8 @@
 
 .delete-dislike:hover {
     background-color: rgb(242, 41, 141);
-    color: black
+    color: black;
+    cursor: pointer;
 }
 
 .hidden {

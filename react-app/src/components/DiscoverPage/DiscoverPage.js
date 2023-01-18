@@ -92,7 +92,7 @@ export default function Discover() {
                     <div className='buttons-containers'>
                         <button className="dislike-button" onMouseUp={handleDislike}>Dislike</button>
                         <button className="like-button" onMouseUp={handleLike}>Like</button>
-                        <button onMouseUp={updateUserNumber}>Skip</button>
+                        <button onMouseUp={updateUserNumber} className='skip-button'>Skip</button>
                     </div>
                 </div>
                 <img

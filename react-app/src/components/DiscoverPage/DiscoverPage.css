@@ -56,3 +56,7 @@
     flex-direction: column;
     padding-top: 10px;
 }
+
+button:hover {
+    cursor: pointer;
+}
