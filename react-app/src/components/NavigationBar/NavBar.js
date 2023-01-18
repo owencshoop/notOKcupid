@@ -81,7 +81,7 @@ const NavBar = () => {
                         <div>
                             <NavLink to="/profile" activeClassName="active-nav" className='nav-link'>
                                 <img src={user.userImages[0].imageUrl} id='profile-pic' />
-                                <span id='username'>{user.username}</span>
+                                <span id='username-nav'>{user.username}</span>
                             </NavLink>
                         </div>
                         <div>
