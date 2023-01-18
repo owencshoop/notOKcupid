@@ -1,26 +1,72 @@
 .all-mismatch-container {
-    border: 3px solid palevioletred;
+    /* border: 3px solid palevioletred; */
     width: 528px;
-    margin: auto
+    margin: auto;
+    height: 70vh;
 }
 
 .mismatch-navlink-container {
-    border: 3px solid red;
+    /* border: 3px solid red; */
     display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border: solid 2px rgb(188, 185, 185, 0.2);
+    box-shadow: 0 0 10px 1px rgba(188, 185, 185, 0.2);
+    border-radius: 8px;
+}
+
+.mismatch-navlink {
+    /* border: 3px solid brown; */
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #1a1a1a;
+    font-family: "GT America","Helvetica Neue","Helvetica","Arial",sans-serif;
+    width: 100%;
+}
+
+.mismatch-image-container {
+    /* border: 3px solid yellow; */
+    width: 90px;
+    height: 90px;
+    overflow: hidden;
+    margin-right: 20px;
+    border-radius: 50px;
     justify-content: center;
+    margin-left: 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.mismatch-image {
+    height: 100%;
+    width: 100%;
 }
 
 .mismatch-info-container {
-    border: 3px solid purple
-}
-.mismatch-first-name {
-    border: 3px solid blue
+    /* border: 3px solid purple; */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    width: 75%;
 }
 
-.mismatch-age {
-    border: 3px solid orange
+.mismatch-first-name {
+    /* border: 3px solid blue; */
+    text-decoration: none;
+    font-size: x-large;
+    padding-top: 10px;
 }
 
 .mismatch-message {
-    border: 3px solid green
+    /* border: 3px solid green; */
+    color: rgb(80, 80, 80);
+    padding-bottom: 10px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }

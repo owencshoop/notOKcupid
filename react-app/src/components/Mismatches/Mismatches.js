@@ -20,7 +20,7 @@ export default function Mismatches() {
         if (mismatch.user1Id === user.id) {
             return (
                 <div className="mismatch-navlink-container">
-                    <NavLink to={`/mismatches/${mismatch.id}`}>
+                    <NavLink to={`/mismatches/${mismatch.id}`} className='mismatch-navlink'>
                         <div className="mismatch-image-container">
                             <img
                                 src={
@@ -28,14 +28,12 @@ export default function Mismatches() {
                                         ? mismatch.user2.userImages[0].imageUrl
                                         : "https://picsum.photos/256/256"
                                 }
+                                className='mismatch-image'
                             ></img>
                         </div>
                         <div className="mismatch-info-container">
                             <div className="mismatch-first-name">
                                 {mismatch.user2.firstName}
-                            </div>
-                            <div className="mismatch-age">
-                                {mismatch.user2.age}
                             </div>
                             <div className="mismatch-message">
                                 {mismatch.messages.length > 0
@@ -64,9 +62,6 @@ export default function Mismatches() {
                         <div className="mismatch-info-container">
                             <div className="mismatch-first-name">
                                 {mismatch.user1.firstName}
-                            </div>
-                            <div className="mismatch-age">
-                                {mismatch.user1.age}
                             </div>
                             <div className="mismatch-message">
                                 {mismatch.messages.length > 0
