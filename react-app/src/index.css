@@ -1,4 +1,7 @@
 /* TODO Add site wide styles */
+* {
+  font-family: "GT America", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+}
 
 #nav-bar {
   display: flex;

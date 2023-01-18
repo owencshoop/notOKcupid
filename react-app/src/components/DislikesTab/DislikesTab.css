@@ -1,0 +1,66 @@
+.dislikes-components {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    margin: 0 auto;
+    /* border: 2px solid green; */
+}
+
+.dislikes-header {
+    /* border: 2px solid pink; */
+    background-color: #2a2f35;
+    color: white;
+    /* padding-bottom: 10px; */
+}
+
+.dislikes-header-parts {
+    width: 70vw;
+    margin: 0 auto;
+}
+
+.dislikes-tabs {
+    display:flex;
+    /* border: 2px solid pink; */
+    /* padding-bottom: 10px; */
+}
+
+.dislikes-tabs > button {
+    margin: 0 2% 0 0;
+    border: none;
+    background-color: transparent;
+    color: white;
+    /* text-decoration: underline; */
+    font-size: 16px;
+    padding-bottom: 5px;
+}
+
+#selected-tab {
+    border-bottom: rgb(242, 41, 141) 3px solid;
+    padding-bottom: 10px;
+
+}
+
+
+.your-dislikes {
+    width: 60vw;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+}
+
+.disliked-you {
+    width: 60vw;
+        display: flex;
+        flex-direction: column;
+        margin: 0 auto;
+}
+
+.cards-container {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    /* align-items: center; */
+}
+
+
