@@ -83,28 +83,35 @@ export default function Discover() {
             <ul>
                 {errors.map((error, idx) => <li key={idx}>{error}</li>)}
             </ul>
-            <div className='discover-page-cards'>
-                <span>
-                    {user.firstName[0].toUpperCase() + user.firstName.slice(1)}{" "}
-                    • {user.age}
-                </span>
-                <div>
-                    <button className="dislike-button" onMouseUp={handleDislike}>Dislike</button>
-                    <button className="like-button" onMouseUp={handleLike}>Like</button>
-                    <button onMouseUp={updateUserNumber}>Skip</button>
+            <div className='discover-page-header'>
+                <div className='discover-page-top'>
+                    <div>
+                    <span>{user.firstName[0].toUpperCase() + user.firstName.slice(1)}{" "}</span>
+                    <span>{user.age} • {user.city}, {user.state}</span>
+                    </div>
+                    <div className='buttons-containers'>
+                        <button className="dislike-button" onMouseUp={handleDislike}>Dislike</button>
+                        <button className="like-button" onMouseUp={handleLike}>Like</button>
+                        <button onMouseUp={updateUserNumber}>Skip</button>
+                    </div>
                 </div>
-                <NavLink to={`/discover/${user.id}`}>
-                    <img
-                        alt="discover-pic"
-                        src={
-                            user.userImages[0]
-                                ? user.userImages[0].imageUrl
-                                : "https://picsum.photos/256/256"
-                        }
-                    />
-                    <p>Bio: {user.bio}</p>
-                </NavLink>
+                <img
+                    alt="discover-pic"
+                    src={
+                        user.userImages[0]
+                            ? user.userImages[0].imageUrl
+                            : "https://picsum.photos/256/256"
+                    }
+                />
             </div>
+            <div className='discover-info'>
+            <h3 className='info-header'>About {user.firstName}</h3>
+            <div className='info'>
+                <span>Gender: {user.gender}</span>
+                <span>Preferred Genders: {user.preferredGenders}</span>
+                <span>Bio: {user.bio}</span>
+            </div>
+        </div>
         </div>
     );
 }
