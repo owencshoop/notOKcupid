@@ -14,9 +14,9 @@ import OpenModalButton from "../OpenModalButton";
 const NavBar = () => {
     const user = useSelector((state) => state.session.user);
     return (
-        <nav className="nav-container">
+        <nav className={user ? "nav-container" : "splash-container"}>
             <div className='home-link'>
-                <NavLink to="/discover" exact={true} id='home-link' activeClassName="active" className='nav-link'>
+                <NavLink to="/discover" exact={true} id='home-link' activeClassName="active" className={user ? 'nav-link' : "splash-home-link"}>
                     notOKcupid
                 </NavLink>
             </div>

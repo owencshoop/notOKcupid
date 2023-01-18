@@ -81,3 +81,34 @@
     display: flex;
     align-items: center;
 }
+
+
+/* ---------- SPLASH PAGE NAV STYLES ---------- */
+
+.splash-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    background-color: transparent;
+    font-family: "GT America", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+    width: 100vw;
+    height: 70px;
+    padding: 5px;       
+}
+
+.splash-home-link {
+    display: flex;
+    padding: 30px 65px;
+        color: white;
+        gap: 10px;
+        text-shadow: -1px 1px 2px #000,
+                1px 1px 2px #000,
+                1px -1px 0 #000,
+                -1px -1px 0 #000;
+}
+
+.splash-home-link:link {
+    text-decoration: none;
+}
