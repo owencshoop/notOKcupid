@@ -1,0 +1,26 @@
+.all-mismatch-container {
+    border: 3px solid palevioletred;
+    width: 528px;
+    margin: auto
+}
+
+.mismatch-navlink-container {
+    border: 3px solid red;
+    display: flex;
+    justify-content: center;
+}
+
+.mismatch-info-container {
+    border: 3px solid purple
+}
+.mismatch-first-name {
+    border: 3px solid blue
+}
+
+.mismatch-age {
+    border: 3px solid orange
+}
+
+.mismatch-message {
+    border: 3px solid green
+}
