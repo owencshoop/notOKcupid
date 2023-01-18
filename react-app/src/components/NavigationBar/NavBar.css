@@ -9,7 +9,7 @@
     width: 100vw;
     height: 70px;
     padding: 5px;
-    
+
 }
 
 .nav-link {
@@ -48,8 +48,9 @@
     padding-left: 25px;
 }
 
-/* .user-content:hover{
-
+/* .nav-link-box:hover{
+    background-color: rgb(77, 75, 75);
+    padding-top: 10px;
 } */
 
 .profile-logout{

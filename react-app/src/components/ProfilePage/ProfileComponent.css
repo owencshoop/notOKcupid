@@ -55,3 +55,32 @@
 #pencil{
     height: 40px;
 }
+
+.profile-info {
+    display: flex;
+    flex-direction: column;
+    max-width: 528px;
+    max-height: 137px;
+    width: 100%;
+    height: 100%;
+    border: solid 1px rgb(188, 185, 185, 0.2);
+    box-shadow: 0 0 10px 1px rgba(188, 185, 185, 0.2);
+    border-radius: 8px;
+    margin: 10px 0;
+    padding: 0 20px 20px 20px;
+}
+
+.prof-card-header{
+    background-color: #1a1a1a;
+    color: white;
+    width: calc(100% + 20px);
+    margin: 0 -20px;
+    border-radius: 8px 8px 0 0;
+    padding: 5px 0 5px 20px;
+}
+
+.the-info{
+    display: flex;
+    flex-direction: column;
+    padding-top: 10px;
+}

@@ -43,7 +43,7 @@ const NavBar = () => {
             )}
             {user && (
                 <div className='user-content'>
-                    <div>
+                    <div className='nav-link-box'>
                         <NavLink
                             to="/discover"
                             exact={true}
@@ -54,7 +54,7 @@ const NavBar = () => {
                             Discover
                         </NavLink>
                     </div>
-                    <div>
+                    <div className='nav-link-box'>
                         <NavLink
                             to="/dislikes"
                             exact={true}
@@ -65,20 +65,20 @@ const NavBar = () => {
                             Dislikes
                         </NavLink>
                     </div>
-                    <div>
+                    <div className='nav-link-box'>
                         <NavLink to="/questions" activeClassName="active-nav" className='nav-link'>
                         <img src={magnify} id='nav-icon' />
                             Questions
                         </NavLink>
                     </div>
-                    <div>
+                    <div className='nav-link-box'>
                         <NavLink to="/mismatches" activeClassName="active-nav" className='nav-link'>
                         <img src={message} id='nav-icon' />
                             Mismatches
                         </NavLink>
                     </div>
                     <div className='profile-logout'>
-                        <div>
+                        <div className='nav-link-box'>
                             <NavLink to="/profile" activeClassName="active-nav" className='nav-link'>
                                 <img src={user.userImages[0].imageUrl} id='profile-pic' />
                                 <span id='username-nav'>{user.username}</span>
