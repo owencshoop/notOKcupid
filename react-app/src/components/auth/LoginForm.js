@@ -19,8 +19,9 @@ const LoginFormModal = () => {
         const data = await dispatch(login(email, password));
         if (data) {
             setErrors(data);
+        } else {
+            await closeModal();
         }
-        await closeModal();
     };
 
     const demoLogin = async (e) => {
