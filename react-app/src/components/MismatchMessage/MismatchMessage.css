@@ -1,0 +1,60 @@
+#chat-container {
+  display: flex;
+  flex-direction: column;
+  width: 528px;
+  margin: 10px auto 0px auto;
+  height: 50vh;
+}
+
+#chat-box {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+div.sent {
+  background-color: lightgreen;
+  font-family: "GT America","Helvetica Neue","Helvetica","Arial",sans-serif;
+  font-weight: bold;
+  margin: 2px 5px;
+  padding: 5px;
+  border-radius: .5rem;
+  display: flex;
+  width: fit-content;
+  float: right;
+  max-width: 50%;
+}
+
+div.time-sent {
+  font-family: "GT America","Helvetica Neue","Helvetica","Arial",sans-serif;
+  font-size: 10px;
+  margin: 2px 5px;
+  border-radius: .5rem;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+div.received {
+  background-color: lightgrey;
+  font-family: "GT America","Helvetica Neue","Helvetica","Arial",sans-serif;
+  font-weight: bold;
+  margin: 2px 5px;
+  padding: 5px;
+  border-radius: .5rem;
+  width: fit-content;
+  float: left;
+  max-width: 50%;
+}
+
+div.time-received {
+  font-family: "GT America","Helvetica Neue","Helvetica","Arial",sans-serif;
+  font-size: 10px;
+  margin: 2px 5px;
+  border-radius: .5rem;
+  display: flex;
+  align-items: center;
+}

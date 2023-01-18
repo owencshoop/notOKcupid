@@ -9,7 +9,7 @@ export default function MismatchMessages() {
     const user = useSelector(state => state.session.user)
     const [message, setMessage] = useState('')
     const [errors, setErrors] = useState([])
-    const mismatches = Object.values(useSelector((state) => state.mistmatches));
+    const mismatches = Object.values(useSelector((state) => state.mismatches));
     const [loaded, setLoaded] = useState(false);
     const dispatch = useDispatch();
 
@@ -39,7 +39,10 @@ export default function MismatchMessages() {
        <div id='chat-container'>
         <div id='chat-box'>
           {mismatch.messages.length > 0 ? mismatch.messages.map(message => (
-            <p className={message.sender === user.id ? 'sent' : 'received'}>{message.text}</p>
+              <div className="date-and-text">
+                <div className={message.sender === user.id ? 'sent' : 'received'}>{message.text}</div>
+                <div className={message.sender === user.id ? 'time-sent' : 'time-received'}>{message.dateTime}</div>
+              </div>
             )) : (
               <p>No messages yet, start the conversation.</p>
               )}
