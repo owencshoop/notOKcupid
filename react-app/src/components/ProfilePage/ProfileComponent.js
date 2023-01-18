@@ -36,12 +36,12 @@ export default function ProfilePage() {
                                 ? user.userImages[0].imageUrl
                                 : "https://picsum.photos/256/256"
                         }
-                        alt='profile-pic'
+                        alt='profile'
                     />
                     <div className='profile-header-container'>
                         <div className='name-update'>
                             <span id='username'>{user.username}</span>
-                            <img id='pencil' src={pencil} />
+                            <img id='pencil' src={pencil} alt='pencil'/>
                         </div>
                         <span id='user-location'>{user.city}, {user.state}</span>
                     </div>
