@@ -41,14 +41,17 @@ export default function ProfilePage() {
                     </div>
                 </div>
             </NavLink>
-            <h3>Name: {user.firstName}</h3>
-            <p>Gender: {user.gender}</p>
-            <p>Preferred Genders: {user.preferredGenders}</p>
-            <p>
-                Age range: {user.minAge} - {user.maxAge}
-            </p>
-            <p>Bio: {user.bio}</p>
-
+            <div className='profile-info'>
+                <h3>Name: {user.firstName}</h3>
+                <span>Gender: {user.gender}</span>
+                <p>Preferred Genders: {user.preferredGenders}</p>
+                <p>
+                    Age range: {user.minAge} - {user.maxAge}
+                </p>
+            </div>
+            <div className='profile-info'>
+                <p>Bio: {user.bio}</p>
+            </div>
             <div>
                 <h4>Answer more questions</h4>
                 <SingleQuestionForm />
