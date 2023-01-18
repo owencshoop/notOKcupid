@@ -37,7 +37,7 @@ const DislikesTab = ({ currentUser }) => {
                 <h3>People Who Disliked You:</h3>
                 <div className="cards-container">
                 {dislikedYou.map((disliker) => (
-                    <DislikerCard disliker={disliker} key={disliker.id} />
+                    <DislikerCard disliker={disliker} dislikes={dislikes} key={disliker.id} />
                 ))}
                 </div>
 
