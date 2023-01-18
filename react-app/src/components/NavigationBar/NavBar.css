@@ -4,12 +4,11 @@
     justify-content: space-between;
     position: sticky;
     top: 0;
-    background-color: #2a2f35;
+    background-color: #1a1a1a;
     font-family: "GT America","Helvetica Neue","Helvetica","Arial",sans-serif;
     width: 100vw;
     height: 70px;
     padding: 5px;
-    margin-bottom: 10px;
 }
 
 .nav-link {
@@ -76,7 +75,7 @@
     border-radius: 24px;
 }
 
-#username{
+#username-nav{
     display: flex;
     align-items: center;
 }
