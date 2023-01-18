@@ -11,10 +11,9 @@ const DislikerCard = ({ disliker, dislikes }) => {
     const [errors, setErrors] = useState([]);
     // const [renderButton, setRenderButton] = useState(true)
 
-    console.log(disliker);
-    console.log(dislikes);
-    const isDislike = dislikes.filter((user) => user.id === disliker.id);
-    console.log(isDislike);
+    const isDislike = dislikes.filter(user => user.id === disliker.id)
+
+
     let renderButton = true;
 
     if (isDislike.length) {
