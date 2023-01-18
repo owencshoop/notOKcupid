@@ -2,7 +2,9 @@
     width: 23%; 
     /* border: 2px solid purple; */
     border-radius: 10px;
+    box-shadow: -2px 2px 5px grey;
     margin: 0;
+    box-sizing: border-box;
 }
 
 .dislike-img {
