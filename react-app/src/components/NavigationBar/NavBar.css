@@ -114,11 +114,17 @@
     text-decoration: none;
 }
 
-.login-button {
+.login-open-button {
     border: 1px solid black;
     border-radius: 5px;
     background-color: transparent;
-    padding: 10px;
+    color: black;
+    /* font-size: 14px; */
+    padding: 10px 13px;
     margin-right: 65px;
-
 }
+
+.login-signup {
+    font-size: 12px;
+}
+
