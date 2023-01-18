@@ -1,26 +1,39 @@
-import { useState } from "react"
-import { useDispatch } from "react-redux"
+import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { NavLink } from "react-router-dom";
 // import { useHistory } from "react-router-dom"
-import { addDislike } from "../../store/session"
-import './DislikerCard.css'
+import { addDislike } from "../../store/session";
+import "./DislikerCard.css";
 
-const DislikerCard = ({ disliker }) => {
-    const dispatch = useDispatch()
+const DislikerCard = ({ disliker, dislikes }) => {
+    const dispatch = useDispatch();
     // const history = useHistory()
-    const [errors, setErrors] = useState([])
+    const [errors, setErrors] = useState([]);
+    // const [renderButton, setRenderButton] = useState(true)
+
+    const isDislike = dislikes.filter(user => user.id === disliker.id)
+
+
+    let renderButton = true;
+
+    if (isDislike.length) {
+        renderButton = false;
+    }
 
     const handleAddDislike = async (e) => {
-        e.preventDefault()
+        e.preventDefault();
 
-        const errors = {}
+        const errors = [];
 
-        const newDislike = await dispatch(addDislike(disliker.id))
+        const newDislike = await dispatch(addDislike(disliker.id));
+
+        renderButton = false;
 
         if (newDislike.errors) {
-            newDislike.errors.forEach(error => errors.push(error))
-            setErrors(errors)
+            newDislike.errors.forEach((error) => errors.push(error));
+            setErrors(errors);
         }
-    }
+    };
 
     // const handleProfileRedirect = (e) => {
     //     e.preventDefault()
@@ -28,22 +41,29 @@ const DislikerCard = ({ disliker }) => {
     // }
 
     // let isMatched;
-    // if 
-
+    // if
 
     return (
-        <div className="dislike-card">
+        <NavLink to={`/users/${disliker.id}`} className="disliker-card">
             <ul className={errors.length ? "not-hidden" : "hidden"}>
-                {errors.map((error, idx) => <li key={idx}>{error}</li>)}
+                {errors.map((error, idx) => (
+                    <li key={idx}>{error}</li>
+                ))}
             </ul>
             <div className="disliker-img">
-                <img alt='profile' src={disliker.userImages[0].imageUrl} />
+                <img alt="profile" src={disliker.userImages[0].imageUrl} />
             </div>
-            <div className="disliker-name">{disliker.firstName}</div>
-            <div className="disliker-age">{disliker.age}</div>
-            <button className="add-dislike" onClick={handleAddDislike}>Dislike this User</button>
-        </div>
-    )
-}
+            <div className="disliker-info-container">
+                <div className="disliker-name">{disliker.firstName}</div>
+                <div className="disliker-age">{disliker.age}</div>
+            </div>
+            {renderButton && (
+                <button className="add-dislike" onClick={handleAddDislike}>
+                    Dislike this User
+                </button>
+            )}
+        </NavLink>
+    );
+};
 
-export default DislikerCard
+export default DislikerCard;

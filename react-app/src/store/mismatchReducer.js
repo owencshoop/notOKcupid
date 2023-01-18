@@ -22,7 +22,6 @@ export const getMismatches = (userId) => async (dispatch) => {
     const res = await fetch(`/api/mismatches/user/${userId}`);
     if (res.ok) {
         const mismatches = await res.json();
-        console.log("mismatches", mismatches);
         dispatch(load(mismatches));
     }
 };

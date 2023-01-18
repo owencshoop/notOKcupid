@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { NavLink } from "react-router-dom";
 import { discoverUserLoad, addDislike, addLike } from "../../store/session";
+import './DiscoverPage.css';
+import heart from '../../assets/heart.png';
+import thumb from '../../assets/thumb.jpeg';
 
 export default function Discover() {
     const users = useSelector((state) => state.session.discoverUsers);
@@ -10,19 +12,34 @@ export default function Discover() {
     const [errors, setErrors] = useState([])
     const dispatch = useDispatch();
 
+    let usersList = null;
+
+    if (users) {
+        usersList = Object.values(users)
+    }
+
     useEffect(() => {
         dispatch(discoverUserLoad()).then(() => setLoaded(true));
-    }, [dispatch]);
+    }, [dispatch, loaded]);
 
     if (!users) {
         return null;
     }
 
-    const usersList = Object.values(users);
+    if (usersList.length === 0) {
+        return (
+            <h3 className="discover-page-containter">
+                No more users match your preferences, adjust preferences to see
+                more.
+            </h3>
+        );
+    }
+
 
     let user = usersList[userNumber];
 
-    const updateUserNumber = () => {
+    const updateUserNumber = async () => {
+        setLoaded(false)
         if (userNumber === usersList.length - 1) {
             setUserNumber(0);
         } else {
@@ -34,34 +51,26 @@ export default function Discover() {
         e.preventDefault()
         const errors = []
         const newDislike = await dispatch(addDislike(user.id))
+        setLoaded(false)
 
-        if (newDislike.errors){
+        if (newDislike.errors) {
             newDislike.errors.forEach(error => errors.push(error))
             setErrors(errors)
         }
-        updateUserNumber()
     }
 
     const handleLike = async (e) => {
         e.preventDefault()
         const errors = []
         const newLike = await dispatch(addLike(user.id))
+        setLoaded(false)
 
-        if (newLike.errors){
+        if (newLike.errors) {
             newLike.errors.forEach(error => errors.push(error))
             setErrors(errors)
         }
-        updateUserNumber()
     }
 
-    if (usersList.length === 0) {
-        return (
-            <h3>
-                No more users match your preferences, adjust preferences to see
-                more.
-            </h3>
-        );
-    }
 
     if (!loaded) {
         return null;
@@ -71,16 +80,22 @@ export default function Discover() {
     }
 
     return (
-        <>
+        <div className='discover-page-containter'>
             <ul>
                 {errors.map((error, idx) => <li key={idx}>{error}</li>)}
             </ul>
-            <div>
-                <button className="dislike-button" onClick={handleDislike}>Dislike</button>
-                <button className="like-button" onClick={handleLike}>Like</button>
-                <button onClick={updateUserNumber}>Skip</button>
-            </div>
-            <NavLink to={`/discover/${user.id}`}>
+            <div className='discover-page-header'>
+                <div className='discover-page-top'>
+                    <div>
+                    <span>{user.firstName[0].toUpperCase() + user.firstName.slice(1)}{" "}</span>
+                    <span>{user.age} • {user.city}, {user.state}</span>
+                    </div>
+                    <div className='buttons-container'>
+                        <button className="dislike-button" onMouseUp={handleDislike}><img id='discover-button-icons' src={heart} />Dislike</button>
+                        <button className="like-button" onMouseUp={handleLike}><img id='thumb' src={thumb} />Like</button>
+                        <button onMouseUp={updateUserNumber} className='skip-button'>Skip</button>
+                    </div>
+                </div>
                 <img
                     alt="discover-pic"
                     src={
@@ -89,12 +104,15 @@ export default function Discover() {
                             : "https://picsum.photos/256/256"
                     }
                 />
-                <p>
-                    {user.firstName[0].toUpperCase() + user.firstName.slice(1)}{" "}
-                    • {user.age}
-                </p>
-                <p>Bio: {user.bio}</p>
-            </NavLink>
-        </>
+            </div>
+            <div className='discover-info'>
+            <h3 className='info-header'>About {user.firstName}</h3>
+            <div className='info'>
+                <span>Gender: {user.gender}</span>
+                <span>Preferred Genders: {user.preferredGenders}</span>
+                <span>Bio: {user.bio}</span>
+            </div>
+        </div>
+        </div>
     );
 }

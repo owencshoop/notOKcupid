@@ -1,0 +1,111 @@
+.discover-page-containter {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    margin: auto;
+}
+
+
+.discover-page-header {
+    display: flex;
+    flex-direction: column;
+    max-width: 528px;
+    /* max-height: 137px; */
+    width: 100%;
+    /* height: 100%; */
+    border: solid 1px rgb(188, 185, 185, 0.2);
+    box-shadow: 0 0 10px 1px rgba(188, 185, 185, 0.2);
+    border-radius: 8px;
+    padding: 20px;
+    margin: 10px 0;
+}
+
+.discover-page-top {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 20px;
+}
+
+.discover-info {
+    display: flex;
+    flex-direction: column;
+    max-width: 528px;
+    max-height: 137px;
+    width: 100%;
+    height: 100%;
+    border: solid 1px rgb(188, 185, 185, 0.2);
+    box-shadow: 0 0 10px 1px rgba(188, 185, 185, 0.2);
+    border-radius: 8px;
+    margin: 10px 0;
+    padding: 0 20px 20px 20px;
+}
+
+.info-header {
+    background-color: #1a1a1a;
+    color: white;
+    width: calc(100% + 20px);
+    margin: 0 -20px;
+    border-radius: 8px 8px 0 0;
+    padding: 5px 0 5px 20px;
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    padding-top: 10px;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+.buttons-container {
+    display: flex;
+    gap: 35px;
+}
+
+.dislike-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    width: 100px;
+    border-radius: 24px;
+    font-size: 18px;
+    border: none;
+    color: white;
+    background-color: rgb(242, 41, 141);
+}
+
+.like-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    width: 100px;
+    border-radius: 24px;
+    font-size: 18px;
+    color: white;
+    background-color: #2a2f35;
+    border: none;
+}
+
+.skip-button {
+    width: 100px;
+    border-radius: 24px;
+    font-size: 18px;
+    border: 1px solid black;
+    background-color: white;
+}
+
+#discover-button-icons {
+    width: 20px;
+}
+
+#thumb {
+    width: 20px;
+    background-color: #2a2f35;
+    color: white;
+}

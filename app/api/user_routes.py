@@ -22,7 +22,7 @@ def users():
     Query for all users and returns them in a list of user dictionaries
     """
     users = User.query.all()
-    return {'users': [user.to_dict() for user in users]}
+    return {'users': [user.to_like_dict() for user in users]}
 
 @user_routes.route('/discover')
 @login_required
@@ -57,7 +57,7 @@ def create_dislike():
 # turn disliked_user_id into integer from incase is not from json
     disliked_user = User.query.get(int(disliked_user_id))
 
-    if disliked_user:
+    if disliked_user and disliked_user not in current_user.dislikes:
         # add disliked user to dislikes
         current_user.dislikes.append(disliked_user)
         #  check if disiked user is in user likes and if so, remove from there.

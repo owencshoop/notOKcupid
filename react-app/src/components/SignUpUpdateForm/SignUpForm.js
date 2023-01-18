@@ -2,9 +2,11 @@ import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Redirect } from "react-router-dom";
 import { signUp, updateUser } from "../../store/session";
+import { useModal } from "../../context/Modal";
 import "./signup.css";
 
 const SignUpForm = () => {
+    const { closeModal } = useModal();
     const user = useSelector((state) => state.session.user);
     const [errors, setErrors] = useState([]);
     const [username, setUsername] = useState(user ? user.username : "");
@@ -70,6 +72,9 @@ const SignUpForm = () => {
                 );
                 if (data) {
                     setErrors(data);
+                } else {
+
+                    await closeModal();
                 }
             }
         }

@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { updateAnswer, authenticate } from "../../store/session";
+import './questions.css';
+
 const SingleQuestionForm = () => {
     const [loaded, setLoaded] = useState(false);
     // const [answer, setAnswer] = useState("");
@@ -45,11 +47,11 @@ const SingleQuestionForm = () => {
         return null;
     }
     if (unansweredQuestions.length === 0) {
-      return (
-        <div>
-          You have answered all the questions
-        </div>
-      )
+        return (
+            <div>
+                You have answered all the questions
+            </div>
+        )
     }
     return (
         <div>
@@ -59,43 +61,71 @@ const SingleQuestionForm = () => {
                         <div key={ind}>{error}</div>
                     ))}
                 </div>
-                <div>{question?.question.question}</div>
-                <input
-                    type="radio"
-                    id="answer1"
-                    name="answer"
-                    value={question?.question.answer1}
-                    onChange={() => console.log()}
-                    onClick={(e) => {
-                        dispatch(
-                            updateAnswer(question.id, e.target.value, user.id)
-                        );
-                    }}
-                    checked={question.answer === question.question.answer1}
-                ></input>
-                <label htmlFor="answer1">{question?.question.answer1}</label>
-                <input
-                    type="radio"
-                    id="answer2"
-                    name="answer"
-                    value={question.question.answer2}
-                    onChange={() => console.log()}
-                    onClick={(e) => {
-                        dispatch(
-                            updateAnswer(question.id, e.target.value, user.id)
-                        );
-                    }}
-                    checked={question.answer === question.question.answer2}
-                ></input>
-                <label htmlFor="answer1">{question.question.answer2}</label>
-                <button
-                    type="submit"
-                    onClick={(e) => {
-                        updateQuestionNumber();
-                    }}
-                >
-                    {question.answer ? "Delete Answer" : "Skip"}
-                </button>
+                <div id='question'>{question?.question.question}</div>
+                <div className='input-containter'>
+                    <div id='answers'>
+                        {/* <input
+                            type="radio"
+                            id="answer1"
+                            name="answer"
+                            value={question?.question.answer1}
+                            onChange={() => console.log()}
+                            onClick={(e) => {
+                                dispatch(
+                                    updateAnswer(question.id, e.target.value, user.id)
+                                );
+                            }}
+                            checked={question.answer === question.question.answer1}
+                        ></input>
+                        <label htmlFor="answer1">{question?.question.answer1}</label> */}
+                        <button
+                            id="answer1"
+                            name="answer"
+                            value={question.question.answer1}
+                            onClick={(e) => {
+                                dispatch(updateAnswer(question.id, e.target.value, user.id))
+                            }}
+                            className='button-option'
+                        >{question.question.answer1}</button>
+                    </div>
+                    <div id='answers'>
+                        {/* <input
+                            type="radio"
+                            id="answer2"
+                            name="answer"
+                            value={question.question.answer2}
+                            onChange={() => console.log()}
+                            onClick={(e) => {
+                                dispatch(
+                                    updateAnswer(question.id, e.target.value, user.id)
+                                );
+                            }}
+                            checked={question.answer === question.question.answer2}
+                        ></input>
+                        <label htmlFor="answer1">{question.question.answer2}</label> */}
+                        <button
+                            id="answer2"
+                            name="answer"
+
+                            value={question.question.answer2}
+                            onClick={(e) => {
+                                dispatch(updateAnswer(question.id, e.target.value, user.id))
+                            }}
+                            className='button-option'
+                        >{question.question.answer2}</button>
+                    </div>
+                </div>
+                <li className="question-divider"></li>
+                <div className='question-button-container'>
+                    <button className='question-button'
+                        type="submit"
+                        onClick={(e) => {
+                            updateQuestionNumber();
+                        }}
+                    >
+                        {question.answer ? "Delete Answer" : "Skip"}
+                    </button>
+                </div>
             </form>
         </div>
     );
