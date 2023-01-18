@@ -2,9 +2,10 @@ import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 import session from './session'
 import mismatchReducer from './mismatchReducer';
+import allUsersReducer from './allUsers';
 
 const rootReducer = combineReducers({
-  session, mismatches:mismatchReducer,
+  session, mismatches:mismatchReducer, allUsers:allUsersReducer
 });
 
 
