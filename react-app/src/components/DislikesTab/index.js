@@ -47,18 +47,24 @@ const DislikesTab = ({ currentUser }) => {
 
     return (
         <div className="dislikes-components">
-            <h1>Dislikes</h1>
-            <div className="dislikes-tabs">
-            <button onClick={dislikesClick}>
-                Your Dislikes
-            </button>
-            <button onClick={dislikersClick}>
-                Disliked You
-            </button>
+            <div className="dislikes-header">
+                <div className="dislikes-header-parts">
+                    <h1>Dislikes</h1>
+
+                    <div className="dislikes-tabs">
+                        <button id={isUserDislikes ? "selected-tab" : ""} onClick={dislikesClick}>
+                        Your Dislikes
+                    </button>
+                        <button id={isUserDislikes ? "" : "selected-tab"} onClick={dislikersClick}>
+                        Disliked You
+                    </button>
+                    </div>       
+                </div>
             </div>
             {pageCards}
         </div>
     );
 };
+
 
 export default DislikesTab;
