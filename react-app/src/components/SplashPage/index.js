@@ -1,6 +1,16 @@
+import { NavLink } from "react-router-dom"
+
 const SplashPage = () => {
     return (
-        <div>This is the splash page!</div>
+        <div>
+            <NavLink
+                to="/sign-up"
+                exact={true}
+                className='signup-link'
+            >
+                SignUp
+            </NavLink>
+        </div>
     )
 }
 

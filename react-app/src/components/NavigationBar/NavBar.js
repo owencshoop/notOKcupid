@@ -2,11 +2,14 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import LogoutButton from "../auth/LogoutButton";
+import LoginFormModal from "../auth/LoginForm"
 import './NavBar.css';
 import magnify from '../../assets/magnifying.png';
 import heart from '../../assets/heart.png';
 import user_disc from '../../assets/discover.png'
 import message from '../../assets/message.png'
+import OpenModalButton from "../OpenModalButton";
+
 
 const NavBar = () => {
     const user = useSelector((state) => state.session.user);
@@ -20,16 +23,13 @@ const NavBar = () => {
             {!user && (
                 <div className='login-signup'>
                     <div>
-                        <NavLink
-                            to="/login"
-                            exact={true}
-                            activeClassName="active-nav"
-                            className='nav-link'
-                        >
-                            Login
-                        </NavLink>
+                        <OpenModalButton
+                            buttonText="Log In"
+                            modalComponent={<LoginFormModal />}
+                            className="login-button"
+                        />
                     </div>
-                    <div>
+                    {/* <div>
                         <NavLink
                             to="/sign-up"
                             exact={true}
@@ -38,7 +38,7 @@ const NavBar = () => {
                         >
                             SignUp
                         </NavLink>
-                    </div>
+                    </div> */}
                 </div>
             )}
             {user && (

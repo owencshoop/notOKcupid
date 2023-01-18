@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import LoginForm from "./components/auth/LoginForm";
+// import LoginFormModal from "./components/auth/LoginForm";
 import SignUpForm from "./components/SignUpUpdateForm/SignUpForm";
 import NavBar from "./components/NavigationBar/NavBar";
 import ProtectedRoute from "./components/auth/ProtectedRoute";
@@ -13,6 +13,7 @@ import QuestionAnswerForm from "./components/Questions/QuestionForm";
 import ProfilePage from "./components/ProfilePage/ProfileComponent";
 import DiscoverProfilePage from './components/DiscoverProfilePage/DiscoverProfileComponent';
 import MismatchMessages from "./components/MismatchMessage";
+import SplashPage from "./components/SplashPage"
 
 import { authenticate } from "./store/session";
 import Mismatches from "./components/Mismatches/Mismatches";
@@ -34,12 +35,13 @@ function App() {
     }
 
     return (
-        <BrowserRouter>
+        // <BrowserRouter>
+        <>
             <NavBar />
             <Switch>
-                <Route path="/login" exact={true}>
-                    <LoginForm />
-                </Route>
+                {/* <Route path="/login" exact={true}>
+                    <LoginFormModal />
+                </Route> */}
                 <Route path="/sign-up" exact={true}>
                     <SignUpForm />
                 </Route>
@@ -74,10 +76,11 @@ function App() {
                     <Mismatches />
                 </ProtectedRoute>
                 <Route path="/" exact={true}>
-                    <h1>My Home Page</h1>
+                    <SplashPage />
                 </Route>
             </Switch>
-        </BrowserRouter>
+        {/* </BrowserRouter> */}
+        </>
     );
 }
 
