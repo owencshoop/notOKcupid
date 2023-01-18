@@ -4,7 +4,7 @@ import session from './session'
 import mismatchReducer from './mismatchReducer';
 
 const rootReducer = combineReducers({
-  session, mistmatches:mismatchReducer,
+  session, mismatches:mismatchReducer,
 });
 
 
