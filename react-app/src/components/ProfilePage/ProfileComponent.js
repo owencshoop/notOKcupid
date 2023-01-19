@@ -75,12 +75,6 @@ export default function ProfilePage() {
                 <span>Tip: Answer more questions to improve your Mismatch % with people on notOKcupid.</span>
                 </div>
             </div>
-            <div className='profile-info'>
-                <h3 className='prof-card-header'>Highest possible mismatch</h3>
-                <div>
-                <span>Your highest possible match based on the questions you have answered.</span>
-                </div>
-            </div>
             <div className='profile-info-questions'>
                 <div>
                     <h3 className='prof-card-header3'>Answer more questions</h3>
