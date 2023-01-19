@@ -1,6 +1,6 @@
 .splash-page {
     margin-top: 0;
-    height: 69vh;
+    height: 80vh;
     width: 100vw;
     display: flex;
     /* flex-direction: column; */
@@ -13,7 +13,7 @@
 .splash-page, nav.splash-container {
     animation: bgcolor 20s infinite;
     animation-direction: alternate;
-    
+
 }
 
 @keyframes bgcolor {
@@ -40,7 +40,7 @@
 
 .splash-left {
     display: flex;
-    flex-direction: column; 
+    flex-direction: column;
 }
 
 .splash-banner {
@@ -61,7 +61,7 @@
 
 .splash-text {
     box-sizing: border-box;
-    width: 35vw; 
+    width: 35vw;
     margin-bottom: 50px;
 }
 
