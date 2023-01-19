@@ -3,7 +3,8 @@ import { useSelector, useDispatch } from "react-redux";
 import { discoverUserLoad, addDislike, addLike } from "../../store/session";
 import './DiscoverPage.css';
 import heart from '../../assets/heart.png';
-import thumb from '../../assets/thumb.jpeg';
+import thumb from '../../assets/thumb.png';
+import sadPanda from '../../assets/discover-placeholder.png';
 
 export default function Discover() {
     const users = useSelector((state) => state.session.discoverUsers);
@@ -28,10 +29,21 @@ export default function Discover() {
 
     if (usersList.length === 0) {
         return (
-            <h3 className="discover-page-containter">
+            <>
+            <div className="discover-header-container">
+            <h1>
+            Discover
+            </h1>
+        </div>
+        <div className="discover-page-placeholder">
+
+            <h2 >
                 No more users match your preferences, adjust preferences to see
                 more.
-            </h3>
+            </h2>
+            <img src={sadPanda} alt='alone-for-now' />
+        </div>
+            </>
         );
     }
 
@@ -80,30 +92,36 @@ export default function Discover() {
     }
 
     return (
+        <>
+        <div className="discover-header-container">
+            <h1>
+            Discover
+            </h1>
+        </div>
         <div className='discover-page-containter'>
             <ul>
                 {errors.map((error, idx) => <li key={idx}>{error}</li>)}
             </ul>
             <div className='discover-page-header'>
                 <div className='discover-page-top'>
-                    <div>
-                    <span>{user.firstName[0].toUpperCase() + user.firstName.slice(1)}{" "}</span>
-                    <span>{user.age} • {user.city}, {user.state}</span>
+                    <div className='discover-name-age'>
+                    <span>{user.firstName[0].toUpperCase() + user.firstName.slice(1)}{" "}  • {user.age}</span>
+                    <span>{user.city}, {user.state}</span>
                     </div>
                     <div className='buttons-container'>
                         <button className="dislike-button" onMouseUp={handleDislike}><img id='discover-button-icons' src={heart} />Dislike</button>
-                        <button className="like-button" onMouseUp={handleLike}><img id='thumb' src={thumb} />Like</button>
+                        <button className="like-button" onMouseUp={handleLike}><img id='discover-button-icons' src={thumb} />Like</button>
                         <button onMouseUp={updateUserNumber} className='skip-button'>Skip</button>
                     </div>
                 </div>
-                <img
+                <img id='discover-image'
                     alt="discover-pic"
                     src={
                         user.userImages[0]
                             ? user.userImages[0].imageUrl
                             : "https://picsum.photos/256/256"
-                    }
-                />
+                        }
+                        />
             </div>
             <div className='discover-info'>
             <h3 className='info-header'>About {user.firstName}</h3>
@@ -114,5 +132,6 @@ export default function Discover() {
             </div>
         </div>
         </div>
+                        </>
     );
 }

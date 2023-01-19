@@ -2,6 +2,7 @@ import { NavLink } from "react-router-dom"
 import OpenModalButton from "../OpenModalButton"
 import SignUpForm from "../SignUpUpdateForm/SignUpForm"
 import './SplashPage.css'
+import image from '../../assets/image.png'
 
 const SplashPage = () => {
     return (
@@ -32,8 +33,9 @@ const SplashPage = () => {
                     className="login-open-button"
                 />
            </div>
+           
            <div className="splash-right">
-                {/* <img alt='splash' src='../../assets/image.png' /> */}
+                <img alt='splash' src={image} />
            </div>
 
         </div>
