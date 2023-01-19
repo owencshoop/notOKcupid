@@ -63,8 +63,8 @@ export default function Mismatches() {
             const mismatchPercentage = Math.floor(differentAnswerCount / sameQuestionCount * 100)
 
             return (
-                <div className="mismatch-navlink-container">
-                    <NavLink to={`/mismatches/${mismatch.id}`} className='mismatch-navlink'>
+                <div className="mismatch-navlink-container" key={mismatch.id}>
+                    <NavLink to={`/mismatches/${mismatch.id}`} className='mismatch-navlink' >
                         <div className="mismatch-image-container">
                             <img
                                 src={
@@ -107,10 +107,10 @@ export default function Mismatches() {
                 })
             })
             const mismatchPercentage = Math.floor(differentAnswerCount / sameQuestionCount * 100)
-            
+
             return (
-                <div className="mismatch-navlink-container">
-                    <NavLink to={`/mismatches/${mismatch.id}`} className='mismatch-navlink'>
+                <div className="mismatch-navlink-container" key={mismatch.id}>
+                    <NavLink to={`/mismatches/${mismatch.id}`} className='mismatch-navlink' >
                         <div className="mismatch-image-container">
                             <img
                                 src={

@@ -2,13 +2,15 @@ import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Redirect } from "react-router-dom";
 import { updateUser } from "../../store/session";
+import { useModal } from "../../context/Modal";
 import "./SignUpForm";
 
 const UpdateUserForm = () => {
+    const { closeModal } = useModal();
     const user = useSelector((state) => state.session.user);
     const [errors, setErrors] = useState([]);
-    const [username, setUsername] = useState(user.username);
-    const [email, setEmail] = useState(user.email);
+    // const [username, setUsername] = useState(user.username);
+    // const [email, setEmail] = useState(user.email);
     const [firstName, setFirstName] = useState(user.firstName);
     const [age, setAge] = useState(user.age);
     const [gender, setGender] = useState(user.gender);
@@ -28,8 +30,6 @@ const UpdateUserForm = () => {
         e.preventDefault();
         const data = await dispatch(
             updateUser(
-                username,
-                email,
                 firstName,
                 age,
                 gender,
@@ -44,17 +44,19 @@ const UpdateUserForm = () => {
         );
         if (data) {
             setErrors(data);
+        } else {
+            setSaved(true);
+            await closeModal()
         }
-        setSaved(true);
     };
 
-    const updateUsername = (e) => {
-        setUsername(e.target.value);
-    };
+    // const updateUsername = (e) => {
+    //     setUsername(e.target.value);
+    // };
 
-    const updateEmail = (e) => {
-        setEmail(e.target.value);
-    };
+    // const updateEmail = (e) => {
+    //     setEmail(e.target.value);
+    // };
 
     const updateFirstName = (e) => {
         setFirstName(e.target.value);
@@ -109,7 +111,7 @@ const UpdateUserForm = () => {
                             <div className='errors-div' key={ind}>{error}</div>
                         ))}
                     </div>
-                    <div className="signup-form-input-container">
+                    {/* <div className="signup-form-input-container">
                         <label className="signup-input-label">User Name</label>
                         <input
                             type="text"
@@ -128,7 +130,7 @@ const UpdateUserForm = () => {
                             value={email}
                             className="signup-input-field"
                         ></input>
-                    </div>
+                    </div> */}
                     <div className="signup-form-input-container">
                         <label className="signup-input-label">First Name</label>
                         <input
@@ -204,6 +206,7 @@ const UpdateUserForm = () => {
                     </div>
                     <div className="signup-form-input-container">
                         <label className="signup-input-label">Maximum Age: {maxAge} years</label>
+                        <div className="min-max"><p>{`${minAge}`} </p><p>{`100`} </p></div>
                         <input
                             type="range"
                             name="maxAge"
