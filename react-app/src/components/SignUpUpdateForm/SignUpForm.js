@@ -212,7 +212,7 @@ const SignUpForm = () => {
                             onChange={updateAge}
                             value={age}
                             className='signup-input-field'
-                        ></input>{" "}
+                        ></input>
                     </div>
                     <div className="signup-form-input-container">
                         <label className="signup-input-label">Gender</label>
@@ -266,6 +266,7 @@ const SignUpForm = () => {
                     </div>
                     <div className="signup-form-input-container">
                         <label className="signup-input-label">Maximum Age: {maxAge} years</label>
+                        <div className="min-max"><p>{`${minAge}`} </p><p>{`${maxAge}`} </p></div>
                         <input
                             type="range"
                             name="maxAge"
@@ -274,7 +275,7 @@ const SignUpForm = () => {
                             onChange={updateMaxAge}
                             value={maxAge}
                             className='signup-input-field'
-                        ></input>{" "}
+                        ></input>
                     </div>
                     <div className="signup-form-input-container">
                         <label className="signup-input-label">City</label>
