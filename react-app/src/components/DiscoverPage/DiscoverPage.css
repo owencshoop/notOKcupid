@@ -210,3 +210,26 @@ button:hover {
     border-bottom: 2px solid rgb(242, 41, 141);
     padding-bottom: 10px;
 }
+
+
+.discover-blurb {
+    grid-column: 3;
+    display: flex;
+    flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        box-sizing: border-box;
+        
+}
+
+.discover-blurb>h4{
+    margin: 10px 0 0 0;
+    color: rgb(240, 177, 240);
+}
+
+.discover-blurb > p {
+    text-align: center;
+    font-weight: 200;
+    font-size: small;
+    padding: 0 20px;
+}
