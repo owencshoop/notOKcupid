@@ -104,3 +104,16 @@ button.current-answer {
     align-items: center;
     justify-content: center;
 }
+
+.question-stats-container{
+    position: sticky;
+    display: flex;
+    flex-wrap: wrap;
+    border: solid 1px rgb(188, 185, 185, 0.2);
+    box-shadow: 0 0 10px 1px rgba(188, 185, 185, 0.2);
+    border-radius: 8px;
+    padding: 20px;
+    width: 250px;
+    margin-top: 40px;
+    margin-left: 40px;
+}
