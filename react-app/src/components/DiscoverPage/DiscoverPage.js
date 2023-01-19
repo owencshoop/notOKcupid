@@ -157,12 +157,14 @@ export default function Discover() {
         <>
             <div className="discover-header-container">
                 <div className="pref-button-container">
-                    <img id='equalizer' alt='pref-slider' src={slider} />
-                    <OpenModalButton
-                        buttonText="Update Preferences"
-                        modalComponent={<UpdatePreferencesForm />}
-                        className="preferences-open-button"
-                    />
+                    <div className="pref-button-border">
+                        <img id='equalizer' alt='pref-slider' src={slider} />
+                        <OpenModalButton
+                            buttonText="Update Preferences"
+                            modalComponent={<UpdatePreferencesForm />}
+                            className="preferences-open-button"
+                        />
+                    </div>
                 </div>
                 <h1>
                     Discover
