@@ -47,15 +47,24 @@ const QuestionAnswerForm = () => {
         if (answer.answer != null) userQuestionCount += 1;
     });
 
+    let unanswered = 0
+    user.userAnswers.forEach(answer => {
+        if (answer.answer === null) unanswered += 1;
+    });
+
     return (
         <>
             <div className="question-header-container">
                 <h1>Questions</h1>
             </div>
-            <div className='question-stats-container'>
-                test
-            </div>
             <div className='questions-container'>
+                <div className='question-stats-container'>
+                    <span>Answered Questions</span>
+                    <div className='question-count'>{userQuestionCount}</div>
+                    <span>Unanswered Questions</span>
+                    <div className='unanswered-count'>{unanswered}</div>
+                    <span>The more questions you answer the higher your chances to get matched!</span>
+                </div>
                 {/* {content.map((question) => (
                 <form className='questions-form' onSubmit={(e) => e.preventDefault()} key={question.id}>
                     <div>

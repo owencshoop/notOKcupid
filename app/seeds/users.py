@@ -160,7 +160,7 @@ def seed_users():
     )
 
     users = [demo, brett, lyn, conner, eddy, riktor, viktor, edktor, abcde, optimusa,
-             camden, tam, jack, micheal, cupid, demo5, alpal, wesley, buttercup, inigo, user99m, user99f, user95m, user95f, user90m, user90f, user85m, user85f, user80m, user80f, user75m, user75f, user70m, user70f, user65m, user65f, user60m, user65f, user60m, user60f, user55m, user55f, user50m, user55f, user45m, user45f, user40m, user40f, user35m, user35f]
+             camden, tam, jack, micheal, cupid, demo5, alpal, wesley, buttercup, inigo, user99m, user99f, user95m, user95f, user90m, user90f, user85m, user85f, user80m, user80f, user75m, user75f, user70m, user70f, user65m, user65f, user60m, user65f, user60m, user60f, user55m, user55f, user50m, user50f, user55f, user45m, user45f, user40m, user40f, user35m, user35f]
 
     demo.dislikes = [eddy, conner, brett, cupid]
     demo.likes = [camden, tam, demo5]
