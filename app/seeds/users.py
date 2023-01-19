@@ -138,7 +138,7 @@ def seed_users():
         username='user50m', email='user50m@aa.io', password='password', age=50, first_name='OldUser', gender='male', preferred_genders='male, female, nonbinary', min_age=18, max_age=99, city='Washington', state='DC', bio='I am 50'
     )
     user50f = User(
-        username='user50f', email='user55f@aa.io', password='password', age=50, first_name='OldUser', gender='female', preferred_genders='male, female, nonbinary', min_age=18, max_age=90, city='Washington', state='DC', bio='I am 50'
+        username='user50f', email='user50f@aa.io', password='password', age=50, first_name='OldUser', gender='female', preferred_genders='male, female, nonbinary', min_age=18, max_age=90, city='Washington', state='DC', bio='I am 50'
     )
     user45m = User(
         username='user45m', email='user45m@aa.io', password='password', age=45, first_name='OldUser', gender='male', preferred_genders='male, female, nonbinary', min_age=18, max_age=99, city='Washington', state='DC', bio='I am 45'
