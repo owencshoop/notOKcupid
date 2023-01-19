@@ -17,7 +17,7 @@ export default function MismatchMessages() {
 
     useEffect(() => {
         dispatch(getMismatches(user.id)).then(() => setLoaded(true));
-    }, [dispatch]);
+    }, [dispatch, user.id]);
 
     const singleMismatch = Object.values(mismatches).filter(
         (mismatch) => mismatch.id === +mismatchId
@@ -59,20 +59,32 @@ export default function MismatchMessages() {
                             ? mismatch.user1.firstName
                             : mismatch.user2.firstName}
                     </h1>
-                    <NavLink to={mismatch.user1Id !== user.id
-                            ? `/users/${mismatch.user1.id}`
-                            : `/users/${mismatch.user2.id}`} className="chat-header-image-container">
+                    <NavLink
+                        to={
+                            mismatch.user1Id !== user.id
+                                ? `/users/${mismatch.user1.id}`
+                                : `/users/${mismatch.user2.id}`
+                        }
+                        className="chat-header-image-container"
+                    >
                         <img
                             src={
                                 mismatch.user1Id !== user.id
                                     ? mismatch.user1.userImages[0].imageUrl
                                     : mismatch.user2.userImages[0].imageUrl
                             }
-                            alt="profile-picture"
+                            alt="profile"
                             className="chat-image"
                         ></img>
                     </NavLink>
                 </div>
+            </div>
+            <div className="errors-div-container">
+                {errors.map((error, ind) => (
+                    <div className="errors-div" key={ind}>
+                        {error}
+                    </div>
+                ))}
             </div>
             <div id="chat-container">
                 <div id="chat-box">
