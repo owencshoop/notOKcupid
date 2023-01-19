@@ -1,10 +1,17 @@
-import { NavLink } from "react-router-dom"
+import { Redirect } from "react-router-dom"
 import OpenModalButton from "../OpenModalButton"
 import SignUpForm from "../SignUpUpdateForm/SignUpForm"
 import './SplashPage.css'
 import image from '../../assets/image.png'
+import { useSelector } from "react-redux"
 
 const SplashPage = () => {
+    const user = useSelector(state => state.session.user)
+
+    if (user){
+        return <Redirect to="/discover" />;
+    }
+
     return (
         <div className="splash-page">
            <div className="splash-left">
@@ -15,7 +22,7 @@ const SplashPage = () => {
             <div className="splash-text">
                 <h2>
                     Tired of talking to the same kinds of people?
-                    Wanting a break from the same feeback loops of 
+                    Wanting a break from the same feeback loops of
                     mainstream dating sites?
                     Are you a superhero in search of your arch-nemesis?
                 </h2>
@@ -33,7 +40,7 @@ const SplashPage = () => {
                     className="login-open-button"
                 />
            </div>
-           
+
            <div className="splash-right">
                 <img alt='splash' src={image} />
            </div>
