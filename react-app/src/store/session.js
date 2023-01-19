@@ -48,7 +48,7 @@ export const authenticate = () => async (dispatch) => {
 }
 
 export const updatePreferences = (preferredGenders, minAge, maxAge) => async (dispatch) => {
-  const response = await fetch('/api/auth/preferences', {
+  const response = await fetch('/api/users/preferences', {
     method: 'PUT',
     headers: {
       'Content-Type': 'application/json'

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { updatePreferences } from "../../store/session";
+import { discoverUserLoad, updatePreferences } from "../../store/session";
 import { useModal } from "../../context/Modal";
 import './UpdatePreferences.css'
 
@@ -33,6 +33,7 @@ const UpdatePreferencesForm = () => {
         if (data) {
             setErrors(data);
         }
+        await dispatch(discoverUserLoad())
         await closeModal()
     }
 
