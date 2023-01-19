@@ -178,8 +178,8 @@ export default function Discover() {
                         </div>
                         <div className='buttons-container'>
                             {!isNaN(mismatchPercentage) && <span className='percentage'>{mismatchPercentage}%</span>}
-                            <button className="dislike-button" onMouseUp={handleDislike}><img id='discover-button-icons' src={heart} />Dislike</button>
-                            <button className="like-button" onMouseUp={handleLike}><img id='discover-button-icons' src={thumb} />Like</button>
+                            <button className="dislike-button" onMouseUp={handleDislike}><img id='discover-button-icons' src={heart} alt='button-icon'/>Dislike</button>
+                            <button className="like-button" onMouseUp={handleLike}><img id='discover-button-icons' src={thumb}  alt='button-icon'/>Like</button>
                             <button onMouseUp={updateUserNumber} className='skip-button'>Skip</button>
                         </div>
                     </div>

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import SingleQuestionForm from "../Questions/SingleQuestionForm";
-import { deleteUser, discoverUserLoad } from "../../store/session";
+import { discoverUserLoad } from "../../store/session";
 import './ProfileComponent.css';
 import pencil from '../../assets/pencil.png';
 import OpenModalButton from "../OpenModalButton";
@@ -32,16 +32,6 @@ export default function ProfilePage() {
     user.userAnswers.forEach(answer => {
         if (answer.answer != null) userQuestionCount += 1;
     });
-
-    const deleteProfile = (e) => {
-        e.preventDefault()
-        if (user.id === 1 || user.id === 9){
-            window.alert('This user cannot be deleted.')
-            return null
-        } else {
-            dispatch(deleteUser())
-        }
-    }
 
 
     return (

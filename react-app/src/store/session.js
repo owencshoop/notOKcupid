@@ -106,7 +106,7 @@ export const deleteUser = () => async (dispatch) => {
     method: 'DELETE'
   })
   if (response.ok){
-    const data = response.JSON
+    await response.JSON()
     dispatch(removeUser())
     return null
   }
