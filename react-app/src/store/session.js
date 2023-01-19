@@ -101,6 +101,17 @@ export const login = (email, password) => async (dispatch) => {
 
 }
 
+export const deleteUser = () => async (dispatch) => {
+  const response = await fetch('/api/users/', {
+    method: 'DELETE'
+  })
+  if (response.ok){
+    const data = response.JSON
+    dispatch(removeUser())
+    return null
+  }
+}
+
 export const logout = () => async (dispatch) => {
   const response = await fetch('/api/auth/logout', {
     headers: {

@@ -158,3 +158,19 @@
     background-color: transparent;
     border: none;
 }
+
+.open-delete-profile-modal-button>button {
+    height: 40px;
+    width: 150px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color: #2a2f35;
+    color: white;
+    border-radius: 8px;
+}
+
+.open-delete-profile-modal-button>button:hover {
+    background-color: rgb(242, 41, 141);
+    color: black;
+    cursor: pointer;
+}

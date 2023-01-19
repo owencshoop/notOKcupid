@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import SingleQuestionForm from "../Questions/SingleQuestionForm";
-import { discoverUserLoad } from "../../store/session";
+import { deleteUser, discoverUserLoad } from "../../store/session";
 import './ProfileComponent.css';
 import pencil from '../../assets/pencil.png';
 import OpenModalButton from "../OpenModalButton";
 import UpdateUserForm from "../SignUpUpdateForm/UpdateUserForm";
+import DeleteProfileModal from "./DeleteProfileModal";
 
 export default function ProfilePage() {
     const user = useSelector((state) => state.session.user);
@@ -31,6 +32,16 @@ export default function ProfilePage() {
     user.userAnswers.forEach(answer => {
         if (answer.answer != null) userQuestionCount += 1;
     });
+
+    const deleteProfile = (e) => {
+        e.preventDefault()
+        if (user.id === 1 || user.id === 9){
+            window.alert('This user cannot be deleted.')
+            return null
+        } else {
+            dispatch(deleteUser())
+        }
+    }
 
 
     return (
@@ -83,6 +94,9 @@ export default function ProfilePage() {
                     <h3 className='prof-card-header3'>Answer more questions</h3>
                     <SingleQuestionForm />
                 </div>
+            </div>
+            <div className='open-delete-profile-modal-button'>
+                <OpenModalButton modalComponent={<DeleteProfileModal />} buttonText='Delete Profile' className='open-delete-profile-modal-button'>Delete Profile</OpenModalButton>
             </div>
         </div >
     );

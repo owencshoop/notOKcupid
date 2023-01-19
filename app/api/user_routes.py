@@ -208,18 +208,16 @@ def update_preferences():
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
 
-@user_routes.route('/<int:id>', methods=['DELETE'])
+@user_routes.route('/', methods=['DELETE'])
 @login_required
-def delete_user(id):
+def delete_user():
     """
     Delete logged in user
     """
-    user = User.query.get(id)
-    if not user:
-        return {'errors': ["user does not exist"]}, 404
-
-    user.delete()
-    user = User.query.get(id)
+    currentId = current_user.id
+    db.session.delete(current_user)
+    db.session.commit()
+    user = User.query.get(currentId)
     if not user:
         logout_user()
         return {'message': 'User successfully deleted'}, 200
