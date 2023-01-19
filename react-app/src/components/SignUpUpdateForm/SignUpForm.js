@@ -266,7 +266,7 @@ const SignUpForm = () => {
                     </div>
                     <div className="signup-form-input-container">
                         <label className="signup-input-label">Maximum Age: {maxAge} years</label>
-                        <div className="min-max"><p>{`${minAge}`} </p><p>{`${maxAge}`} </p></div>
+                        <div className="min-max"><p>{`${minAge}`} </p><p>{`100`} </p></div>
                         <input
                             type="range"
                             name="maxAge"

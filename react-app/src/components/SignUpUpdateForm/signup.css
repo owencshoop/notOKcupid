@@ -4,6 +4,7 @@
     display: flex;
     justify-content: center;
     width: 100%;
+    /* padding-bottom: 20px; */
     /* padding: 40px 20px; */
 }
 
@@ -17,7 +18,7 @@
     /* margin-bottom: 10px; */
     /* }  */
     
-    .form-input-container {
+.form-input-container {
         display: flex;
         flex-direction: column;
         width: 528px;
@@ -39,6 +40,7 @@
     /* padding: 10px; */
     /* border-bottom: 2px solid grey; */
     height: fit-content;
+    width: 85%;
 }
 
 .sign-up-button {
@@ -138,6 +140,8 @@ input[type=range]:focus::-webkit-slider-runnable-track {
 .min-max {
     display: flex;
     justify-content: space-between;
+    margin: 0;
+    height: 30px;
 }
 
 
