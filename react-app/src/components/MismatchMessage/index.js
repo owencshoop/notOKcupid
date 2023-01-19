@@ -10,7 +10,6 @@ export default function MismatchMessages() {
     const { mismatchId } = useParams();
     const user = useSelector((state) => state.session.user);
     const [message, setMessage] = useState("");
-    const [errors, setErrors] = useState([]);
     const mismatches = Object.values(useSelector((state) => state.mismatches));
     const [loaded, setLoaded] = useState(false);
     const dispatch = useDispatch();
@@ -33,9 +32,6 @@ export default function MismatchMessages() {
     const onMessageSubmit = async (e) => {
         e.preventDefault();
         const data = await dispatch(sendMessage(mismatchId, message));
-        if (data) {
-            setErrors(data);
-        }
         setMessage("");
     };
 
@@ -78,13 +74,6 @@ export default function MismatchMessages() {
                         ></img>
                     </NavLink>
                 </div>
-            </div>
-            <div className="errors-div-container">
-                {errors.map((error, ind) => (
-                    <div className="errors-div" key={ind}>
-                        {error}
-                    </div>
-                ))}
             </div>
             <div id="chat-container">
                 <div id="chat-box">
