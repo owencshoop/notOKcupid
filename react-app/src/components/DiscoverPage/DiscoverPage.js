@@ -4,6 +4,7 @@ import { discoverUserLoad, addDislike, addLike } from "../../store/session";
 import './DiscoverPage.css';
 import heart from '../../assets/heart.png';
 import thumb from '../../assets/thumb.jpeg';
+import sadPanda from '../../assets/discover-placeholder.png';
 
 export default function Discover() {
     const users = useSelector((state) => state.session.discoverUsers);
@@ -34,10 +35,14 @@ export default function Discover() {
             Discover
             </h1>
         </div>
-            <h2 className="discover-page-containter">
+        <div className="discover-page-placeholder">
+
+            <h2 >
                 No more users match your preferences, adjust preferences to see
                 more.
             </h2>
+            <img src={sadPanda} alt='alone-for-now' />
+        </div>
             </>
         );
     }
