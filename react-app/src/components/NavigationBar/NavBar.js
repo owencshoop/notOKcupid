@@ -14,7 +14,7 @@ import OpenModalButton from "../OpenModalButton";
 const NavBar = () => {
     const user = useSelector((state) => state.session.user);
 
-    let disliked_num = user.dislikedUser.length;
+    let disliked_num = user?.dislikedUser.length;
 
     return (
         <nav className={user ? "nav-container" : "splash-container"}>
