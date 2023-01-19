@@ -29,7 +29,7 @@ export default function Mismatches() {
         )
     }
 
-    if (!mismatches.length)
+    if (loaded && !mismatches.length)
         return (
         <>
         <div className="mismatch-header-container">
