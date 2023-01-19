@@ -27,7 +27,6 @@ export default function MismatchMessages() {
         return null;
     }
 
-    console.log(mismatch);
 
     const onMessageSubmit = async (e) => {
         e.preventDefault();

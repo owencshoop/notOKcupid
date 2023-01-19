@@ -35,7 +35,6 @@ const SingleQuestionForm = () => {
         }
     };
 
-    console.log(question)
     useEffect(() => {
         (async () => {
             await dispatch(authenticate());
