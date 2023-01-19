@@ -116,7 +116,7 @@ export default function Discover() {
         return (
             <>
             <div className="discover-header-container">
-                    
+
                 <h1>
                 Discover
                 </h1>
@@ -165,13 +165,13 @@ export default function Discover() {
                     </div>
                     <div className='buttons-container'>
                         {!isNaN(mismatchPercentage) && <div>{mismatchPercentage}</div>}
-                        <button className="dislike-button" onMouseUp={handleDislike}><img id='discover-button-icons' src={heart} />Dislike</button>
-                        <button className="like-button" onMouseUp={handleLike}><img id='discover-button-icons' src={thumb} />Like</button>
+                        <button className="dislike-button" onMouseUp={handleDislike}><img id='discover-button-icons' src={heart} alt='discover-button-icon'/>Dislike</button>
+                        <button className="like-button" onMouseUp={handleLike}><img id='discover-button-icons' src={thumb}  alt='discover-button-icon'/>Like</button>
                         <button onMouseUp={updateUserNumber} className='skip-button'>Skip</button>
                     </div>
                 </div>
                 <img id='discover-image'
-                    alt="discover-pic"
+                    alt="discover"
                     src={
                         user.userImages[0]
                             ? user.userImages[0].imageUrl

@@ -151,15 +151,13 @@ export const signUp = (username, email, password, firstName, age, gender, prefer
   }
 }
 
-export const updateUser = (username, email, firstName, age, gender, preferredGenders, minAge, maxAge, city, state, bio, imageUrl) => async (dispatch) => {
+export const updateUser = (firstName, age, gender, preferredGenders, minAge, maxAge, city, state, bio, imageUrl) => async (dispatch) => {
   const response = await fetch('/api/users/update', {
     method: 'PUT',
     headers: {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({
-      username,
-      email,
       firstName,
       age,
       gender,
