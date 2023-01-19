@@ -41,14 +41,14 @@ const QuestionAnswerForm = () => {
     if (!loaded) {
         return (
             <>
-            <div className="question-header-container">
-                <h1>
-                Questions
-                </h1>
-            </div>
-            <div className="question-placeholder-div"></div>;
+                <div className="question-header-container">
+                    <h1>
+                        Questions
+                    </h1>
+                </div>
+                <div className="question-placeholder-div"></div>;
             </>
-            )
+        )
     }
 
     let userQuestionCount = 0
@@ -66,14 +66,14 @@ const QuestionAnswerForm = () => {
             <div className="question-header-container">
                 <h1>Questions</h1>
             </div>
+            <div className='question-stats-container'>
+                <span>Answered Questions</span>
+                <div className='question-count'>{userQuestionCount}</div>
+                <span>Unanswered Questions</span>
+                <div className='unanswered-count'>{unanswered}</div>
+                <span>The more questions you answer the higher your chances to get matched!</span>
+            </div>
             <div className='questions-container'>
-                <div className='question-stats-container'>
-                    <span>Answered Questions</span>
-                    <div className='question-count'>{userQuestionCount}</div>
-                    <span>Unanswered Questions</span>
-                    <div className='unanswered-count'>{unanswered}</div>
-                    <span>The more questions you answer the higher your chances to get matched!</span>
-                </div>
                 {/* {content.map((question) => (
                 <form className='questions-form' onSubmit={(e) => e.preventDefault()} key={question.id}>
                     <div>

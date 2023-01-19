@@ -95,7 +95,7 @@
     font-family: "GT America", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
     width: 100vw;
     height: 70px;
-    padding: 5px;       
+    padding: 5px;
 }
 
 .splash-home-link {
@@ -132,3 +132,17 @@
     font-size: 12px;
 }
 
+#dislike-num{
+    position: absolute;
+    top: 1.25em;
+    margin-left: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    border-radius: 8px;
+    width: 16px;
+    height: 16px;
+    color: white;
+    background-color: rgb(242, 41, 141);
+}
