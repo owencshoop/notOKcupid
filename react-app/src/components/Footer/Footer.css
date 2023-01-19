@@ -1,0 +1,44 @@
+.footer-container {
+  display: flex;
+  background-color: #1a1a1a;
+  height: 100px;
+  justify-content: space-evenly;
+  padding-top: 10px;
+}
+
+.github-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.technology-container {
+  display: flex;
+  color: white;
+  align-items: center;
+}
+
+.git-links {
+  text-decoration: none;
+  color: white;
+}
+.git-links-title {
+  color: white;
+}
+.git-links:hover {
+  color: rgb(242, 41, 141);
+  text-decoration: underline;
+}
+
+.tech-container-1, .tech-container-2, .tech-container-3 {
+  display: flex;
+  flex-direction: column;
+  margin-left: 7px;
+}
+
+.tech-outer-container {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

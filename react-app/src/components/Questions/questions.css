@@ -1,8 +1,8 @@
-body{
+body {
     margin: 0;
 }
 
-.questions-container{
+.questions-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -36,14 +36,14 @@ body{
     font-weight: bold;
 }
 
-.input-containter{
-    display:flex;
+.input-containter {
+    display: flex;
     flex-direction: column;
     margin-top: 8px;
     gap: 10px;
 }
 
-#answers{
+#answers {
     display: flex;
 
 }
@@ -56,7 +56,7 @@ body{
     margin: 10px -20px;
 }
 
-.question-button{
+.question-button {
     font-size: 18px;
     color: #0500be;
     font-weight: bold;
@@ -66,15 +66,15 @@ body{
     cursor: pointer;
 }
 
-.question-button-container{
-    display:flex;
+.question-button-container {
+    display: flex;
     justify-content: center;
     align-items: center;
 }
 
 button.button-option {
     border: none;
-    font-family: "GT America","Helvetica Neue","Helvetica","Arial",sans-serif;
+    font-family: "GT America", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
     background-color: rgba(188, 185, 185, 0);
     color: #2a2f35;
     border-radius: .2rem;
@@ -84,7 +84,7 @@ button.button-option {
 
 button.current-answer {
     border: none;
-    font-family: "GT America","Helvetica Neue","Helvetica","Arial",sans-serif;
+    font-family: "GT America", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
     background-color: rgba(188, 185, 185, 0);
     color: rgb(242, 41, 141);
     border-radius: .2rem;
@@ -98,9 +98,53 @@ button.current-answer {
     width: 100%;
     color: white;
     background-color: #2a2f35;
-    font-family: "GT America","Helvetica Neue","Helvetica","Arial",sans-serif;
+    font-family: "GT America", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
     font-weight: bold;
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+
+.question-stats-container {
+    position: fixed;
+    top: 155px;
+    display: flex;
+    flex-direction: column;
+    border: solid 1px rgb(188, 185, 185, 0.2);
+    box-shadow: 0 0 10px 1px rgba(188, 185, 185, 0.2);
+    border-radius: 8px;
+    padding: 20px;
+    width: 250px;
+    margin-top: 40px;
+    margin-left: 40px;
+    gap: 10px;
+}
+
+.question-count {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid white;
+    border-radius: 28px;
+    width: 50px;
+    height: 50px;
+    color: white;
+    background-color: rgb(242, 41, 141);
+}
+
+.unanswered-count {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid white;
+    border-radius: 28px;
+    width: 50px;
+    height: 50px;
+    color: white;
+    background-color: #2a2f35;
+}
+
+.question-placeholder-div {
+    height: 100vh;
 }

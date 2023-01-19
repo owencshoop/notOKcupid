@@ -135,3 +135,7 @@ button:hover {
     padding: 10px;
     flex-direction: column;
 }
+
+.discover-placeholder-div {
+    height: 100vh;
+}

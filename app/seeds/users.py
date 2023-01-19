@@ -69,14 +69,98 @@ def seed_users():
         username='conner', email='conner@aa.io', password='password', age=28, first_name='Conner', gender='male', preferred_genders='male, female, nonbinary', min_age=18, max_age=99, city='Beverly Hills', state='CA', bio='Call me dungeon master. Started with world of warcraft and now I run my own games. You can find me in that fresh powpow'
     )
     eddy = User(
-        username='eddy', email='eddy@aa.io', password='password', age=22, first_name='Eddy', gender='female', preferred_genders='male, female', min_age=18, max_age=50, city='Beverly Hills', state='CA', bio='I am studying to be a nurse practitioner. I used to play lacrosse but now I hate it with a passion. #cape'
+        username='eddy', email='eddy@aa.io', password='password', age=22, first_name='Eddy', gender='female', preferred_genders='male, female, nonbinary', min_age=18, max_age=50, city='Beverly Hills', state='CA', bio='I am studying to be a nurse practitioner. I used to play lacrosse but now I hate it with a passion. #cape'
     )
     demo = User(
         username='demo', email='demo@aa.io', password='password', age=35, first_name='Demo', gender='male', preferred_genders='male', min_age=18, max_age=99, city='Beverly Hills', state='CA', bio='I will demolish you.'
     )
+    user99m = User(
+        username='user99m', email='user99m@aa.io', password='password', age=99, first_name='OldUser', gender='male', preferred_genders='male, female, nonbinary', min_age=18, max_age=99, city='Washington', state='DC', bio='I am 99'
+    )
+    user99f = User(
+        username='user99f', email='user99f@aa.io', password='password', age=99, first_name='OldUser', gender='female', preferred_genders='male, female, nonbinary', min_age=18, max_age=99, city='Washington', state='DC', bio='I am 99'
+    )
+    user95m = User(
+        username='user95m', email='user95m@aa.io', password='password', age=95, first_name='OldUser', gender='male', preferred_genders='male, female, nonbinary', min_age=18, max_age=99, city='Washington', state='DC', bio='I am 95'
+    )
+    user95f = User(
+        username='user95f', email='user95f@aa.io', password='password', age=95, first_name='OldUser', gender='female', preferred_genders='male, female, nonbinary', min_age=18, max_age=99, city='Washington', state='DC', bio='I am 95'
+    )
+    user90m = User(
+        username='user90m', email='user90m@aa.io', password='password', age=90, first_name='OldUser', gender='male', preferred_genders='male, female, nonbinary', min_age=18, max_age=99, city='Washington', state='DC', bio='I am 90'
+    )
+    user90f = User(
+        username='user90f', email='user90f@aa.io', password='password', age=90, first_name='OldUser', gender='female', preferred_genders='male, female, nonbinary', min_age=18, max_age=90, city='Washington', state='DC', bio='I am 90'
+    )
+    user85m = User(
+        username='user85m', email='user85m@aa.io', password='password', age=85, first_name='OldUser', gender='male', preferred_genders='male, female, nonbinary', min_age=18, max_age=99, city='Washington', state='DC', bio='I am 85'
+    )
+    user85f = User(
+        username='user85f', email='user85f@aa.io', password='password', age=85, first_name='OldUser', gender='female', preferred_genders='male, female, nonbinary', min_age=18, max_age=90, city='Washington', state='DC', bio='I am 85'
+    )
+    user80m = User(
+        username='user80m', email='user80m@aa.io', password='password', age=80, first_name='OldUser', gender='male', preferred_genders='male, female, nonbinary', min_age=18, max_age=99, city='Washington', state='DC', bio='I am 80'
+    )
+    user80f = User(
+        username='user80f', email='user80f@aa.io', password='password', age=80, first_name='OldUser', gender='female', preferred_genders='male, female, nonbinary', min_age=18, max_age=90, city='Washington', state='DC', bio='I am 80'
+    )
+    user75m = User(
+        username='user75m', email='user75m@aa.io', password='password', age=75, first_name='OldUser', gender='male', preferred_genders='male, female, nonbinary', min_age=18, max_age=99, city='Washington', state='DC', bio='I am 75'
+    )
+    user75f = User(
+        username='user75f', email='user75f@aa.io', password='password', age=75, first_name='OldUser', gender='female', preferred_genders='male, female, nonbinary', min_age=18, max_age=90, city='Washington', state='DC', bio='I am 75'
+    )
+    user70m = User(
+        username='user70m', email='user70m@aa.io', password='password', age=70, first_name='OldUser', gender='male', preferred_genders='male, female, nonbinary', min_age=18, max_age=99, city='Washington', state='DC', bio='I am 70'
+    )
+    user70f = User(
+        username='user70f', email='user70f@aa.io', password='password', age=70, first_name='OldUser', gender='female', preferred_genders='male, female, nonbinary', min_age=18, max_age=90, city='Washington', state='DC', bio='I am 70'
+    )
+    user65m = User(
+        username='user65m', email='user65m@aa.io', password='password', age=65, first_name='OldUser', gender='male', preferred_genders='male, female, nonbinary', min_age=18, max_age=99, city='Washington', state='DC', bio='I am 65'
+    )
+    user65f = User(
+        username='user65f', email='user65f@aa.io', password='password', age=65, first_name='OldUser', gender='female', preferred_genders='male, female, nonbinary', min_age=18, max_age=90, city='Washington', state='DC', bio='I am 65'
+    )
+    user60m = User(
+        username='user60m', email='user60m@aa.io', password='password', age=60, first_name='OldUser', gender='male', preferred_genders='male, female, nonbinary', min_age=18, max_age=99, city='Washington', state='DC', bio='I am 60'
+    )
+    user60f = User(
+        username='user60f', email='user60f@aa.io', password='password', age=60, first_name='OldUser', gender='female', preferred_genders='male, female, nonbinary', min_age=18, max_age=90, city='Washington', state='DC', bio='I am 60'
+    )
+    user55m = User(
+        username='user55m', email='user55m@aa.io', password='password', age=55, first_name='OldUser', gender='male', preferred_genders='male, female, nonbinary', min_age=18, max_age=99, city='Washington', state='DC', bio='I am 55'
+    )
+    user55f = User(
+        username='user55f', email='user55f@aa.io', password='password', age=55, first_name='OldUser', gender='female', preferred_genders='male, female, nonbinary', min_age=18, max_age=90, city='Washington', state='DC', bio='I am 55'
+    )
+    user50m = User(
+        username='user50m', email='user50m@aa.io', password='password', age=50, first_name='OldUser', gender='male', preferred_genders='male, female, nonbinary', min_age=18, max_age=99, city='Washington', state='DC', bio='I am 50'
+    )
+    user50f = User(
+        username='user50f', email='user55f@aa.io', password='password', age=50, first_name='OldUser', gender='female', preferred_genders='male, female, nonbinary', min_age=18, max_age=90, city='Washington', state='DC', bio='I am 50'
+    )
+    user45m = User(
+        username='user45m', email='user45m@aa.io', password='password', age=45, first_name='OldUser', gender='male', preferred_genders='male, female, nonbinary', min_age=18, max_age=99, city='Washington', state='DC', bio='I am 45'
+    )
+    user45f = User(
+        username='user45f', email='user45f@aa.io', password='password', age=45, first_name='OldUser', gender='female', preferred_genders='male, female, nonbinary', min_age=18, max_age=90, city='Washington', state='DC', bio='I am 45'
+    )
+    user40m = User(
+        username='user40m', email='user40m@aa.io', password='password', age=40, first_name='OldUser', gender='male', preferred_genders='male, female, nonbinary', min_age=18, max_age=99, city='Washington', state='DC', bio='I am 40'
+    )
+    user40f = User(
+        username='user40f', email='user40f@aa.io', password='password', age=40, first_name='OldUser', gender='female', preferred_genders='male, female, nonbinary', min_age=18, max_age=90, city='Washington', state='DC', bio='I am 40'
+    )
+    user35m = User(
+        username='user35m', email='user35m@aa.io', password='password', age=35, first_name='OldUser', gender='male', preferred_genders='male, female, nonbinary', min_age=18, max_age=99, city='Washington', state='DC', bio='I am 35'
+    )
+    user35f = User(
+        username='user35f', email='user35f@aa.io', password='password', age=35, first_name='OldUser', gender='female', preferred_genders='male, female, nonbinary', min_age=18, max_age=90, city='Washington', state='DC', bio='I am 35'
+    )
 
     users = [demo, brett, lyn, conner, eddy, riktor, viktor, edktor, abcde, optimusa,
-             camden, tam, jack, micheal, cupid, demo5, alpal, wesley, buttercup, inigo]
+             camden, tam, jack, micheal, cupid, demo5, alpal, wesley, buttercup, inigo, user99m, user99f, user95m, user95f, user90m, user90f, user85m, user85f, user80m, user80f, user75m, user75f, user70m, user70f, user65m, user65f, user60m, user65f, user60m, user60f, user55m, user55f, user50m, user50f, user55f, user45m, user45f, user40m, user40f, user35m, user35f]
 
     demo.dislikes = [eddy, conner, brett, cupid]
     demo.likes = [camden, tam, demo5]
