@@ -26,6 +26,7 @@
     text-decoration: none;
     /* justify-content: space-between; */
     align-items: flex-end;
+    width: 100%;
 }
 
 .dislike-name {
@@ -35,6 +36,10 @@
     color: #1a1a1a;
     font-family: "GT America","Helvetica Neue","Helvetica","Arial",sans-serif;
     font-weight: bold;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 80%;
 }
 
 .dislike-age {
