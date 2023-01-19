@@ -1,5 +1,5 @@
 from flask import Blueprint, jsonify, session, request
-from app.models import User, db, UserAnswer, Question, UserImage
+from app.models import User, db, UserAnswer, Question, UserImage, Mismatch
 from app.forms import LoginForm
 from app.forms import SignUpForm
 from flask_login import current_user, login_user, logout_user, login_required
@@ -76,7 +76,17 @@ def sign_up():
             state=form.data['state'],
             bio=form.data['bio']
         )
+        demo1 = User.query.get(1)
+        demo2 = User.query.get(9)
         db.session.add(user)
+        demo1.dislikes.append(user)
+        demo2.dislikes.append(user)
+        user.dislikes.append(demo1)
+        user.dislikes.append(demo2)
+        mismatch1 = Mismatch(user1=demo1, user2=user)
+        mismatch2 = Mismatch(user1=demo2, user2=user)
+        db.session.add(mismatch1)
+        db.session.add(mismatch2)
         UserImage(image_url=form.data['imageUrl'], user=user)
         questions = Question.query.all()
         [db.session.add(UserAnswer(user=user, question=question, answer=None)) for question in questions]
