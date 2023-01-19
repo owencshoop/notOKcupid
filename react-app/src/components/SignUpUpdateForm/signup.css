@@ -10,16 +10,22 @@
 /* .form-input-container { */
     /* border: 3px solid blue; */
     /* box-sizing: border-box; */
-    /* width: 528px; */
     /* border: solid 1px rgb(188, 185, 185, 0.2); */
     /* box-shadow: 0 0 10px 1px rgba(92, 91, 91, 0.2); */
     /* border-radius: 8px; */
     /* padding: 40px 1000px; */
     /* margin-bottom: 10px; */
- /* }  */
+    /* }  */
+    
+    .form-input-container {
+        display: flex;
+        flex-direction: column;
+        width: 528px;
+ }
 
- .form-input-container > h2 {
-    margin-left: 10px;
+ .signup-label {
+    text-align: center;
+    font-size: 32px;
  }
 
 .signup-form-input-container {
@@ -36,11 +42,12 @@
 }
 
 .sign-up-button {
-    width: 100%;
+    width: 92%;
     height: 40px;
     background-color: #2A2F35;
     color: white;
     margin-top: 10px;
+    margin-left: 20px;
     font-size: 20px;
     border-radius: 8px;
 }
@@ -48,7 +55,7 @@
 .sign-up-button:hover {
     cursor: pointer;
     background-color: rgb(242, 41, 141);
-        color: black;
+    color: black;
 }
 
 .signup-input-field {
@@ -59,6 +66,8 @@
     font-weight: 550;
     width: 100%;
     padding: 10px;
+    border-radius: 8px;
+    border: .5px solid;
 }
 
 .signup-input-label {
@@ -72,6 +81,8 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    /* align-items: center; */
+    margin-left: 20px;
 }
 
 .errors-div {
@@ -80,11 +91,12 @@
 }
 
 .signup-bio-field {
-    width: 100%;
+    width: 95%;
     height: 150px;
     resize: none;
     font-family: "GT America","Helvetica Neue","Helvetica","Arial",sans-serif;
     font-size: large;
     font-weight: 550;
     border-radius: 8px;
+    padding: 10px;
 }
