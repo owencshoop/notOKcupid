@@ -1,6 +1,7 @@
 .dislikes-likes {
     display: flex;
     width: 100vw;
-    height: 103vh;
+    height: 80vh;
+    overflow-y: auto;
     /* border: 2px red solid; */
     }
