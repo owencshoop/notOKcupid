@@ -8,6 +8,7 @@ import sadPanda from '../../assets/discover-placeholder.png';
 
 export default function Discover() {
     const users = useSelector((state) => state.session.discoverUsers);
+    const currentUser = useSelector(state => state.session.user)
     const [loaded, setLoaded] = useState(false);
     const [userNumber, setUserNumber] = useState(0);
     const [errors, setErrors] = useState([])
@@ -49,6 +50,21 @@ export default function Discover() {
 
 
     let user = usersList[userNumber];
+    const user1answers = currentUser.userAnswers.filter(answer => answer.answer !== null)
+    const user2answers = user.userAnswers.filter(answer => answer.answer !== null)
+    let sameQuestionCount = 0.0
+    let differentAnswerCount = 0.0
+    user1answers.forEach(user1answer => {
+        user2answers.forEach(user2answer => {
+            if (user1answer.questionId === user2answer.questionId){
+                sameQuestionCount += 1
+                if (user1answer.answer !== user2answer.answer){
+                    differentAnswerCount += 1
+                }
+            }
+        })
+    })
+    const mismatchPercentage = Math.floor(differentAnswerCount / sameQuestionCount * 100)
 
     const updateUserNumber = async () => {
         setLoaded(false)
@@ -127,6 +143,7 @@ export default function Discover() {
                     <span>{user.city}, {user.state}</span>
                     </div>
                     <div className='buttons-container'>
+                        {!isNaN(mismatchPercentage) && <div>{mismatchPercentage}</div>}
                         <button className="dislike-button" onMouseUp={handleDislike}><img id='discover-button-icons' src={heart} />Dislike</button>
                         <button className="like-button" onMouseUp={handleLike}><img id='discover-button-icons' src={thumb} />Like</button>
                         <button onMouseUp={updateUserNumber} className='skip-button'>Skip</button>
