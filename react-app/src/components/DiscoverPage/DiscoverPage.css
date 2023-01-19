@@ -121,9 +121,12 @@ button:hover {
     background-color: #2a2f35;
     font-family: "GT America","Helvetica Neue","Helvetica","Arial",sans-serif;
     font-weight: bold;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    /* display: flex; */
+    /* align-items: center; */
+    /* justify-content: center; */
+    /* text-align: center; */
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
 }
 
 .discover-page-placeholder {
@@ -138,4 +141,38 @@ button:hover {
 
 .discover-placeholder-div {
     height: 100vh;
+}
+
+.discover-header-container > h1 {
+    grid-column: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pref-button-container {
+    grid-column: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+}
+
+.pref-button-container > button {
+    
+    border: none;
+    background-color: inherit;
+    color: white;
+    /* margin-right: 200px; */
+    /* padding-right: 200px; */
+}
+
+#equalizer {
+    width: 20px;
+    height: 20px;
+    color: white;
+}
+
+.pref-button-container>button:hover {
+    
+    color: rgb(242, 41, 141)
 }
