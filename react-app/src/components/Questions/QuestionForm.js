@@ -51,13 +51,30 @@ const QuestionAnswerForm = () => {
             )
     }
 
+    let userQuestionCount = 0
+    user.userAnswers.forEach(answer => {
+        if (answer.answer != null) userQuestionCount += 1;
+    });
+
+    let unanswered = 0
+    user.userAnswers.forEach(answer => {
+        if (answer.answer === null) unanswered += 1;
+    });
+
     return (
         <>
             <div className="question-header-container">
                 <h1>Questions</h1>
             </div>
-        <div className='questions-container'>
-            {/* {content.map((question) => (
+            <div className='questions-container'>
+                <div className='question-stats-container'>
+                    <span>Answered Questions</span>
+                    <div className='question-count'>{userQuestionCount}</div>
+                    <span>Unanswered Questions</span>
+                    <div className='unanswered-count'>{unanswered}</div>
+                    <span>The more questions you answer the higher your chances to get matched!</span>
+                </div>
+                {/* {content.map((question) => (
                 <form className='questions-form' onSubmit={(e) => e.preventDefault()} key={question.id}>
                     <div>
                     {errors.map((error, ind) => (
@@ -97,60 +114,60 @@ const QuestionAnswerForm = () => {
                             </div>
                         </div> */}
 
-                        {content.map((question) => (
-                <form className='questions-form' onSubmit={(e) => e.preventDefault()} key={question.id}>
-                    <div>
-                        {errors.map((error, ind) => (
-                            <div key={ind}>{error}</div>
-                        ))}
-                    </div>
-                    <div className='question-cards'>
-                        <div id='question'>{question.question.question}</div>
-                        <div className='input-containter'>
-                            <div id='answers'>
-                                <button
-                                    id="answer1"
-                                    name="answer"
-                                    value={question.question.answer1}
-                                    onClick={(e) => {
-                                        dispatch(updateAnswer(question.id, e.target.value, user.id))
-                                    }}
-                                    className={question.answer === question.question.answer1 ? 'current-answer' : 'button-option'}
-                                >{question.question.answer1}</button>
-                            </div>
-                            <div id='answers'>
-                                <button
-                                    id="answer2"
-                                    name="answer"
+                {content.map((question) => (
+                    <form className='questions-form' onSubmit={(e) => e.preventDefault()} key={question.id}>
+                        <div>
+                            {errors.map((error, ind) => (
+                                <div key={ind}>{error}</div>
+                            ))}
+                        </div>
+                        <div className='question-cards'>
+                            <div id='question'>{question.question.question}</div>
+                            <div className='input-containter'>
+                                <div id='answers'>
+                                    <button
+                                        id="answer1"
+                                        name="answer"
+                                        value={question.question.answer1}
+                                        onClick={(e) => {
+                                            dispatch(updateAnswer(question.id, e.target.value, user.id))
+                                        }}
+                                        className={question.answer === question.question.answer1 ? 'current-answer' : 'button-option'}
+                                    >{question.question.answer1}</button>
+                                </div>
+                                <div id='answers'>
+                                    <button
+                                        id="answer2"
+                                        name="answer"
 
-                                    value={question.question.answer2}
-                                    onClick={(e) => {
-                                        dispatch(updateAnswer(question.id, e.target.value, user.id))
-                                    }}
-                                    className={question.answer === question.question.answer2 ? 'current-answer' : 'button-option'}
-                                >{question.question.answer2}</button>
+                                        value={question.question.answer2}
+                                        onClick={(e) => {
+                                            dispatch(updateAnswer(question.id, e.target.value, user.id))
+                                        }}
+                                        className={question.answer === question.question.answer2 ? 'current-answer' : 'button-option'}
+                                    >{question.question.answer2}</button>
+                                </div>
                             </div>
+                            {question.answer ?
+                                <>
+                                    <li className="question-divider"></li>
+                                    <div className='question-button-container'>
+                                        <button className='question-button'
+                                            type="submit"
+                                            onClick={(e) => {
+                                                dispatch(updateAnswer(question.id, null, user.id))
+                                            }}
+                                        >
+                                            Delete Answer
+                                        </button>
+                                    </div>
+                                </>
+                                : null}
                         </div>
-                        {question.answer ?
-                        <>
-                        <li className="question-divider"></li>
-                        <div className='question-button-container'>
-                            <button className='question-button'
-                                type="submit"
-                                onClick={(e) => {
-                                    dispatch(updateAnswer(question.id, null, user.id))
-                                }}
-                                >
-                                Delete Answer
-                            </button>
-                        </div>
-                                    </>
-                            : null }
-                    </div>
-                </form>
-            ))}
-        </div>
-                            </>
+                    </form>
+                ))}
+            </div>
+        </>
     );
 };
 
