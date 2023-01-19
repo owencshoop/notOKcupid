@@ -148,3 +148,11 @@ button.current-answer {
 .question-placeholder-div {
     height: 100vh;
 }
+
+#answer1:hover{
+    color:  rgb(242, 41, 141);
+}
+
+#answer2:hover{
+    color:  rgb(242, 41, 141);
+}
