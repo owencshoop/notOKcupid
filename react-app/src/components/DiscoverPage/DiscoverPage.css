@@ -113,3 +113,25 @@ button:hover {
 #discover-image{
     border-radius: 8px;
 }
+
+.discover-header-container {
+    height: 105px;
+    width: 100%;
+    color: white;
+    background-color: #2a2f35;
+    font-family: "GT America","Helvetica Neue","Helvetica","Arial",sans-serif;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.discover-page-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 20%;
+    margin-right: 20%;
+    padding: 10px;
+    flex-direction: column;
+}

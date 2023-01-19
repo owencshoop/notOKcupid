@@ -43,11 +43,15 @@ const QuestionAnswerForm = () => {
     }
 
     return (
+        <>
+            <div className="question-header-container">
+                <h1>Questions</h1>
+            </div>
         <div className='questions-container'>
             {/* {content.map((question) => (
                 <form className='questions-form' onSubmit={(e) => e.preventDefault()} key={question.id}>
                     <div>
-                        {errors.map((error, ind) => (
+                    {errors.map((error, ind) => (
                             <div key={ind}>{error}</div>
                         ))}
                     </div>
@@ -55,8 +59,8 @@ const QuestionAnswerForm = () => {
                         <div id='question'>{question.question.question}</div>
                         <div className='input-containter'>
                             <div id='answers'>
-                                <input
-                                    type="radio"
+                            <input
+                            type="radio"
                                     id="answer1"
                                     name="answer"
                                     value={question.question.answer1}
@@ -67,11 +71,11 @@ const QuestionAnswerForm = () => {
                                     checked={question.answer === question.question.answer1}
                                 ></input>
                                 <label htmlFor="answer1">{question.question.answer1}</label>
-                            </div>
+                                </div>
                             <div id='answers'>
                                 <input
-                                    type="radio"
-                                    id="answer2"
+                                type="radio"
+                                id="answer2"
                                     name="answer"
                                     value={question.question.answer2}
                                     onChange={() => console.log()}
@@ -79,7 +83,7 @@ const QuestionAnswerForm = () => {
                                         dispatch(updateAnswer(question.id, e.target.value, user.id))
                                     }}
                                     checked={question.answer === question.question.answer2}
-                                ></input>
+                                    ></input>
                                 <label htmlFor="answer1">{question.question.answer2}</label>
                             </div>
                         </div> */}
@@ -137,6 +141,7 @@ const QuestionAnswerForm = () => {
                 </form>
             ))}
         </div>
+                            </>
     );
 };
 

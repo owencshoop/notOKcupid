@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { NavLink } from "react-router-dom";
 import { getMismatches } from "../../store/mismatchReducer";
 import "./mismatches.css";
+import mismatchPH from '../../assets/mismatch-placeholder.png';
 
 export default function Mismatches() {
     const dispatch = useDispatch();
@@ -13,7 +14,19 @@ export default function Mismatches() {
         dispatch(getMismatches(user.id));
     }, [dispatch, user.id]);
 
-    if (!mismatches.length) return <h1>Get good or get out!</h1>;
+    if (!mismatches.length) return (
+        <>
+        <div className="mismatch-header-container">
+            <h1>
+            Mismatches
+            </h1>
+        </div>
+        <div className="mismatch-page-placeholder">
+            <h2 className="mismatch-catch-message">You're too likeable.</h2>
+            <img src={mismatchPH} alt='too-cool-to-match' />
+        </div>
+        </>
+    );
 
     const mismatch_info = mismatches.map((mismatch) => {
         if (mismatch.user1Id === user.id) {
@@ -78,5 +91,14 @@ export default function Mismatches() {
         }
     });
 
-    return <div className="all-mismatch-container">{mismatch_info}</div>;
+    return (
+        <>
+        <div className="mismatch-header-container">
+            <h1>
+            Mismatches
+            </h1>
+            </div>
+        <div className="all-mismatch-container">{mismatch_info}</div>;
+        </>
+        )
 }
