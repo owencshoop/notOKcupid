@@ -169,6 +169,13 @@ export default function Discover() {
                 <h1>
                     Discover
                 </h1>
+                <div className="discover-blurb">
+                    <h4>Liking is boring.</h4>
+                    <p> Dislike Users to create Mismatches,
+                        and chat with someone different for a change! Liking will remove 
+                        Users from your discover feed, but we won't let you talk to them... yet!
+                    </p>
+                </div>
             </div>
             <div className='discover-page-containter'>
                 <ul>

@@ -199,7 +199,7 @@ def update_preferences():
     form = UserPreferencesForm()
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
-        current_user.preffered_genders = form.data['preferredGenders']
+        current_user.preferred_genders = form.data['preferredGenders']
         current_user.min_age = form.data['minAge']
         current_user.max_age = form.data['maxAge']
         db.session.add(current_user)
