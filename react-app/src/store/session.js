@@ -47,6 +47,32 @@ export const authenticate = () => async (dispatch) => {
   }
 }
 
+export const updatePreferences = (preferredGenders, minAge, maxAge) => async (dispatch) => {
+  const response = await fetch('/api/auth/preferences', {
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      preferredGenders,
+      minAge,
+      maxAge
+    })
+  })
+
+  if (response.ok){
+    const data = await response.json()
+    dispatch(setUser(data))
+  } else if (response.status < 500) {
+    const data = await response.json();
+    if (data.errors) {
+      return data.errors;
+    }
+  } else {
+    return ['An error occurred. Please try again.']
+  }
+}
+
 export const login = (email, password) => async (dispatch) => {
   const response = await fetch('/api/auth/login', {
     method: 'POST',
@@ -58,7 +84,6 @@ export const login = (email, password) => async (dispatch) => {
       password
     })
   });
-
 
   if (response.ok) {
     const data = await response.json();
