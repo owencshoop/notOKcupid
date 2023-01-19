@@ -104,3 +104,7 @@ button.current-answer {
     align-items: center;
     justify-content: center;
 }
+
+.question-placeholder-div {
+    height: 100vh;
+}
