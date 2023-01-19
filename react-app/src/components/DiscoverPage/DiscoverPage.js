@@ -122,6 +122,7 @@ export default function Discover() {
                     </h1>
                 </div>
                 <div className="discover-placeholder-div"></div>;
+
             </>
         )
     }
@@ -187,6 +188,7 @@ export default function Discover() {
                         <span>Bio: {user.bio}</span>
                     </div>
                 </div>
+
             </div>
         </>
     );

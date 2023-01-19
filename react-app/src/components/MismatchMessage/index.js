@@ -36,7 +36,7 @@ export default function MismatchMessages() {
 
     const onMessageSubmit = async (e) => {
         e.preventDefault();
-        const data = await dispatch(sendMessage(mismatchId, message));
+        await dispatch(sendMessage(mismatchId, message));
         setMessage("");
     };
 

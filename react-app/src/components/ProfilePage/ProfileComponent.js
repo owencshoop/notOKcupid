@@ -2,9 +2,10 @@ import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import SingleQuestionForm from "../Questions/SingleQuestionForm";
 import { discoverUserLoad } from "../../store/session";
-import { NavLink } from "react-router-dom";
 import './ProfileComponent.css';
 import pencil from '../../assets/pencil.png';
+import OpenModalButton from "../OpenModalButton";
+import UpdateUserForm from "../SignUpUpdateForm/UpdateUserForm";
 
 export default function ProfilePage() {
     const user = useSelector((state) => state.session.user);
@@ -34,7 +35,7 @@ export default function ProfilePage() {
 
     return (
         <div className='profile-container'>
-            <NavLink to='/profile/update' className='top-profile-background'>
+            <div className='top-profile-background'>
                 <div className='prof-header'>
                     <img id='profile-img'
                         src={
@@ -47,12 +48,14 @@ export default function ProfilePage() {
                     <div className='profile-header-container'>
                         <div className='name-update'>
                             <span id='username'>{user.username}</span>
-                            <img id='pencil' src={pencil} alt='pencil'/>
+                            <OpenModalButton modalComponent={<UpdateUserForm />} buttonText={<img id='pencil' src={pencil} alt='pencil'/>} className='update-profile-modal-button' style={{backgroundColor: 'none'}}>
+                            </OpenModalButton>
                         </div>
                         <span id='user-location'>{user.city}, {user.state}</span>
                     </div>
                 </div>
-            </NavLink>
+
+            </div>
             <div className='profile-info'>
                 <h3 className='prof-card-header'>Your Preferences</h3>
                 <div className='the-info'>

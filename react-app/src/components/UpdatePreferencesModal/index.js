@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { updatePreferences } from "../../store/session";
+import { discoverUserLoad, updatePreferences } from "../../store/session";
 import { useModal } from "../../context/Modal";
+import './UpdatePreferences.css'
 
 const UpdatePreferencesForm = () => {
     const user = useSelector((state) => state.session.user);
@@ -32,14 +33,16 @@ const UpdatePreferencesForm = () => {
         if (data) {
             setErrors(data);
         }
+        await dispatch(discoverUserLoad())
         await closeModal()
     }
 
     return (
-        <div className="user-form-container">
-            <div className="form-input-container">
-                <form onSubmit={onUpdate} className="errors-div-container">
-                    <div>
+        <div className="pref-user-form-container">
+            <div className="pref-form-input-container">
+                <h2 className="signup-label" >Update Preferences</h2>
+                <form onSubmit={onUpdate} className='update-form'>
+                    <div className="errors-div-container">
                         {errors.map((error, ind) => (
                             <div className='errors-div' key={ind}>{error}</div>
                         ))}
@@ -83,6 +86,7 @@ const UpdatePreferencesForm = () => {
                     </div>
                     <div className="signup-form-input-container">
                         <label className="signup-input-label">Maximum Age: {maxAge} years</label>
+                        <div className="min-max"><p>{`${minAge}`} </p><p>{`100`} </p></div>
                         <input
                             type="range"
                             name="maxAge"
@@ -93,7 +97,7 @@ const UpdatePreferencesForm = () => {
                             className="signup-input-field"
                         ></input>{" "}
                     </div>
-                    <button type="submit" className="sign-up-button">
+                    <button type="submit" className="update-pref-button">
                         Save
                     </button>
                 </form>
