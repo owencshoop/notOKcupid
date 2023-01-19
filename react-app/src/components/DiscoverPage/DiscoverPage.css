@@ -176,12 +176,22 @@ button:hover {
 
 .pref-button-container {
     grid-column: 1;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
 }
 
-.pref-button-container > button {
+.pref-button-border {
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    gap: 5px;
+}
+
+.pref-button-border > button {
 
     border: none;
     background-color: inherit;
@@ -196,7 +206,7 @@ button:hover {
     color: white;
 }
 
-.pref-button-container>button:hover {
-
-    color: rgb(242, 41, 141)
+.pref-button-border:hover {
+    border-bottom: 2px solid rgb(242, 41, 141);
+    padding-bottom: 10px;
 }
