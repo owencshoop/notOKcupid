@@ -3,6 +3,7 @@
     width: 568px;
     margin: auto;
     height: 70vh;
+    overflow-y: auto;
 }
 
 .mismatch-navlink-container {
@@ -97,4 +98,8 @@
     margin-right: 20%;
     padding: 10px;
     flex-direction: column;
+}
+
+.mismatch-page-placeholder-div {
+    height: 70vh;
 }

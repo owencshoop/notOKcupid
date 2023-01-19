@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { NavLink } from "react-router-dom";
 import { getMismatches } from "../../store/mismatchReducer";
@@ -7,14 +7,30 @@ import mismatchPH from '../../assets/mismatch-placeholder.png';
 
 export default function Mismatches() {
     const dispatch = useDispatch();
+    const [loaded, setLoaded] = useState(false)
     const mismatches = Object.values(useSelector((state) => state.mismatches));
     const user = useSelector((state) => state.session.user);
 
     useEffect(() => {
-        dispatch(getMismatches(user.id));
+        dispatch(getMismatches(user.id))
+        .then(()=> setLoaded(true))
     }, [dispatch, user.id]);
 
-    if (!mismatches.length) return (
+    if (!loaded) {
+        return (
+            <>
+            <div className="mismatch-header-container">
+                <h1>
+                Mismatches
+                </h1>
+            </div>
+            <div className="mismatch-page-placeholder-div"></div>
+            </>
+        )
+    }
+
+    if (!mismatches.length)
+        return (
         <>
         <div className="mismatch-header-container">
             <h1>

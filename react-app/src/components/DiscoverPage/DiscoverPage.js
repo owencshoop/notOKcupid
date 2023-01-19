@@ -24,7 +24,16 @@ export default function Discover() {
     }, [dispatch, loaded]);
 
     if (!users) {
-        return null;
+        return (
+            <>
+            <div className="discover-header-container">
+                <h1>
+                Discover
+                </h1>
+            </div>
+            <div className="discover-placeholder-div"></div>;
+            </>
+            )
     }
 
     if (usersList.length === 0) {

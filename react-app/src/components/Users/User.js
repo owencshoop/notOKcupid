@@ -18,11 +18,17 @@ function User() {
     }, [dispatch]);
 
     if (!loaded) {
-        return null;
+        return (
+            <>
+            <div className='top-profile-background'></div>
+            <div className='profile-placeholder-div-user'></div>
+            </>
+
+        )
     }
 
     return (
-        <div className='profile-container'>
+        <div className='profile-container-user'>
         <div className='top-profile-background'>
             <div className='prof-header'>
                 <img alt='discover-profile-pic' id='profile-img'
