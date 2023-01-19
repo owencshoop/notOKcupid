@@ -62,7 +62,7 @@ export default function Mismatches() {
         } else {
             return (
                 <div className="mismatch-navlink-container">
-                    <NavLink to={`/mismatches/${mismatch.id}`}>
+                    <NavLink to={`/mismatches/${mismatch.id}`} className='mismatch-navlink'>
                         <div className="mismatch-image-container">
                             <img
                                 src={
@@ -71,6 +71,7 @@ export default function Mismatches() {
                                         : "https://picsum.photos/256/256"
                                 }
                                 alt='profile'
+                                className='mismatch-image'
                             ></img>
                         </div>
                         <div className="mismatch-info-container">
