@@ -30,6 +30,22 @@ export default function Mismatches() {
 
     const mismatch_info = mismatches.map((mismatch) => {
         if (mismatch.user1Id === user.id) {
+            const user1answers = mismatch.user1.userAnswers.filter(answer => answer.answer !== null)
+            const user2answers = mismatch.user2.userAnswers.filter(answer => answer.answer !== null)
+            let sameQuestionCount = 0.0
+            let differentAnswerCount = 0.0
+            user1answers.forEach(user1answer => {
+                user2answers.forEach(user2answer => {
+                    if (user1answer.questionId === user2answer.questionId){
+                        sameQuestionCount += 1
+                        if (user1answer.answer !== user2answer.answer){
+                            differentAnswerCount += 1
+                        }
+                    }
+                })
+            })
+            const mismatchPercentage = Math.floor(differentAnswerCount / sameQuestionCount * 100)
+
             return (
                 <div className="mismatch-navlink-container">
                     <NavLink to={`/mismatches/${mismatch.id}`} className='mismatch-navlink'>
@@ -46,7 +62,7 @@ export default function Mismatches() {
                         </div>
                         <div className="mismatch-info-container">
                             <div className="mismatch-first-name">
-                                {mismatch.user2.firstName}
+                                {mismatch.user2.firstName} {mismatchPercentage ? ` - ${mismatchPercentage}%` : ' - loading...'}
                             </div>
                             <div className="mismatch-message">
                                 {mismatch.messages.length > 0
@@ -60,6 +76,22 @@ export default function Mismatches() {
                 </div>
             );
         } else {
+            const user1answers = mismatch.user1.userAnswers.filter(answer => answer.answer !== null)
+            const user2answers = mismatch.user2.userAnswers.filter(answer => answer.answer !== null)
+            let sameQuestionCount = 0.0
+            let differentAnswerCount = 0.0
+            user1answers.forEach(user1answer => {
+                user2answers.forEach(user2answer => {
+                    if (user1answer.questionId === user2answer.questionId){
+                        sameQuestionCount += 1
+                        if (user1answer.answer !== user2answer.answer){
+                            differentAnswerCount += 1
+                        }
+                    }
+                })
+            })
+            const mismatchPercentage = Math.floor(differentAnswerCount / sameQuestionCount * 100)
+            
             return (
                 <div className="mismatch-navlink-container">
                     <NavLink to={`/mismatches/${mismatch.id}`} className='mismatch-navlink'>
@@ -76,7 +108,7 @@ export default function Mismatches() {
                         </div>
                         <div className="mismatch-info-container">
                             <div className="mismatch-first-name">
-                                {mismatch.user1.firstName}
+                                {mismatch.user1.firstName} {mismatchPercentage ? ` - ${mismatchPercentage}%` : ' - loading...'}
                             </div>
                             <div className="mismatch-message">
                                 {mismatch.messages.length > 0
