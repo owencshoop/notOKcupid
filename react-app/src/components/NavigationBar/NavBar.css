@@ -6,7 +6,7 @@
     top: 0;
     background-color: #1a1a1a;
     font-family: "GT America","Helvetica Neue","Helvetica","Arial",sans-serif;
-    width: 100vw;
+    /* width: 100vw; */
     height: 70px;
     padding: 5px;
 
@@ -143,6 +143,7 @@
     border-radius: 8px;
     width: 16px;
     height: 16px;
+    font-size: 15px;
     color: white;
     background-color: rgb(242, 41, 141);
 }
