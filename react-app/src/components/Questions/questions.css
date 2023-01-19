@@ -105,6 +105,7 @@ button.current-answer {
     justify-content: center;
 }
 
+
 .question-stats-container {
     position: fixed;
     top: 155px;
@@ -142,4 +143,7 @@ button.current-answer {
     height: 50px;
     color: white;
     background-color: #2a2f35;
+
+.question-placeholder-div {
+    height: 100vh;
 }

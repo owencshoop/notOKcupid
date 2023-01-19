@@ -14,6 +14,7 @@ import ProfilePage from "./components/ProfilePage/ProfileComponent";
 import DiscoverProfilePage from './components/DiscoverProfilePage/DiscoverProfileComponent';
 import MismatchMessages from "./components/MismatchMessage";
 import SplashPage from "./components/SplashPage"
+import Footer from "./components/Footer";
 
 import { authenticate } from "./store/session";
 import Mismatches from "./components/Mismatches/Mismatches";
@@ -79,6 +80,7 @@ function App() {
                     <SplashPage />
                 </Route>
             </Switch>
+            <Footer />
         {/* </BrowserRouter> */}
         </>
     );

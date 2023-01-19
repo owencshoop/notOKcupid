@@ -24,7 +24,13 @@ export default function MismatchMessages() {
     const mismatch = singleMismatch[0];
 
     if (!loaded) {
-        return null;
+      return (
+        <>
+        <div className="header-container">
+        </div>
+        <div className="mismatch-placeholder-div"></div>;
+        </>
+        )
     }
 
 
