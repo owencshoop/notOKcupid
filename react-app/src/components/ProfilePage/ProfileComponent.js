@@ -17,7 +17,13 @@ export default function ProfilePage() {
     }, [dispatch])
 
     if (!loaded) {
-        return null;
+        return (
+            <>
+            <div className='top-profile-background'></div>
+            <div className='profile-placeholder-div'></div>
+            </>
+
+        )
     }
 
     let userQuestionCount = 0

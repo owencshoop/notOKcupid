@@ -5,6 +5,9 @@ import './DiscoverPage.css';
 import heart from '../../assets/heart.png';
 import thumb from '../../assets/thumb.png';
 import sadPanda from '../../assets/discover-placeholder.png';
+import slider from '../../assets/slider.png'
+import OpenModalButton from '../OpenModalButton'
+import UpdatePreferencesForm from "../UpdatePreferencesModal";
 
 export default function Discover() {
     const users = useSelector((state) => state.session.discoverUsers);
@@ -24,7 +27,16 @@ export default function Discover() {
     }, [dispatch, loaded]);
 
     if (!users) {
-        return null;
+        return (
+            <>
+            <div className="discover-header-container">
+                <h1>
+                Discover
+                </h1>
+            </div>
+            <div className="discover-placeholder-div"></div>;
+            </>
+            )
     }
 
     if (usersList.length === 0) {
@@ -88,6 +100,7 @@ export default function Discover() {
         return (
             <>
             <div className="discover-header-container">
+                    
                 <h1>
                 Discover
                 </h1>
@@ -112,6 +125,14 @@ export default function Discover() {
     return (
         <>
         <div className="discover-header-container">
+               <div className="pref-button-container">
+                <img id='equalizer' alt='pref-slider' src={slider} />
+                <OpenModalButton
+                    buttonText="Update Preferences"
+                    modalComponent={<UpdatePreferencesForm />}
+                className="preferences-open-button"
+                />
+               </div>
             <h1>
             Discover
             </h1>

@@ -7,6 +7,16 @@
     margin: auto;
 }
 
+.profile-container-user {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    margin: auto;
+    margin-bottom: 30vh;
+}
+
 .top-profile-background {
     display: flex;
     justify-content: center;
@@ -135,4 +145,11 @@
     height: 40px;
     color: white;
     background-color:rgb(242, 41, 141);
+}
+
+.profile-placeholder-div-user {
+    height: 50vh;
+}
+.profile-placeholder-div {
+    height: 60vh;
 }

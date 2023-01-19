@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { updatePreferences } from "../../store/session";
+import { useModal } from "../../context/Modal";
 
 const UpdatePreferencesForm = () => {
     const user = useSelector((state) => state.session.user);
@@ -11,6 +12,7 @@ const UpdatePreferencesForm = () => {
     const [minAge, setMinAge] = useState(user.minAge);
     const [maxAge, setMaxAge] = useState(user.maxAge);
     const dispatch = useDispatch();
+    const { closeModal } = useModal()
 
     const updatePreferredGenders = (e) => {
         setPreferredGenders(e.target.value);
@@ -30,6 +32,7 @@ const UpdatePreferencesForm = () => {
         if (data) {
             setErrors(data);
         }
+        await closeModal()
     }
 
     return (
