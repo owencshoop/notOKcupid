@@ -22,7 +22,7 @@
     position: absolute;
     background-color: white;
     border-radius: 10px;
-    
+    max-width: 40vw;
     max-height: 80vh;
-    overflow-y: scroll;
+    overflow-y: auto;
 }

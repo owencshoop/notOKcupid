@@ -43,19 +43,29 @@ export default function Discover() {
     if (usersList.length === 0) {
         return (
             <>
-                <div className="discover-header-container">
-                    <h1>
-                        Discover
-                    </h1>
-                </div>
-                <div className="discover-page-placeholder">
 
-                    <h2 >
-                        No more users match your preferences, adjust preferences to see
-                        more.
-                    </h2>
-                    <img src={sadPanda} alt='alone-for-now' />
+            <div className="discover-header-container">
+                <div className="pref-button-container">
+                    <img id='equalizer' alt='pref-slider' src={slider} />
+                    <OpenModalButton
+                        buttonText="Update Preferences"
+                        modalComponent={<UpdatePreferencesForm />}
+                        className="preferences-open-button"
+                    />
                 </div>
+            <h1>
+            Discover
+            </h1>
+        </div>
+        <div className="discover-page-placeholder">
+
+            <h2 >
+                No more users match your preferences, adjust preferences to see
+                more.
+            </h2>
+            <img src={sadPanda} alt='alone-for-now' />
+        </div>
+
             </>
         );
     }
@@ -115,6 +125,7 @@ export default function Discover() {
     if (!loaded) {
         return (
             <>
+
                 <div className="discover-header-container">
 
                     <h1>
@@ -122,6 +133,7 @@ export default function Discover() {
                     </h1>
                 </div>
                 <div className="discover-placeholder-div"></div>;
+
 
             </>
         )
