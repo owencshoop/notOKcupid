@@ -114,7 +114,7 @@
     text-decoration: none;
 }
 
-.login-open-button {
+.login-signup > button {
     border: 1px solid black;
     border-radius: 5px;
     background-color: transparent;
@@ -124,7 +124,7 @@
     margin-right: 65px;
 }
 
-.login-open-button:hover{
+.login-signup>button:hover{
     cursor: pointer
 }
 
