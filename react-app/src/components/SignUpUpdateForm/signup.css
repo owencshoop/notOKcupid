@@ -113,6 +113,17 @@
     padding: 10px;
 }
 
+.signup-bio-field:hover:not(input[type=range]) {
+    border: 1.5px solid rgb(242, 41, 141);
+    background-color: rgb(250, 233, 241);
+}
+
+.signup-bio-field:focus {
+    outline: none;
+    border: 1.5px solid rgb(242, 41, 141);
+    background-color: rgb(250, 233, 241);
+}
+
 input[type=range] {
     appearance: none;
     -webkit-appearance: none;

@@ -46,6 +46,7 @@ export default function Discover() {
 
             <div className="discover-header-container">
                 <div className="pref-button-container">
+                    
                     <img id='equalizer' alt='pref-slider' src={slider} />
                     <OpenModalButton
                         buttonText="Update Preferences"

@@ -176,9 +176,11 @@ button:hover {
 
 .pref-button-container {
     grid-column: 1;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    border: 2px solid wheat;
 }
 
 .pref-button-container > button {
