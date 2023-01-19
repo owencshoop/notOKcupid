@@ -13,6 +13,9 @@ import OpenModalButton from "../OpenModalButton";
 
 const NavBar = () => {
     const user = useSelector((state) => state.session.user);
+
+    let disliked_num = user.dislikedUser.length;
+
     return (
         <nav className={user ? "nav-container" : "splash-container"}>
             <div className='home-link'>
@@ -28,7 +31,7 @@ const NavBar = () => {
                             modalComponent={<LoginFormModal />}
                             className="login-open-button"
                         />
-                    
+
                     {/* <div>
                         <NavLink
                             to="/sign-up"
@@ -62,6 +65,7 @@ const NavBar = () => {
                             className='nav-link'
                         >
                         <img src={heart} id='nav-icon' alt='heart'/>
+                        <span id='dislike-num'>{disliked_num}</span>
                             Dislikes
                         </NavLink>
                     </div>
