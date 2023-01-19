@@ -39,7 +39,16 @@ const QuestionAnswerForm = () => {
     }, [dispatch]);
 
     if (!loaded) {
-        return null;
+        return (
+            <>
+            <div className="question-header-container">
+                <h1>
+                Questions
+                </h1>
+            </div>
+            <div className="question-placeholder-div"></div>;
+            </>
+            )
     }
 
     return (

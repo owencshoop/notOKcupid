@@ -57,10 +57,9 @@
 
 .cards-container {
     width: 100%;
+    height: auto;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
     /* align-items: center; */
 }
-
-

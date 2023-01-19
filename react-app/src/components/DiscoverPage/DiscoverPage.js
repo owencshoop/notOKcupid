@@ -85,10 +85,28 @@ export default function Discover() {
 
 
     if (!loaded) {
-        return null;
+        return (
+            <>
+            <div className="discover-header-container">
+                <h1>
+                Discover
+                </h1>
+            </div>
+            <div className="discover-placeholder-div"></div>;
+            </>
+            )
     }
     if (!user) {
-        return null;
+        return (
+            <>
+            <div className="discover-header-container">
+                <h1>
+                Discover
+                </h1>
+            </div>
+            <div className="discover-placeholder-div"></div>;
+            </>
+            )
     }
 
     return (
