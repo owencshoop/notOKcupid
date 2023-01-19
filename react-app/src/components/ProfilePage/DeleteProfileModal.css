@@ -1,0 +1,32 @@
+.delete-user-profile-container {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    align-items: center;
+}
+
+.delete-profile-header {
+    display: flex;
+    justify-content: center;
+}
+
+.delete-buttons-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.delete-profile-button {
+    width: 60%;
+    padding: 10px;
+    margin: 10px;
+    background-color: #2a2f35;
+    color: white;
+    border-radius: 8px;
+}
+
+.delete-profile-button:hover {
+    background-color: rgb(242, 41, 141);
+    color: black;
+    cursor: pointer;
+}

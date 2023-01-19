@@ -47,6 +47,33 @@ export const authenticate = () => async (dispatch) => {
   }
 }
 
+export const updatePreferences = (preferredGenders, minAge, maxAge) => async (dispatch) => {
+  const response = await fetch('/api/users/preferences', {
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      preferredGenders,
+      minAge,
+      maxAge
+    })
+  })
+
+  if (response.ok){
+    const data = await response.json()
+    dispatch(setUser(data))
+    return null
+  } else if (response.status < 500) {
+    const data = await response.json();
+    if (data.errors) {
+      return data.errors;
+    }
+  } else {
+    return ['An error occurred. Please try again.']
+  }
+}
+
 export const login = (email, password) => async (dispatch) => {
   const response = await fetch('/api/auth/login', {
     method: 'POST',
@@ -58,7 +85,6 @@ export const login = (email, password) => async (dispatch) => {
       password
     })
   });
-
 
   if (response.ok) {
     const data = await response.json();
@@ -73,6 +99,17 @@ export const login = (email, password) => async (dispatch) => {
     return ['An error occurred. Please try again.']
   }
 
+}
+
+export const deleteUser = () => async (dispatch) => {
+  const response = await fetch('/api/users/', {
+    method: 'DELETE'
+  })
+  if (response.ok){
+    await response.JSON()
+    dispatch(removeUser())
+    return null
+  }
 }
 
 export const logout = () => async (dispatch) => {
@@ -125,15 +162,13 @@ export const signUp = (username, email, password, firstName, age, gender, prefer
   }
 }
 
-export const updateUser = (username, email, firstName, age, gender, preferredGenders, minAge, maxAge, city, state, bio, imageUrl) => async (dispatch) => {
+export const updateUser = (firstName, age, gender, preferredGenders, minAge, maxAge, city, state, bio, imageUrl) => async (dispatch) => {
   const response = await fetch('/api/users/update', {
     method: 'PUT',
     headers: {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({
-      username,
-      email,
       firstName,
       age,
       gender,

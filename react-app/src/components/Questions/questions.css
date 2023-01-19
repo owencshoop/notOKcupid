@@ -6,7 +6,6 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    /* max-width: 1440px; */
     width: 100vw;
     margin: auto;
 }
@@ -115,10 +114,11 @@ button.current-answer {
     box-shadow: 0 0 10px 1px rgba(188, 185, 185, 0.2);
     border-radius: 8px;
     padding: 20px;
-    width: 250px;
-    margin-top: 40px;
-    margin-left: 40px;
+    max-width: 250px;
+    width: 100%;
+    margin: 40px 40px 0 110px;
     gap: 10px;
+    z-index: -10;
 }
 
 .question-count {

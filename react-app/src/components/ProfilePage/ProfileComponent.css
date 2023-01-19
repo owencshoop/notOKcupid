@@ -7,6 +7,16 @@
     margin: auto;
 }
 
+.profile-container-user {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    margin: auto;
+    margin-bottom: 30vh;
+}
+
 .top-profile-background {
     display: flex;
     justify-content: center;
@@ -135,4 +145,32 @@
     height: 40px;
     color: white;
     background-color:rgb(242, 41, 141);
+}
+
+.profile-placeholder-div-user {
+    height: 50vh;
+}
+.profile-placeholder-div {
+    height: 60vh;
+}
+
+.name-update>button {
+    background-color: transparent;
+    border: none;
+}
+
+.open-delete-profile-modal-button>button {
+    height: 40px;
+    width: 150px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color: #2a2f35;
+    color: white;
+    border-radius: 8px;
+}
+
+.open-delete-profile-modal-button>button:hover {
+    background-color: rgb(242, 41, 141);
+    color: black;
+    cursor: pointer;
 }

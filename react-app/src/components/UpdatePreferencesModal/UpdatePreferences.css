@@ -1,0 +1,39 @@
+.pref-user-form-container {
+    box-sizing: border-box;
+        display: flex;
+        justify-content: center;
+        width: 100%;
+}
+
+.pref-form-input-container {
+    display: flex;
+        flex-direction: column;
+        align-items: center;
+        min-width: 300px;
+        width: 30vw;
+}
+
+.update-pref-button {
+    width: 92%;
+    height: 40px;
+    background-color: #2A2F35;
+    color: white;
+    /* margin-top: 10px; */
+    /* margin-left: 20px; */
+    font-size: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.update-pref-button:hover {
+    cursor: pointer;
+    background-color: rgb(242, 41, 141);
+    color: black;
+    
+}
+
+.update-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

@@ -55,6 +55,7 @@ const LoginFormModal = () => {
 
     return (
         <div className="login-form-container">
+            <h2>Sign In to notOKcupid</h2>
             <form onSubmit={onLogin}>
                 <div className="errors-div-container">
                     {errors.map((error, ind) => (
@@ -66,7 +67,7 @@ const LoginFormModal = () => {
                     <input
                         name="email"
                         type="text"
-                        placeholder="Email"
+                        
                         value={email}
                         onChange={updateEmail}
                         className='login-input-field'
@@ -77,13 +78,13 @@ const LoginFormModal = () => {
                     <input
                         name="password"
                         type="password"
-                        placeholder="Password"
+                        
                         value={password}
                         onChange={updatePassword}
                         className='login-input-field'
                     />
-                    <button type="submit" className="login-button">Login</button>
                 </div>
+                    <button type="submit" className="login-button">Login</button>
                 <div id="issaDemo">
                     <button id="demoLogin1" type="submit" onClick={demoLogin} className='demo-login-button'>
                         Log in as Demo User1

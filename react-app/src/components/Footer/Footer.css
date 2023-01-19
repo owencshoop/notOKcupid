@@ -6,7 +6,7 @@
   padding-top: 10px;
 }
 
-.github-container {
+.github-container, .linkedin-container {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -22,10 +22,22 @@
   text-decoration: none;
   color: white;
 }
-.git-links-title {
+
+.linkedin-links {
+  text-decoration: none;
   color: white;
 }
+
+.git-links-title, .linkedin-links-title {
+  color: white;
+}
+
 .git-links:hover {
+  color: rgb(242, 41, 141);
+  text-decoration: underline;
+}
+
+.linkedin-links:hover {
   color: rgb(242, 41, 141);
   text-decoration: underline;
 }

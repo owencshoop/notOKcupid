@@ -1,7 +1,7 @@
 from flask import Blueprint, jsonify, request
 from flask_login import login_required, logout_user, current_user
 from app.models import User, db, Mismatch
-from app.forms import SignUpForm
+from app.forms import UpdateUserForm, UserPreferencesForm
 
 user_routes = Blueprint('users', __name__)
 
@@ -171,10 +171,9 @@ def update_user():
     if not user:
         return {'errors': ['User does not exist']}
 
-    form = SignUpForm()
+    form = UpdateUserForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
-        user.username= form.data['username']
-        user.email = form.data['email']
         user.first_name = form.data['firstName']
         user.age= form.data['age']
         user.gender= form.data['gender']
@@ -187,20 +186,38 @@ def update_user():
         db.session.add(user)
         db.session.commit()
         return user.to_dict()
+    print(form.errors)
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
-@user_routes.route('/<int:id>', methods=['DELETE'])
+
+@user_routes.route('/preferences', methods=['PUT'])
 @login_required
-def delete_user(id):
+def update_preferences():
+    '''
+    Update user discover preferences
+    '''
+    form = UserPreferencesForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+    if form.validate_on_submit():
+        current_user.preffered_genders = form.data['preferredGenders']
+        current_user.min_age = form.data['minAge']
+        current_user.max_age = form.data['maxAge']
+        db.session.add(current_user)
+        db.session.commit()
+        return current_user.to_dict(), 201
+    return {'errors': validation_errors_to_error_messages(form.errors)}, 401
+
+
+@user_routes.route('/', methods=['DELETE'])
+@login_required
+def delete_user():
     """
     Delete logged in user
     """
-    user = User.query.get(id)
-    if not user:
-        return {'errors': ["user does not exist"]}, 404
-
-    user.delete()
-    user = User.query.get(id)
+    currentId = current_user.id
+    db.session.delete(current_user)
+    db.session.commit()
+    user = User.query.get(currentId)
     if not user:
         logout_user()
         return {'message': 'User successfully deleted'}, 200

@@ -11,7 +11,7 @@
 .discover-page-header {
     display: flex;
     flex-direction: column;
-    max-width: 528px;
+    max-width: 600px;
     /* max-height: 137px; */
     width: 100%;
     /* height: 100%; */
@@ -31,12 +31,13 @@
 .discover-name-age{
     display: flex;
     flex-direction: column;
+    gap: 10px;
 }
 
 .discover-info {
     display: flex;
     flex-direction: column;
-    max-width: 528px;
+    max-width: 600px;
     max-height: 137px;
     width: 100%;
     height: 100%;
@@ -69,7 +70,27 @@ button:hover {
 
 .buttons-container {
     display: flex;
-    gap: 30px;
+    gap: 20px;
+    align-items: center;
+}
+
+#user-name{
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.percentage{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid white;
+    border-radius: 35px;
+    width: 60px;
+    height: 60px;
+    font-size: 22px;
+    color: white;
+    background-color:rgb(242, 41, 141);
+    margin-right: 50px;
 }
 
 .dislike-button {
@@ -78,6 +99,7 @@ button:hover {
     align-items: center;
     gap: 8px;
     width: 100px;
+    height: 45px;
     border-radius: 24px;
     font-size: 18px;
     border: none;
@@ -91,6 +113,7 @@ button:hover {
     align-items: center;
     gap: 8px;
     width: 100px;
+    height: 45px;
     border-radius: 24px;
     font-size: 18px;
     color: white;
@@ -100,6 +123,7 @@ button:hover {
 
 .skip-button {
     width: 100px;
+    height: 45px;
     border-radius: 24px;
     font-size: 18px;
     border: 1px solid black;
@@ -121,9 +145,12 @@ button:hover {
     background-color: #2a2f35;
     font-family: "GT America","Helvetica Neue","Helvetica","Arial",sans-serif;
     font-weight: bold;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    /* display: flex; */
+    /* align-items: center; */
+    /* justify-content: center; */
+    /* text-align: center; */
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
 }
 
 .discover-page-placeholder {
@@ -138,4 +165,48 @@ button:hover {
 
 .discover-placeholder-div {
     height: 100vh;
+}
+
+.discover-header-container > h1 {
+    grid-column: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pref-button-container {
+    grid-column: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.pref-button-border {
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    gap: 5px;
+}
+
+.pref-button-border > button {
+
+    border: none;
+    background-color: inherit;
+    color: white;
+    /* margin-right: 200px; */
+    /* padding-right: 200px; */
+}
+
+#equalizer {
+    width: 20px;
+    height: 20px;
+    color: white;
+}
+
+.pref-button-border:hover {
+    border-bottom: 2px solid rgb(242, 41, 141);
+    padding-bottom: 10px;
 }

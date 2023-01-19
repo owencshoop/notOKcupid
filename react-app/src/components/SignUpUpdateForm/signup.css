@@ -4,6 +4,7 @@
     display: flex;
     justify-content: center;
     width: 100%;
+    /* padding-bottom: 20px; */
     /* padding: 40px 20px; */
 }
 
@@ -17,10 +18,10 @@
     /* margin-bottom: 10px; */
     /* }  */
     
-    .form-input-container {
+.form-input-container > form {
         display: flex;
         flex-direction: column;
-        width: 528px;
+        width: 100%;
  }
 
  .signup-label {
@@ -35,19 +36,19 @@
     flex-direction: column;
     /* margin-bottom: 10px;
     margin-top: 10px; */
-    margin: 20px;
+    margin:10px auto;
     /* padding: 10px; */
     /* border-bottom: 2px solid grey; */
     height: fit-content;
+    width: 85%;
 }
 
 .sign-up-button {
-    width: 92%;
+    width: 85%;
     height: 40px;
     background-color: #2A2F35;
     color: white;
-    margin-top: 10px;
-    margin-left: 20px;
+    margin: 10px auto;
     font-size: 20px;
     border-radius: 8px;
 }
@@ -68,6 +69,17 @@
     padding: 10px;
     border-radius: 8px;
     border: .5px solid;
+}
+
+.signup-input-field:hover:not(input[type=range]) {
+    border: 1.5px solid rgb(242, 41, 141);
+    background-color: rgb(250, 233, 241);
+}
+
+.signup-input-field:focus {
+    outline: none;
+    border: 1.5px solid rgb(242, 41, 141);
+    background-color: rgb(250, 233, 241);
 }
 
 .signup-input-label {
@@ -100,3 +112,59 @@
     border-radius: 8px;
     padding: 10px;
 }
+
+.signup-bio-field:hover:not(input[type=range]) {
+    border: 1.5px solid rgb(242, 41, 141);
+    background-color: rgb(250, 233, 241);
+}
+
+.signup-bio-field:focus {
+    outline: none;
+    border: 1.5px solid rgb(242, 41, 141);
+    background-color: rgb(250, 233, 241);
+}
+
+input[type=range] {
+    appearance: none;
+    -webkit-appearance: none;
+     border: none; 
+     border: 1px solid white;
+    overflow: hidden;
+    width: 100%; 
+    height: 25px;
+     /* background-color: rgb(242, 41, 141);  */
+    /* color: #9a905d */
+} 
+
+input[type=range]::-webkit-slider-runnable-track {
+    width: 300px;
+    height: 5px;
+    background: #ddd;
+    border: none;
+    border-radius: 3px;
+}
+
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    border: none;
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+    background: rgb(242, 41, 141);
+    margin-top: -4px;
+}
+
+input[type=range]:focus::-webkit-slider-runnable-track {
+    background: #ccc;
+    
+} 
+
+.min-max {
+    display: flex;
+    justify-content: space-between;
+    margin: 0;
+    height: 30px;
+}
+
+
+
