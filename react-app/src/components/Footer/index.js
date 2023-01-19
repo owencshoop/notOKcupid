@@ -24,7 +24,7 @@ export default function Footer () {
             <span>SQLalchemy</span>
             <span>Alembic</span>
             <span>Python 3</span>
-            <span>PostgreSQL</span>
+            <span>Html/CSS</span>
           </div>
           <div className="tech-container-3">
             <span>Node.js</span>
