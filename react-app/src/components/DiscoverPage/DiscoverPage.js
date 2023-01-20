@@ -101,7 +101,7 @@ export default function Discover() {
                         No more users match your preferences, adjust preferences
                         to see more.
                     </h2>
-                    <img src={sadPanda} alt="alone-for-now" />
+                    <img src={sadPanda} alt="alone-for-now" classname='alone-for-now'/>
                 </div>
             </>
         );

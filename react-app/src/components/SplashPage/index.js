@@ -22,7 +22,7 @@ const SplashPage = () => {
             <div className="splash-text">
                 <h2>
                     Tired of talking to the same kinds of people?
-                    Wanting a break from the same feeback loops of
+                    Wanting a break from the same feedback loops of
                     mainstream dating sites?
                     Are you a superhero in search of your arch-nemesis?
                 </h2>
