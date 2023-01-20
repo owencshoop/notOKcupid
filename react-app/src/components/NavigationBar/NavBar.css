@@ -93,7 +93,7 @@
     top: 0;
     background-color: inherit;
     font-family: "GT America", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
-    width: 100vw;
+    /* width: 100vw; */
     height: 70px;
     padding: 5px;
 }
