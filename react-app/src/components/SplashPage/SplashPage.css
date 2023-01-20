@@ -1,7 +1,7 @@
 .splash-page {
     margin-top: 0;
     height: 80vh;
-    width: 100vw;
+    /* width: 99.1vw; */
     display: flex;
     /* flex-direction: column; */
     justify-content: space-around;
