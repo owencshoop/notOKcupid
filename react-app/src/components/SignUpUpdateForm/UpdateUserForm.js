@@ -22,7 +22,7 @@ const UpdateUserForm = () => {
     const [city, setCity] = useState(user.city);
     const [state, setState] = useState(user.state);
     const [bio, setBio] = useState(user.bio);
-    const [imageURL, setImageURL] = useState(user.userImages[0].imageUrl);
+    // const [imageURL, setImageURL] = useState(user.userImages[0].imageUrl);
     const [saved, setSaved] = useState(false);
     const dispatch = useDispatch();
 
@@ -39,7 +39,6 @@ const UpdateUserForm = () => {
                 city,
                 state,
                 bio,
-                imageURL
             )
         );
         if (data) {
@@ -94,9 +93,9 @@ const UpdateUserForm = () => {
         setBio(e.target.value);
     };
 
-    const updateImageURL = (e) => {
-        setImageURL(e.target.value);
-    };
+    // const updateImageURL = (e) => {
+    //     setImageURL(e.target.value);
+    // };
 
     if (saved) {
         return <Redirect to="/profile" />;
@@ -247,7 +246,7 @@ const UpdateUserForm = () => {
                             className="signup-bio-field"
                         ></input>
                     </div>
-                    <div className="signup-form-input-container">
+                    {/* <div className="signup-form-input-container">
                         <label className="signup-input-label">Profile Image URL</label>
                         <input
                             type="text"
@@ -256,7 +255,7 @@ const UpdateUserForm = () => {
                             value={imageURL}
                             className="signup-input-field"
                         ></input>
-                    </div>
+                    </div> */}
                     <button type="submit" className="sign-up-button">
                         Save
                     </button>
