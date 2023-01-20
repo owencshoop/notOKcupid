@@ -157,13 +157,22 @@ button:hover {
     display: flex;
     align-items: center;
     /* justify-content: center; */
-    margin-left: 20%;
-    margin-right: 20%;
+    margin-left: auto;
+    margin-right: auto;
     padding: 10px;
     flex-direction: column;
     height: 80vh;
+    width: 70vw;
+    /* object-fit: contain; */
+    border: 3px solid red;
 }
 
+.discover-page-placeholder>img {
+    border: 3px solid yellow;
+    width: 80%;
+    height: 80%;
+    max-width: 440px;
+}
 
 .discover-placeholder-div {
     height: 100vh;
