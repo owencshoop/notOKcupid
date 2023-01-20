@@ -99,13 +99,13 @@ def delete_dislike():
             # remove current user from dislikes
             current_user.dislikes.remove(disliked_user)
             # query for mismatches
-            mismatch1 = Mismatch.query.filter(Mismatch.user1_id == current_user.id).filter(Mismatch.user2_id == disliked_user.id)
-            mismatch2 = Mismatch.query.filter(Mismatch.user2_id == current_user.id).filter(Mismatch.user1_id == disliked_user.id)
+            mismatch1 = Mismatch.query.filter(Mismatch.user1_id == current_user.id).filter(Mismatch.user2_id == disliked_user.id).first()
+            mismatch2 = Mismatch.query.filter(Mismatch.user2_id == current_user.id).filter(Mismatch.user1_id == disliked_user.id).first()
             # if either exists, remove it
             if mismatch1:
-                mismatch1.delete()
+                db.session.delete(mismatch1)
             elif mismatch2:
-                mismatch2.delete()
+                db.session.delete(mismatch2)
 
             db.session.add(current_user)
             db.session.commit()
