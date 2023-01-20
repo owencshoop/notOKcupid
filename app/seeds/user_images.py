@@ -85,20 +85,22 @@ def seed_user_images():
     user41 = UserImage(
         user_id=41, image_url="https://xsgames.co/randomusers/assets/avatars/male/22.jpg")
     user42 = UserImage(
-        user_id=42, image_url="https://xsgames.co/randomusers/assets/avatars/male/22.jpg")
+        user_id=42, image_url="https://xsgames.co/randomusers/assets/avatars/female/22.jpg")
     user43 = UserImage(
-        user_id=43, image_url="https://xsgames.co/randomusers/assets/avatars/female/23.jpg")
+        user_id=43, image_url="https://xsgames.co/randomusers/assets/avatars/male/23.jpg")
     user44 = UserImage(
-        user_id=44, image_url="https://xsgames.co/randomusers/assets/avatars/male/23.jpg")
+        user_id=44, image_url="https://xsgames.co/randomusers/assets/avatars/female/23.jpg")
     user45 = UserImage(
-        user_id=45, image_url="https://xsgames.co/randomusers/assets/avatars/female/24.jpg")
+        user_id=45, image_url="https://xsgames.co/randomusers/assets/avatars/male/24.jpg")
     user46 = UserImage(
-        user_id=46, image_url="https://xsgames.co/randomusers/assets/avatars/male/24.jpg")
+        user_id=46, image_url="https://xsgames.co/randomusers/assets/avatars/female/24.jpg")
     user47 = UserImage(
-        user_id=47, image_url="https://xsgames.co/randomusers/assets/avatars/female/25.jpg")
+        user_id=47, image_url="https://xsgames.co/randomusers/assets/avatars/male/25.jpg")
+    user48 = UserImage(
+        user_id=48, image_url="https://xsgames.co/randomusers/assets/avatars/female/25.jpg")
 
     user_images = [user1, user2, user3, user4, user5, user6, user7, user8, user9, user10,
-                   user11, user12, user13, user14, user15, user16, user17, user18, user19, user20, user21, user22, user23, user24, user25, user26, user27, user28, user29, user30, user31, user32, user33, user34, user35, user36, user37, user38, user39, user40, user41, user42, user43, user44, user45, user46, user47]
+                   user11, user12, user13, user14, user15, user16, user17, user18, user19, user20, user21, user22, user23, user24, user25, user26, user27, user28, user29, user30, user31, user32, user33, user34, user35, user36, user37, user38, user39, user40, user41, user42, user43, user44, user45, user46, user47, user48]
 
     [db.session.add(image) for image in user_images]
     db.session.commit()
