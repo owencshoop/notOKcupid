@@ -2,6 +2,7 @@ from flask import Blueprint, jsonify, request
 from flask_login import login_required, logout_user, current_user
 from app.models import User, db, Mismatch
 from app.forms import UpdateUserForm, UserPreferencesForm
+from sqlalchemy import or_
 
 user_routes = Blueprint('users', __name__)
 
@@ -215,6 +216,8 @@ def delete_user():
     Delete logged in user
     """
     currentId = current_user.id
+    mismatches = Mismatch.query.filter(or_(Mismatch.user1_id == currentId, Mismatch.user2_id == currentId)).all()
+    [db.session.delete(mismatch) for mismatch in mismatches]
     db.session.delete(current_user)
     db.session.commit()
     user = User.query.get(currentId)
