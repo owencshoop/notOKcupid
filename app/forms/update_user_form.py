@@ -13,6 +13,4 @@ class UpdateUserForm(FlaskForm):
     city = StringField('City', validators=[DataRequired(message='Please provide a city.')])
     state = StringField('State', validators=[DataRequired(message='Please provide a state.')])
     bio = TextAreaField('Bio', validators=[DataRequired(message='Please provide a bio.')])
-    imageUrl = StringField('Image URL', validators=[DataRequired(message='Please provide a valid profile picture.'), URL(message='Please provide a valid URL.')])
-
 
