@@ -150,7 +150,7 @@ class Mismatch(db.Model):
     user1 = db.relationship("User", foreign_keys=[user1_id])
     user2 = db.relationship("User", foreign_keys=[user2_id])
 
-    messages = db.relationship('Message', back_populates='mismatch')
+    messages = db.relationship('Message', back_populates='mismatch', cascade='all, delete-orphan')
 
     def to_dict(self):
         return {
