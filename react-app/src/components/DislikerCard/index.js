@@ -51,7 +51,10 @@ const DislikerCard = ({ disliker, dislikes }) => {
                 ))}
             </ul>
             <div className="disliker-img">
-                <img alt="profile" src={disliker.userImages[0].imageUrl} />
+                {disliker.gender === 'female' || disliker.gender === 'nonbinary' ?
+                <img alt="profile" src={disliker.userImages[0] ? disliker.userImages[0].imageUrl : 'https://xsgames.co/randomusers/assets/avatars/female/45.jpg'} /> :
+                <img alt="profile" src={disliker.userImages[0] ? disliker.userImages[0].imageUrl : 'https://xsgames.co/randomusers/assets/avatars/male/45.jpg'} />
+                }
             </div>
             <div className="disliker-info-container">
                 <div className="disliker-name">{disliker.firstName}</div>
