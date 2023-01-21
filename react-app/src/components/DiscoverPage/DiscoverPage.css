@@ -164,11 +164,11 @@ button:hover {
     height: 80vh;
     width: 70vw;
     /* object-fit: contain; */
-    border: 3px solid red;
+    /* border: 3px solid red; */
 }
 
 .discover-page-placeholder>img {
-    border: 3px solid yellow;
+    /* border: 3px solid yellow; */
     width: 80%;
     height: 80%;
     max-width: 440px;
