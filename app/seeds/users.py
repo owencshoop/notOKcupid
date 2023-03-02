@@ -158,21 +158,30 @@ def seed_users():
     user35f = User(
         username='user35f', email='user35f@aa.io', password='password', age=35, first_name='Catherine', gender='female', preferred_genders='male, female, nonbinary', min_age=18, max_age=90, city='Washington', state='DC', bio='I am an avid traveler and outdoor enthusiast who loves exploring new places and immersing my in different cultures. When not on an adventure, I enjoys reading, writing, and trying new foods.'
     )
+    owen = User(
+        username='owenshoop', email='owencshoop@gmail.com', password='password', age=26, first_name='Owen', gender='male', preferred_genders='male, female, nonbinary', min_age=18, max_age=99, city='Hermosa Beach', state='CA', bio='Full-Stack Software Developer with a background as a Firefighter/Paramedic. I come with a passion for technology, a strong work ethic, and the ability to handle pressure. Seeking new challenges and opportunities to grow as a developer. www.owenshoop.dev'
+    )
+    nic = User(
+        username='nicisherenow', email='fakenic@me.com', password='password', age=35, first_name='Nic', gender='male', preferred_genders='female', min_age=24, max_age=99, city='Clearfield', state='CA', bio='When I am not coding something, I am probably picking stuff up and putting it down. https://www.nicholastalbot.dev/'
+    )
+    alexv = User(
+        username="alexv", email="alexvance9@gmail.com", password="password", age=26, first_name="Alex", gender="female", preferred_genders="male, female, nonbinary", min_age=25, max_age=95, city="Bend", state="OR", bio="Cozy queen. Let's sit by the fire and I'll tell you all about the coding languages I know. I'll bring you some tea and we can discuss what projects I'm working on next. I know about React, and I'd like to see your reaction to all of my skills. https://alexvance9.github.io/"
+    )
+    vince = User(
+        username="vinsanity", email="vviet@viet.com", password="password", age=33, first_name="Vince", gender="male", preferred_genders="female", min_age=24, max_age=99, city="Daly City", state="CA", bio="Outside is nice but the couch is nicer. https://vinceviet.github.io/"
+    )
 
     users = [demo, brett, lyn, conner, eddy, riktor, viktor, edktor, abcde, optimusa,
-             camden, tam, jack, micheal, cupid, demo5, alpal, wesley, buttercup, inigo, user99m, user99f, user95m, user95f, user90m, user90f, user85m, user85f, user80m, user80f, user75m, user75f, user70m, user70f, user65m, user65f, user60m, user65f, user60m, user60f, user55m, user55f, user50m, user50f, user55f, user45m, user45f, user40m, user40f, user35m, user35f]
+             camden, tam, jack, micheal, cupid, demo5, alpal, wesley, buttercup, inigo, user99m, user99f, user95m, user95f, user90m, user90f, user85m, user85f, user80m, user80f, user75m, user75f, user70m, user70f, user65m, user65f, user60m, user65f, user60m, user60f, user55m, user55f, user50m, user50f, user55f, user45m, user45f, user40m, user40f, user35m, user35f, owen, nic, alexv, vince]
 
-    demo.dislikes = [eddy, conner, brett, cupid]
+    demo.dislikes = [owen, nic, alexv, vince]
     demo.likes = [camden, tam, demo5]
-    demo5.dislikes = [cupid, viktor, abcde, micheal]
+    demo5.dislikes = [owen, nic, alexv, vince]
     demo5.likes = [jack, riktor, conner]
-    eddy.dislikes = [demo]
-    conner.dislikes = [demo]
-    brett.dislikes = [demo]
-    cupid.dislikes = [demo, demo5]
-    viktor.dislikes = [demo5]
-    abcde.dislikes = [demo5]
-    micheal.dislikes = [demo5]
+    owen.dislikes = [demo, demo5]
+    nic.dislikes = [demo, demo5]
+    alexv.dislikes = [demo, demo5]
+    vince.dislikes = [demo, demo5]
     [db.session.add(user) for user in users]
     questions = Question.query.all()
     [[UserAnswer(user=user, question=question)
