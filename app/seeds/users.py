@@ -72,7 +72,7 @@ def seed_users():
         username='eddy', email='eddy@aa.io', password='password', age=22, first_name='Eddy', gender='female', preferred_genders='male, female, nonbinary', min_age=18, max_age=50, city='Beverly Hills', state='CA', bio='I am studying to be a nurse practitioner. I used to play lacrosse but now I hate it with a passion. #cape'
     )
     demo = User(
-        username='demo', email='demo@aa.io', password='password', age=35, first_name='Demo', gender='male', preferred_genders='male', min_age=18, max_age=99, city='Beverly Hills', state='CA', bio='I will demolish you.'
+        username='demo', email='demo@aa.io', password='password', age=35, first_name='Demo', gender='male', preferred_genders='male', min_age=18, max_age=99, city='Beverly Hills', state='CA', bio="I am a demo user. This is my biography. I use this site to meet people that I normally wouldn't like. Lets argue!"
     )
     user99m = User(
         username='user99m', email='user99m@aa.io', password='password', age=99, first_name='Leonardo', gender='male', preferred_genders='male, female, nonbinary', min_age=18, max_age=99, city='Washington', state='DC', bio="I'm a 99-year-old artist who loves painting and exploring new mediums."
