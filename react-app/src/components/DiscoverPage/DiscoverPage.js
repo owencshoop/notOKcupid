@@ -170,7 +170,7 @@ export default function Discover() {
                 <div className="discover-header-container">
                     <h1>Discover</h1>
                     <div className="discover-blurb">
-                        
+
                         <h4>Liking is boring.</h4>
                         <p>
                             Dislike Users to create Mismatches, and chat with
@@ -188,7 +188,7 @@ export default function Discover() {
     return (
         <>
             <div className="discover-header-container">
-                
+
                 <div className="pref-button-container">
                     <div className="pref-button-border">
                         <img id="equalizer" alt="pref-slider" src={slider} />
@@ -212,7 +212,7 @@ export default function Discover() {
             </div>
             <div className="discover-page-containter">
                 <OpenModalButton
-                    buttonText="info modal"
+                    buttonText="?"
                     modalComponent={<InformationModal />}
                     className="preferences-open-button"
                 />
