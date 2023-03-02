@@ -8,6 +8,7 @@ import sadPanda from "../../assets/discover-placeholder.png";
 import slider from "../../assets/slider.png";
 import OpenModalButton from "../OpenModalButton";
 import UpdatePreferencesForm from "../UpdatePreferencesModal";
+import InformationModal from "../InformationModal";
 
 export default function Discover() {
     const users = useSelector((state) => state.session.discoverUsers);
@@ -169,6 +170,7 @@ export default function Discover() {
                 <div className="discover-header-container">
                     <h1>Discover</h1>
                     <div className="discover-blurb">
+                        
                         <h4>Liking is boring.</h4>
                         <p>
                             Dislike Users to create Mismatches, and chat with
@@ -186,6 +188,7 @@ export default function Discover() {
     return (
         <>
             <div className="discover-header-container">
+                
                 <div className="pref-button-container">
                     <div className="pref-button-border">
                         <img id="equalizer" alt="pref-slider" src={slider} />
@@ -208,6 +211,11 @@ export default function Discover() {
                 </div>
             </div>
             <div className="discover-page-containter">
+                <OpenModalButton
+                    buttonText="info modal"
+                    modalComponent={<InformationModal />}
+                    className="preferences-open-button"
+                />
                 <ul>
                     {errors.map((error, idx) => (
                         <li key={idx}>{error}</li>
