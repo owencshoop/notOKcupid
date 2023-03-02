@@ -1,0 +1,47 @@
+.info-modal {
+    height: fit-content;
+    padding: 20px;
+    border: 1px solid rgb(242, 41, 141);
+    border-radius: inherit;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+    background-color: rgb(0, 0, 0);
+    color: white;
+}
+
+.info-modal>h1>span{
+    color: rgb(242, 41, 141);
+    /* text-decoration: underline; */
+}
+
+.info-modal>.discover-blurb>h2{
+    /* font-size: larger; */
+    color: rgb(240, 177, 240);
+    
+    margin: 10px auto;
+}
+
+.info-modal>.discover-blurb>p{
+    font-size: medium;
+}
+
+strong{
+    font-size: medium;
+}
+
+.info-modal-button{
+    background-color: inherit;
+    color:rgb(242, 41, 141);
+    border: 1.5px solid rgb(242, 41, 141);
+    border-radius: .5rem;
+    padding: 10px;
+    font-size: large;
+    font-weight: 700;
+}
+
+.info-modal-button:hover{
+    color: white;
+    background-color: rgba(242, 41, 141, .25);
+}

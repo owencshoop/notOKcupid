@@ -244,3 +244,21 @@ button:hover {
     font-size: small;
     padding: 0 20px;
 }
+
+
+.discover-page-containter > button {
+    position: fixed;
+    border-color: rgba(0, 0, 0, 0);
+    color: white;
+    background-color: rgb(242, 41, 141);
+    border-radius: 50%;
+    box-shadow: 1px 1px 4px rgba(0, 0, 0, .6);
+    font-size: 1.2rem;
+    right: 5vw;
+    bottom: 5vh;
+    width: fit-content;
+}
+
+.discover-page-containter > button:hover {
+    background-color: #2a2f35;
+}

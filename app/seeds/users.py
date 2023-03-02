@@ -1,4 +1,4 @@
-from app.models import db, User, environment, SCHEMA, Question, UserAnswer
+from app.models import db, User, environment, SCHEMA, Question, UserAnswer, UserImage
 
 
 # Adds a demo user, you can add other users here if you want
@@ -72,7 +72,7 @@ def seed_users():
         username='eddy', email='eddy@aa.io', password='password', age=22, first_name='Eddy', gender='female', preferred_genders='male, female, nonbinary', min_age=18, max_age=50, city='Beverly Hills', state='CA', bio='I am studying to be a nurse practitioner. I used to play lacrosse but now I hate it with a passion. #cape'
     )
     demo = User(
-        username='demo', email='demo@aa.io', password='password', age=35, first_name='Demo', gender='male', preferred_genders='male', min_age=18, max_age=99, city='Beverly Hills', state='CA', bio='I will demolish you.'
+        username='demo', email='demo@aa.io', password='password', age=35, first_name='Demo', gender='male', preferred_genders='male', min_age=18, max_age=99, city='Beverly Hills', state='CA', bio="I am a demo user. This is my biography. I use this site to meet people that I normally wouldn't like. Lets argue!"
     )
     user99m = User(
         username='user99m', email='user99m@aa.io', password='password', age=99, first_name='Leonardo', gender='male', preferred_genders='male, female, nonbinary', min_age=18, max_age=99, city='Washington', state='DC', bio="I'm a 99-year-old artist who loves painting and exploring new mediums."
@@ -161,14 +161,26 @@ def seed_users():
     owen = User(
         username='owenshoop', email='owencshoop@gmail.com', password='password', age=26, first_name='Owen', gender='male', preferred_genders='male, female, nonbinary', min_age=18, max_age=99, city='Hermosa Beach', state='CA', bio='Full-Stack Software Developer with a background as a Firefighter/Paramedic. I come with a passion for technology, a strong work ethic, and the ability to handle pressure. Seeking new challenges and opportunities to grow as a developer. www.owenshoop.dev'
     )
+    owenImage = UserImage(
+        user=owen, image_url='https://angel.co/cdn-cgi/image/width=200,height=200,format=auto,fit=cover/https://photos.angel.co/users/15919597-original?1675895184'
+    )
     nic = User(
         username='nicisherenow', email='fakenic@me.com', password='password', age=35, first_name='Nic', gender='male', preferred_genders='female', min_age=24, max_age=99, city='Clearfield', state='CA', bio='When I am not coding something, I am probably picking stuff up and putting it down. https://www.nicholastalbot.dev/'
+    )
+    nicImage = UserImage(
+        user=nic, image_url='https://angel.co/cdn-cgi/image/width=400,height=400,format=auto,fit=cover/https://photos.angel.co/users/15919158-original?1675893838'
     )
     alexv = User(
         username="alexv", email="alexvance9@gmail.com", password="password", age=26, first_name="Alex", gender="female", preferred_genders="male, female, nonbinary", min_age=25, max_age=95, city="Bend", state="OR", bio="Cozy queen. Let's sit by the fire and I'll tell you all about the coding languages I know. I'll bring you some tea and we can discuss what projects I'm working on next. I know about React, and I'd like to see your reaction to all of my skills. https://alexvance9.github.io/"
     )
+    alexImage = UserImage(
+        user=alexv, image_url='https://angel.co/cdn-cgi/image/width=200,height=200,format=auto,fit=cover/https://photos.angel.co/users/15929702-original?1676040171'
+    )
     vince = User(
         username="vinsanity", email="vviet@viet.com", password="password", age=33, first_name="Vince", gender="male", preferred_genders="female", min_age=24, max_age=99, city="Daly City", state="CA", bio="Outside is nice but the couch is nicer. https://vinceviet.github.io/"
+    )
+    vinceImage = UserImage(
+        user=vince, image_url='https://photos.angel.co/users/14618929-medium_jpg?1675879562'
     )
 
     users = [demo, brett, lyn, conner, eddy, riktor, viktor, edktor, abcde, optimusa,
