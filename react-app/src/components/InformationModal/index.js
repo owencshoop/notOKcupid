@@ -2,7 +2,7 @@ import { useModal } from "../../context/Modal";
 import './InformationModal.css'
 
 const InformationModal = () => {
-    const {closeModal} = useModal();
+    const { closeModal } = useModal();
 
     return (
         <div className='info-modal'>
