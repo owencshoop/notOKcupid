@@ -4,10 +4,11 @@ import { Redirect } from "react-router-dom";
 import { login } from "../../store/session";
 import { signUp, updateUser } from "../../store/session";
 import { useModal } from "../../context/Modal";
+import InformationModal from "../InformationModal";
 import "./signup.css";
 
 const SignUpForm = () => {
-    const { closeModal } = useModal();
+    const { closeModal, setModalContent } = useModal();
     const user = useSelector((state) => state.session.user);
     const [errors, setErrors] = useState([]);
     const [username, setUsername] = useState(user ? user.username : "");
@@ -75,7 +76,7 @@ const SignUpForm = () => {
                     setErrors(data);
                 } else {
 
-                    await closeModal();
+                    await setModalContent(<InformationModal />)
                 }
             }
         }

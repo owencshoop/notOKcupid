@@ -4,6 +4,7 @@ import { Redirect } from "react-router-dom";
 import { login } from "../../store/session";
 import { useModal } from "../../context/Modal";
 import './LoginForm.css'
+import InformationModal from "../InformationModal";
 
 const LoginFormModal = () => {
     const [errors, setErrors] = useState([]);
@@ -12,7 +13,7 @@ const LoginFormModal = () => {
     const user = useSelector((state) => state.session.user);
     const dispatch = useDispatch();
 
-    const { closeModal } = useModal();
+    const { setModalContent, closeModal } = useModal();
 
     const onLogin = async (e) => {
         e.preventDefault();
@@ -21,6 +22,7 @@ const LoginFormModal = () => {
             setErrors(data);
         } else {
             await closeModal();
+            
         }
     };
 
@@ -30,7 +32,8 @@ const LoginFormModal = () => {
         if (data) {
             setErrors(data);
         }
-        await closeModal();
+        // await closeModal();
+        await setModalContent(<InformationModal/>)
     };
     const demoLogin2 = async (e) => {
         e.preventDefault();
@@ -38,7 +41,7 @@ const LoginFormModal = () => {
         if (data) {
             setErrors(data);
         }
-        await closeModal();
+        await setModalContent(<InformationModal />)
     };
 
     const updateEmail = (e) => {
