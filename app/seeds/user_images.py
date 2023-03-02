@@ -98,21 +98,9 @@ def seed_user_images():
         user_id=47, image_url="https://xsgames.co/randomusers/assets/avatars/male/25.jpg")
     user48 = UserImage(
         user_id=48, image_url="https://xsgames.co/randomusers/assets/avatars/female/25.jpg")
-    owenImage = UserImage(
-        user_id=49, image_url='https://angel.co/cdn-cgi/image/width=200,height=200,format=auto,fit=cover/https://photos.angel.co/users/15919597-original?1675895184'
-    )
-    nicImage = UserImage(
-        user_id=50, image_url='https://angel.co/cdn-cgi/image/width=400,height=400,format=auto,fit=cover/https://photos.angel.co/users/15919158-original?1675893838'
-    )
-    alexImage = UserImage(
-        user_id=51, image_url='https://angel.co/cdn-cgi/image/width=200,height=200,format=auto,fit=cover/https://photos.angel.co/users/15929702-original?1676040171'
-    )
-    vinceImage = UserImage(
-        user_id=52, image_url='https://photos.angel.co/users/14618929-medium_jpg?1675879562'
-    )
 
     user_images = [user1, user2, user3, user4, user5, user6, user7, user8, user9, user10,
-                   user11, user12, user13, user14, user15, user16, user17, user18, user19, user20, user21, user22, user23, user24, user25, user26, user27, user28, user29, user30, user31, user32, user33, user34, user35, user36, user37, user38, user39, user40, user41, user42, user43, user44, user45, user46, user47, user48, owenImage, nicImage, alexImage, vinceImage]
+                   user11, user12, user13, user14, user15, user16, user17, user18, user19, user20, user21, user22, user23, user24, user25, user26, user27, user28, user29, user30, user31, user32, user33, user34, user35, user36, user37, user38, user39, user40, user41, user42, user43, user44, user45, user46, user47, user48]
 
     [db.session.add(image) for image in user_images]
     db.session.commit()
