@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Redirect } from "react-router-dom";
+import { login } from "../../store/session";
 import { signUp, updateUser } from "../../store/session";
 import { useModal } from "../../context/Modal";
 import "./signup.css";
@@ -136,6 +137,15 @@ const SignUpForm = () => {
         setImageURL(e.target.value);
     };
 
+    const demoLogin = async (e) => {
+        e.preventDefault();
+        const data = await dispatch(login("demo@aa.io", "password"));
+        if (data) {
+            setErrors(data);
+        }
+        await closeModal();
+    };
+
     if (user) {
         return <Redirect to="/discover" />;
     }
@@ -145,6 +155,9 @@ const SignUpForm = () => {
             <div className="form-input-container">
                 <form onSubmit={onSignUp}>
                     <h2 className="signup-label">Sign Up</h2>
+                    <button id="signup-demo" type="submit" onClick={demoLogin} className='demo-signup-button'>
+                        Skip Sign up with Demo user login
+                    </button>
                     <div className="errors-div-container">
                         {errors.map((error, ind) => (
                             <div className='errors-div' key={ind}>{error}</div>
