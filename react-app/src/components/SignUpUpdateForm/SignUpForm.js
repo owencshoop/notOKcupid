@@ -144,7 +144,8 @@ const SignUpForm = () => {
         if (data) {
             setErrors(data);
         }
-        await closeModal();
+        await closeModal()
+        await setModalContent(<InformationModal />);
     };
 
     if (user) {
