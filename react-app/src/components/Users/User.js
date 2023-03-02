@@ -5,7 +5,7 @@ import { loadUsers } from '../../store/allUsers';
 import '../ProfilePage/ProfileComponent.css';
 
 function User() {
-  const { userId } = useParams()
+    const { userId } = useParams()
     const allUsers = useSelector((state) => state.allUsers.users);
     const [loaded, setLoaded] = useState(false);
     const dispatch = useDispatch();

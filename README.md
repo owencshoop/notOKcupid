@@ -1,7 +1,7 @@
 # notOKcupid
 
 ## Our project name is notOKcupid
-Here is the link! [notOKcupid](https://not-ok-cupid.onrender.com/) 
+Here is the link! [notOKcupid](https://not-ok-cupid.onrender.com/)
 
 Our site is a clone of the [OkCupid](https://www.okcupid.com/) site. [notOKcupid](https://not-ok-cupid.onrender.com/) can be used create a user, view current users,
 message mismatches(people who you have disliked and have also disliked you back), answer some cheeky personality questions, and just enjoy yourself while browsing the page.
@@ -9,7 +9,7 @@ message mismatches(people who you have disliked and have also disliked you back)
 ## Form usage:
 Forms are all handled as modals and they are seemingly larger than life. For the preview image portions available a web image url works just fine.
 
-## Tech Stack utilized: 
+## Tech Stack utilized:
 - Javascript
 - Node.js
 - Flask.js
@@ -32,7 +32,7 @@ Forms are all handled as modals and they are seemingly larger than life. For the
 - [DB schema with relationships](https://github.com/owencshoop/notOKcupid/wiki/DB-Schema)
 - [User Stories](https://github.com/owencshoop/notOKcupid/wiki/User-Stories)
 
-## Hosting: 
+## Hosting:
 [Render](https://render.com/)
 
 ## Landing Page:
@@ -41,7 +41,7 @@ You can Sign up, login, or even take a gander at the currently available singles
 
 ## Running the app locally:
 
-1. Clone this repository 
+1. Clone this repository
 
 2. Install dependencies
 
@@ -77,7 +77,7 @@ You can Sign up, login, or even take a gander at the currently available singles
    flask run
    ```
 
-7. To run the React App in development, cd inside the `react-app` directory and type npm start.
+7. To run the React App in development, in a different terminal, cd inside the `react-app` directory and type npm start.
 
 ## Contact us:
 Owen Shoop
