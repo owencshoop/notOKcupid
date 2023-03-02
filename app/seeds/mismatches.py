@@ -1,18 +1,25 @@
-from app.models import db, Mismatch, environment, SCHEMA
+from app.models import db, Mismatch, environment, SCHEMA, User
 
 
 def seed_mismatches():
-    mismatch1 = Mismatch(user1_id=1, user2_id=11)
-    mismatch2 = Mismatch(user1_id=1, user2_id=10)
-    mismatch3 = Mismatch(user1_id=1, user2_id=2)
-    mismatch4 = Mismatch(user1_id=1, user2_id=3)
-    mismatch5 = Mismatch(user1_id=4, user2_id=11)
-    mismatch6 = Mismatch(user1_id=4, user2_id=7)
-    mismatch7 = Mismatch(user1_id=4, user2_id=5)
-    mismatch8 = Mismatch(user1_id=4, user2_id=6)
+    owen = User.query.filter(User.username == 'owenshoop').first()
+    nic = User.query.filter(User.username == 'nicisherenow').first()
+    alex = User.query.filter(User.username == 'alexv').first()
+    vince = User.query.filter(User.username == 'vnisanity').first()
+    demo = User.query.filter(User.username == 'demo').first()
+    demo5 = User.query.filter(User.username == 'Demo5').first()
+    demo1 = Mismatch(user1=demo, user2=owen)
+    demo2 = Mismatch(user1=demo, user2=nic)
+    demo3 = Mismatch(user1=demo, user2=alex)
+    demo4 = Mismatch(user1=demo, user2=vince)
+    demo51 = Mismatch(user1=demo5, user2=owen)
+    demo52 = Mismatch(user1=demo5, user2=nic)
+    demo53 = Mismatch(user1=demo5, user2=alex)
+    demo54 = Mismatch(user1=demo5, user2=vince)
 
-    mismatches = [mismatch1, mismatch2, mismatch3, mismatch4,
-                  mismatch5, mismatch6, mismatch7, mismatch8]
+
+
+    mismatches = [demo1, demo2, demo3, demo4, demo51, demo52, demo53, demo54]
     [db.session.add(mismatch) for mismatch in mismatches]
     db.session.commit()
 
