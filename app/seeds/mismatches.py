@@ -16,9 +16,7 @@ def seed_mismatches():
     demo52 = Mismatch(user1_id=demo5.id, user2_id=nic.id)
     demo53 = Mismatch(user1_id=demo5.id, user2_id=alex.id)
     demo54 = Mismatch(user1_id=demo5.id, user2_id=vince.id)
-
-
-
+    
     mismatches = [demo1, demo2, demo3, demo4, demo51, demo52, demo53, demo54]
     [db.session.add(mismatch) for mismatch in mismatches]
     db.session.commit()
