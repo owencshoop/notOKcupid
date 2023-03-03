@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Redirect } from "react-router-dom";
 import { login } from "../../store/session";
@@ -30,6 +30,7 @@ const SignUpForm = () => {
         user ? user.userImages[0].imageURL : ""
     );
     const dispatch = useDispatch();
+    const modalRef = useRef();
 
     const onSignUp = async (e) => {
         e.preventDefault();
@@ -54,7 +55,10 @@ const SignUpForm = () => {
                 setErrors(data);
             }
         } else {
-            if (password === repeatPassword) {
+            if (password !== repeatPassword) {
+                setErrors(['password : Passwords do not match'])
+            }
+            else if (password === repeatPassword) {
                 const data = await dispatch(
                     signUp(
                         username,
@@ -74,8 +78,8 @@ const SignUpForm = () => {
                 );
                 if (data) {
                     setErrors(data);
+                    // scrollToTop();
                 } else {
-
                     await setModalContent(<InformationModal />)
                 }
             }
@@ -148,12 +152,18 @@ const SignUpForm = () => {
         await setModalContent(<InformationModal />);
     };
 
+    useEffect(() => {
+        if (errors.length > 0) {
+            modalRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    }, [errors]);
+
     if (user) {
         return <Redirect to="/discover" />;
     }
 
     return (
-        <div className="user-form-container">
+        <div className="user-form-container" ref={modalRef}>
             <div className="form-input-container">
                 <form onSubmit={onSignUp}>
                     <h2 className="signup-label">Sign Up</h2>
@@ -162,7 +172,7 @@ const SignUpForm = () => {
                     </button>
                     <div className="errors-div-container">
                         {errors.map((error, ind) => (
-                            <div className='errors-div' key={ind}>{error}</div>
+                            <div className='errors-div' key={ind}>{error.split(':')[1]}</div>
                         ))}
                     </div>
                     <div className="signup-form-input-container">
