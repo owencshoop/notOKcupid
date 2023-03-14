@@ -1,9 +1,9 @@
-# notOKcupid
+# [Not Ok, Cupid](https://www.owenshoop.dev/not-ok-cupid.html)
 
-## Our project name is notOKcupid
-Here is the link! [notOKcupid](https://not-ok-cupid.onrender.com/)
+About: [About Not Ok, Cupid](https://www.owenshoop.dev/not-ok-cupid.html)
+Live Site: [notOKcupid](https://not-ok-cupid.onrender.com/)
 
-Our site is a clone of the [OkCupid](https://www.okcupid.com/) site. [notOKcupid](https://not-ok-cupid.onrender.com/) can be used create a user, view current users,
+Our site is a parody of the [OkCupid](https://www.okcupid.com/) site. [notOKcupid](https://not-ok-cupid.onrender.com/) can be used create a user, view current users,
 message mismatches(people who you have disliked and have also disliked you back), answer some cheeky personality questions, and just enjoy yourself while browsing the page.
 
 ## Form usage:
