@@ -1,6 +1,6 @@
 # [Not Ok, Cupid](https://www.owenshoop.dev/not-ok-cupid.html)
 
-About: [About Not Ok, Cupid](https://www.owenshoop.dev/not-ok-cupid.html)
+About: [About Not Ok, Cupid](https://www.owenshoop.dev/not-ok-cupid.html)  
 Live Site: [notOKcupid](https://not-ok-cupid.onrender.com/)
 
 Our site is a parody of the [OkCupid](https://www.okcupid.com/) site. [notOKcupid](https://not-ok-cupid.onrender.com/) can be used create a user, view current users,
